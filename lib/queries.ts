@@ -29,8 +29,8 @@ export const getFeaturedWorkItems = groq`
   }
 `;
 
-export const getWorkItemBySlug = (slug: string) => groq`
-  *[_type == "workItem" && slug.current == ${JSON.stringify(slug)}][0] {
+export const getWorkItemBySlugQuery = groq`
+  *[_type == "workItem" && slug.current == $slug][0] {
     _id,
     title,
     slug,
@@ -42,6 +42,18 @@ export const getWorkItemBySlug = (slug: string) => groq`
     stats,
     coverImage,
     featured
+  }
+`;
+
+export const getAllWorkSlugs = groq`
+  *[_type == "workItem"] | order(order asc) { "slug": slug.current }
+`;
+
+export const getAllWorkItemsNav = groq`
+  *[_type == "workItem"] | order(order asc) {
+    title,
+    "slug": slug.current,
+    order
   }
 `;
 

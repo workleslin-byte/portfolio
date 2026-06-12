@@ -17,7 +17,7 @@ type ContactFormData = z.infer<typeof contactSchema>;
 type SubmitState = "idle" | "loading" | "success" | "error";
 
 const inputClass =
-  "w-full bg-transparent border-0 border-b border-linen/30 py-3 px-0 font-sans text-sm text-linen placeholder:text-muted focus:outline-none focus:border-gold transition-colors duration-200";
+  "w-full min-h-[44px] bg-transparent border-0 border-b border-linen/30 py-3 px-0 font-sans text-sm text-linen placeholder:text-muted focus:outline-none focus:border-gold transition-colors duration-200";
 
 const labelClass =
   "block font-mono text-[11px] uppercase tracking-[0.25em] text-gold mb-2";

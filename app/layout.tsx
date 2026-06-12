@@ -21,8 +21,26 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Leslin | Portfolio",
-  description: "Designer & developer portfolio",
+  title: {
+    template: "%s | Leslin K Seemon",
+    default: "Leslin K Seemon — AI-Enabled Growth Consultant",
+  },
+  description:
+    "AI-enabled growth consultant based in Kerala, India. Content strategy, email marketing, SEO, LinkedIn, and product — all measured.",
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    siteName: "Leslin K Seemon",
+    title: "Leslin K Seemon — AI-Enabled Growth Consultant",
+    description:
+      "Seven years of content, email, SEO, and product work — with real numbers.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Leslin K Seemon — AI-Enabled Growth Consultant",
+    description:
+      "Seven years of content, email, SEO, and product work — with real numbers.",
+  },
 };
 
 export default function RootLayout({
