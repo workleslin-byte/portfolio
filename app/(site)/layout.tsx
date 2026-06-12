@@ -1,28 +1,19 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-import Lenis from "@studio-freight/lenis";
+import SmoothScrollProvider from "@/components/layout/SmoothScrollProvider";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 export default function SiteLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const lenisRef = useRef<Lenis | null>(null);
-
-  useEffect(() => {
-    lenisRef.current = new Lenis({ duration: 1.2, easing: (t) => 1 - Math.pow(1 - t, 3) });
-
-    function raf(time: number) {
-      lenisRef.current?.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-
-    return () => {
-      lenisRef.current?.destroy();
-    };
-  }, []);
-
-  return <>{children}</>;
+  return (
+    <SmoothScrollProvider>
+      <div className="flex min-h-screen flex-col bg-obsidian">
+        <Navbar />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </div>
+    </SmoothScrollProvider>
+  );
 }
