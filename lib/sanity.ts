@@ -2,9 +2,16 @@ import { createClient } from "next-sanity";
 import { createImageUrlBuilder } from "@sanity/image-url";
 import type { SanityImageSource } from "@sanity/image-url";
 
+// Strip BOM and whitespace that Windows piping can inject into env vars
+function cleanEnv(val: string | undefined, fallback: string): string {
+  if (!val) return fallback;
+  const s = val.trim();
+  return s.charCodeAt(0) === 0xFEFF ? s.slice(1) : s;
+}
+
 export const client = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET ?? "production",
+  projectId: cleanEnv(process.env.NEXT_PUBLIC_SANITY_PROJECT_ID, "132hn2ll"),
+  dataset: cleanEnv(process.env.NEXT_PUBLIC_SANITY_DATASET, "production"),
   apiVersion: "2024-01-01",
   useCdn: process.env.NODE_ENV === "production",
 });
@@ -26,7 +33,12 @@ export async function sanityFetch<T>({
   revalidate?: number | false;
   tags?: string[];
 }): Promise<T> {
-  return client.fetch<T>(query, params, {
-    next: { revalidate, tags },
-  });
+  try {
+    return await client.fetch<T>(query, params, {
+      next: { revalidate, tags },
+    });
+  } catch (err) {
+    console.warn("[sanityFetch] Fetch failed, returning empty result:", err);
+    return (Array.isArray([] as unknown as T) ? [] : null) as T;
+  }
 }
