@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter, JetBrains_Mono } from "next/font/google";
+import { Playfair_Display, Inter, JetBrains_Mono, Syne } from "next/font/google";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -18,6 +18,13 @@ const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["400"],
   variable: "--font-jetbrains",
+});
+
+const syne = Syne({
+  subsets: ["latin"],
+  weight: ["700", "800"],
+  variable: "--font-syne",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -51,7 +58,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${inter.variable} ${jetbrains.variable}`}
+      className={`${playfair.variable} ${inter.variable} ${jetbrains.variable} ${syne.variable}`}
     >
       <body className="antialiased">{children}</body>
     </html>

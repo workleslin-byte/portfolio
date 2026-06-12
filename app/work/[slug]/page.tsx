@@ -97,18 +97,18 @@ export default async function CaseStudyPage({ params }: Props) {
         <div className="mx-auto max-w-5xl">
           {/* Number + Category row */}
           <div className="mb-6 flex items-center gap-6">
-            <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">
-              ( {displayNumber} )
+            <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-linen/30">
+              {displayNumber}
             </span>
-            <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-muted">
+            <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-linen/25">
               {categoryLabel}
             </span>
           </div>
 
           {/* Content headline */}
           <h1
-            className="font-serif font-bold leading-[1.0] text-linen"
-            style={{ fontSize: "clamp(2rem, 5vw, 5rem)" }}
+            className="font-display font-extrabold uppercase leading-[0.92] text-white"
+            style={{ fontSize: "clamp(2.5rem, 6vw, 6rem)" }}
           >
             {item.title}
           </h1>
@@ -116,7 +116,7 @@ export default async function CaseStudyPage({ params }: Props) {
           {/* Impact / stat headline */}
           {item.headline && (
             <p
-              className="mt-6 font-serif italic leading-[1.1] text-gold"
+              className="mt-6 font-serif italic leading-[1.1] text-linen/60"
               style={{ fontSize: "clamp(1.75rem, 4vw, 4rem)" }}
             >
               {item.headline}
@@ -139,7 +139,7 @@ export default async function CaseStudyPage({ params }: Props) {
             {item.stats.map((stat) => (
               <div key={stat.label}>
                 <p
-                  className="font-serif font-bold leading-none text-gold"
+                  className="font-display font-extrabold leading-none text-gold"
                   style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)" }}
                 >
                   {stat.value}
@@ -174,10 +174,10 @@ export default async function CaseStudyPage({ params }: Props) {
         <div className="mx-auto flex max-w-5xl items-center justify-between">
           {prev ? (
             <Link href={`/work/${prev.slug}`} className="group flex flex-col gap-1">
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted transition-colors group-hover:text-gold">
+              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-linen/30 transition-colors group-hover:text-linen/60">
                 ← Previous
               </span>
-              <span className="font-serif text-sm font-bold text-linen/70 transition-colors group-hover:text-linen">
+              <span className="font-sans text-sm font-semibold text-linen/50 transition-colors group-hover:text-linen">
                 {prev.title}
               </span>
             </Link>
@@ -190,10 +190,10 @@ export default async function CaseStudyPage({ params }: Props) {
               href={`/work/${next.slug}`}
               className="group flex flex-col items-end gap-1"
             >
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted transition-colors group-hover:text-gold">
+              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-linen/30 transition-colors group-hover:text-linen/60">
                 Next →
               </span>
-              <span className="text-right font-serif text-sm font-bold text-linen/70 transition-colors group-hover:text-linen">
+              <span className="text-right font-sans text-sm font-semibold text-linen/50 transition-colors group-hover:text-linen">
                 {next.title}
               </span>
             </Link>

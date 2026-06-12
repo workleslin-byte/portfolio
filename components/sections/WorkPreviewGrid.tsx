@@ -55,7 +55,7 @@ export default function WorkPreviewGrid({ items }: Props) {
   }, []);
 
   return (
-    <div ref={containerRef} className="grid grid-cols-1 gap-px bg-gold/10 md:grid-cols-2">
+    <div ref={containerRef} className="grid grid-cols-1 gap-px bg-white/[0.04] md:grid-cols-2">
       {items.map((item, i) => (
         <div
           key={item._id}
@@ -65,35 +65,35 @@ export default function WorkPreviewGrid({ items }: Props) {
         >
           <Link
             href={`/work/${item.slug.current}`}
-            className="group relative flex flex-col bg-obsidian px-8 py-10 transition-colors duration-300 hover:bg-linen/[0.03]"
+            className="group relative flex flex-col bg-obsidian px-8 py-10 transition-colors duration-300 hover:bg-white/[0.025]"
           >
-            {/* Number */}
-            <p className="mb-5 font-mono text-[11px] uppercase tracking-[0.25em] text-gold">
-              ( {String(item.order ?? i + 1).padStart(2, "0")} )
+            {/* Number — large Syne display */}
+            <p
+              className="mb-5 font-display font-extrabold leading-none text-white/15"
+              style={{ fontSize: "clamp(3rem, 5vw, 5rem)" }}
+            >
+              {String(item.order ?? i + 1).padStart(2, "0")}
             </p>
 
             {/* Category */}
-            <p className="mb-2 font-sans text-[11px] uppercase tracking-[0.2em] text-muted">
+            <p className="mb-2 font-sans text-[11px] uppercase tracking-[0.2em] text-linen/30">
               {CATEGORY_LABELS[item.category ?? ""] ?? item.category}
             </p>
 
             {/* Headline — the bold stat line */}
-            <h3 className="mb-3 font-serif text-[2rem] font-bold leading-tight text-linen">
+            <h3
+              className="mb-3 font-display font-bold leading-tight text-white"
+              style={{ fontSize: "clamp(1.75rem, 2.5vw, 2.25rem)" }}
+            >
               {item.headline ?? item.title}
             </h3>
 
             {/* Subheadline */}
             {item.subheadline && (
-              <p className="font-sans text-xs leading-relaxed text-muted">
+              <p className="font-sans text-xs leading-relaxed text-linen/50">
                 {item.subheadline}
               </p>
             )}
-
-            {/* Bottom gold line — animates on hover */}
-            <span
-              aria-hidden
-              className="absolute bottom-0 left-0 h-px w-0 bg-gold transition-[width] duration-500 ease-out group-hover:w-full"
-            />
           </Link>
         </div>
       ))}

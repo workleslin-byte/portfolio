@@ -4,12 +4,12 @@ export default function PocketNotesFeature() {
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-16 md:grid-cols-2 lg:gap-28">
         {/* ── Left ── */}
         <div>
-          <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.35em] text-muted">
+          <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.35em] text-ink/35">
             ( INDEPENDENT PRODUCT )
           </p>
 
           <h2
-            className="font-serif font-bold leading-[0.9] text-ink"
+            className="font-display font-extrabold uppercase leading-[0.9] text-ink"
             style={{ fontSize: "clamp(2.5rem, 5vw, 5rem)" }}
           >
             Writing as sandbox,
@@ -30,7 +30,7 @@ export default function PocketNotesFeature() {
             notebook is a tool for thinking, not a record of having thought.
           </p>
 
-          <blockquote className="mt-10 border-l-2 border-gold pl-6">
+          <blockquote className="mt-10 border-l border-ink/20 pl-6">
             <p className="font-serif italic leading-relaxed text-ink"
               style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.375rem)" }}>
               &ldquo;If you have led a meaningful life, the daily record gives
@@ -43,7 +43,7 @@ export default function PocketNotesFeature() {
             href="https://pocketnotes.in"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-10 inline-flex items-center font-mono text-[12px] uppercase tracking-[0.2em] text-gold transition-colors duration-200 hover:text-gold/60"
+            className="mt-10 inline-flex items-center font-mono text-[12px] uppercase tracking-[0.2em] text-ink/50 transition-colors duration-200 hover:text-ink"
           >
             Visit pocketnotes.in →
           </a>
@@ -51,7 +51,7 @@ export default function PocketNotesFeature() {
 
         {/* ── Right — product card ── */}
         <div className="flex items-center justify-center">
-          <div className="w-full max-w-sm rounded-2xl border border-gold/25 bg-obsidian px-10 py-14 text-center shadow-2xl">
+          <div className="w-full max-w-sm rounded-2xl border border-gold/15 bg-obsidian px-10 py-14 text-center shadow-2xl">
             <p className="mb-5 font-mono text-[10px] uppercase tracking-[0.35em] text-muted">
               Est. 2022
             </p>
@@ -63,7 +63,7 @@ export default function PocketNotesFeature() {
               Pocket Notes
             </h3>
 
-            <div className="mx-auto my-7 h-px w-14 bg-gold/25" />
+            <div className="mx-auto my-7 h-px w-14 bg-linen/10" />
 
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-linen/50">
               Concept · Design

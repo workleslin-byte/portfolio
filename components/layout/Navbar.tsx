@@ -56,7 +56,7 @@ export default function Navbar() {
       <header
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          scrolled ? "bg-[#140D1F] border-b border-[#C9A84C33]" : "bg-transparent",
+          scrolled ? "bg-[#140D1F] border-b border-[#C9A84C1A]" : "bg-transparent",
           hidden && !menuOpen ? "-translate-y-full" : "translate-y-0"
         )}
       >
@@ -64,9 +64,9 @@ export default function Navbar() {
           {/* Wordmark */}
           <Link
             href="/"
-            className="font-mono text-[11px] uppercase tracking-[0.25em] text-linen hover:text-gold transition-colors duration-200"
+            className="font-display font-bold text-[13px] uppercase tracking-[0.18em] text-linen transition-colors duration-200 hover:text-white"
           >
-            ( LESLIN K SEEMON )
+            LESLIN K SEEMON
           </Link>
 
           {/* Desktop links */}
@@ -78,7 +78,7 @@ export default function Navbar() {
                   className={cn(
                     "font-mono text-[11px] uppercase tracking-[0.2em] transition-colors duration-200",
                     pathname === href
-                      ? "text-gold"
+                      ? "text-white"
                       : "text-linen/60 hover:text-linen"
                   )}
                 >
@@ -140,8 +140,8 @@ export default function Navbar() {
                 href={href}
                 onClick={() => setMenuOpen(false)}
                 className={cn(
-                  "font-serif text-5xl font-bold leading-none transition-colors duration-200",
-                  pathname === href ? "text-gold" : "text-linen hover:text-gold"
+                  "font-display font-extrabold text-5xl leading-none transition-colors duration-200",
+                  pathname === href ? "text-white" : "text-linen hover:text-white"
                 )}
               >
                 {label}

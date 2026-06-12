@@ -81,13 +81,13 @@ export default function About() {
         {/* ── Left column ── */}
         <div ref={leftColRef}>
           {/* Label */}
-          <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.35em] text-muted">
+          <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.35em] text-ink/35">
             ( ON WHO I AM )
           </p>
 
           {/* Headline */}
           <h2
-            className="font-serif font-bold leading-[0.9] text-ink"
+            className="font-display font-extrabold uppercase leading-[0.9] text-ink"
             style={{ fontSize: "clamp(2.5rem, 5vw, 5rem)" }}
           >
             Coastal boy.
@@ -120,7 +120,7 @@ export default function About() {
           </div>
 
           {/* Blockquote */}
-          <blockquote className="mt-10 border-l-2 border-gold pl-6">
+          <blockquote className="mt-10 border-l border-ink/20 pl-6">
             <p className="font-serif italic leading-relaxed text-ink"
               style={{ fontSize: "clamp(1.2rem, 2vw, 1.5rem)" }}>
               &ldquo;Most people read to feel something. I read to find out how
@@ -135,13 +135,12 @@ export default function About() {
             <div
               key={i}
               ref={(el) => { cardsRef.current[i] = el; }}
-              className="rounded-lg bg-obsidian px-6 py-5 shadow-xl"
-              style={{ borderLeft: "2px solid #C9A84C" }}
+              className="rounded-lg border-l-2 border-white/10 bg-obsidian px-6 py-5 shadow-xl"
             >
-              <p className="mb-1.5 font-mono text-[11px] uppercase tracking-[0.25em] text-gold">
+              <p className="mb-1.5 font-mono text-[11px] uppercase tracking-[0.25em] text-linen/40">
                 {cred.label}
               </p>
-              <p className="font-sans text-sm leading-relaxed text-linen/75">
+              <p className="font-sans text-sm leading-relaxed text-linen/80">
                 {cred.body}
               </p>
             </div>

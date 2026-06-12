@@ -17,10 +17,10 @@ type ContactFormData = z.infer<typeof contactSchema>;
 type SubmitState = "idle" | "loading" | "success" | "error";
 
 const inputClass =
-  "w-full min-h-[44px] bg-transparent border-0 border-b border-linen/30 py-3 px-0 font-sans text-sm text-linen placeholder:text-muted focus:outline-none focus:border-gold transition-colors duration-200";
+  "w-full min-h-[44px] bg-transparent border-0 border-b border-linen/20 py-3 px-0 font-sans text-sm text-linen placeholder:text-linen/25 focus:outline-none focus:border-linen/60 transition-colors duration-200";
 
 const labelClass =
-  "block font-mono text-[11px] uppercase tracking-[0.25em] text-gold mb-2";
+  "block font-mono text-[11px] uppercase tracking-[0.25em] text-linen/35 mb-2";
 
 export default function Contact() {
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
@@ -63,32 +63,32 @@ export default function Contact() {
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-16 md:grid-cols-2 lg:gap-28">
         {/* ── Left ── */}
         <div>
-          <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.35em] text-gold">
+          <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.35em] text-linen/35">
             ( GET IN TOUCH )
           </p>
 
           <h2
-            className="font-serif leading-[0.9] text-linen"
+            className="font-display font-extrabold uppercase leading-[0.9] text-white"
             style={{ fontSize: "clamp(3rem, 6vw, 6rem)" }}
           >
             Let&apos;s build
           </h2>
           <h2
-            className="font-serif italic leading-[0.9] text-gold"
+            className="font-serif italic leading-[0.9] text-linen/60"
             style={{ fontSize: "clamp(3rem, 6vw, 6rem)" }}
           >
             something worth reading.
           </h2>
 
-          <p className="mt-8 max-w-sm font-sans text-sm leading-[1.8] text-muted">
+          <p className="mt-8 max-w-sm font-sans text-sm leading-[1.8] text-linen/40">
             Open to consulting engagements, content strategy retainers, and AI
             growth projects. Kerala, India — remote and relocation both on the
             table.
           </p>
 
           {/* Calendly block */}
-          <div className="mt-10 rounded-lg border border-gold/20 bg-linen/[0.05] p-7">
-            <p className="mb-2 font-mono text-[11px] uppercase tracking-[0.25em] text-gold">
+          <div className="mt-10 rounded-lg border border-white/10 bg-white/[0.03] p-7">
+            <p className="mb-2 font-mono text-[11px] uppercase tracking-[0.25em] text-linen/35">
               ( BOOK A CALL )
             </p>
             <p className="mb-5 font-sans text-sm text-linen">
@@ -98,7 +98,7 @@ export default function Contact() {
               href="https://calendly.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center bg-gold px-5 py-2.5 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-obsidian transition-opacity duration-200 hover:opacity-80"
+              className="inline-flex items-center bg-white px-5 py-2.5 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-obsidian transition-opacity duration-200 hover:opacity-80"
             >
               Open Calendly →
             </a>
@@ -110,12 +110,12 @@ export default function Contact() {
           {submitState === "success" ? (
             <div className="flex h-full flex-col justify-center">
               <h3
-                className="font-serif italic text-gold"
+                className="font-display font-bold text-white"
                 style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
               >
-                ( MESSAGE SENT )
+                Message sent.
               </h3>
-              <p className="mt-4 font-sans text-sm text-muted">
+              <p className="mt-4 font-sans text-sm text-linen/50">
                 I&apos;ll respond within 48 hours.
               </p>
             </div>

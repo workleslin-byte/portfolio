@@ -15,11 +15,13 @@ const config: Config = {
         "linen-dark": "#E3DCCF",
         ink: "#2C1810",
         muted: "#8B7355",
+        white: "#FFFFFF",
       },
       fontFamily: {
         serif: ["var(--font-playfair)", "serif"],
         sans: ["var(--font-inter)", "sans-serif"],
         mono: ["var(--font-jetbrains)", "monospace"],
+        display: ["var(--font-syne)", "sans-serif"],
       },
       keyframes: {
         "fade-up": {

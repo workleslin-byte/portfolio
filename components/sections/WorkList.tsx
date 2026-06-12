@@ -43,7 +43,7 @@ export default function WorkList({ items }: Props) {
 
   if (!items.length) {
     return (
-      <p className="py-16 font-mono text-[11px] uppercase tracking-[0.25em] text-muted">
+      <p className="py-16 font-mono text-[11px] uppercase tracking-[0.25em] text-linen/35">
         ( No work items yet — check back soon )
       </p>
     );
@@ -57,15 +57,18 @@ export default function WorkList({ items }: Props) {
           ref={(el) => {
             rowsRef.current[i] = el;
           }}
-          className="opacity-0 border-b border-linen/10"
+          className="opacity-0 border-b border-white/[0.08]"
         >
           <Link
             href={`/work/${item.slug.current}`}
-            className="group flex flex-col gap-2 py-7 transition-colors duration-200 hover:bg-linen/[0.02] md:flex-row md:items-center md:gap-0 md:py-8"
+            className="group flex flex-col gap-2 py-7 transition-colors duration-200 hover:bg-white/[0.02] md:flex-row md:items-center md:gap-0 md:py-8"
           >
-            {/* Number */}
-            <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-gold md:w-20 md:shrink-0">
-              ( {String(item.order ?? i + 1).padStart(2, "0")} )
+            {/* Number — large Syne display */}
+            <span
+              className="font-display font-extrabold leading-none text-white/20 md:w-20 md:shrink-0"
+              style={{ fontSize: "clamp(1.5rem, 2.5vw, 2.25rem)" }}
+            >
+              {String(item.order ?? i + 1).padStart(2, "0")}
             </span>
 
             {/* Category — hidden on mobile */}
@@ -75,7 +78,7 @@ export default function WorkList({ items }: Props) {
 
             {/* Headline */}
             <span
-              className="flex-1 font-serif font-bold leading-tight text-linen group-hover:text-linen/90"
+              className="flex-1 font-display font-bold leading-tight text-white group-hover:text-white/80"
               style={{ fontSize: "clamp(1.1rem, 2vw, 1.75rem)" }}
             >
               {item.title}
@@ -83,14 +86,14 @@ export default function WorkList({ items }: Props) {
 
             {/* Stat callout */}
             <span
-              className="font-serif italic text-gold md:w-44 md:shrink-0 md:text-right"
+              className="font-serif italic text-linen/50 md:w-44 md:shrink-0 md:text-right"
               style={{ fontSize: "clamp(1rem, 1.5vw, 1.25rem)" }}
             >
               {item.headline}
             </span>
 
             {/* Arrow — slides in on hover */}
-            <span className="hidden font-mono text-sm text-gold opacity-0 transition-all duration-200 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 md:block md:w-8 md:shrink-0 md:text-right">
+            <span className="hidden font-mono text-sm text-linen/50 opacity-0 transition-all duration-200 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 md:block md:w-8 md:shrink-0 md:text-right">
               →
             </span>
           </Link>

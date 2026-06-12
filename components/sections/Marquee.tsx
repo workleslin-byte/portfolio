@@ -24,7 +24,7 @@ export default function Marquee() {
 
   return (
     <div
-      className="overflow-hidden border-y border-gold/10 bg-obsidian py-5 cursor-default"
+      className="overflow-hidden border-y border-white/5 bg-obsidian py-5 cursor-default"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -38,13 +38,15 @@ export default function Marquee() {
       >
         {ITEMS.map((stat, i) => (
           <span key={i} className="flex items-center">
-            <span className="whitespace-nowrap px-8 font-serif italic leading-none text-linen"
-              style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)" }}>
+            <span
+              className="whitespace-nowrap px-8 font-display font-bold uppercase leading-none text-white/70"
+              style={{ fontSize: "clamp(1.25rem, 2vw, 1.625rem)" }}
+            >
               {stat}
             </span>
             <span
-              className="select-none leading-none text-gold"
-              style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)" }}
+              className="select-none leading-none text-linen/15"
+              style={{ fontSize: "clamp(1.25rem, 2vw, 1.625rem)" }}
             >
               ·
             </span>
