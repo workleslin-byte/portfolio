@@ -7,6 +7,8 @@ import Marquee from "@/components/sections/Marquee";
 import About from "@/components/sections/About";
 import WorkPreview from "@/components/sections/WorkPreview";
 import PocketNotesFeature from "@/components/sections/PocketNotesFeature";
+import Contact from "@/components/sections/Contact";
+import ClosingCTA from "@/components/sections/ClosingCTA";
 
 export default function HomePage() {
   const [ready, setReady] = useState(false);
@@ -19,6 +21,8 @@ export default function HomePage() {
       <About />
       <WorkPreview />
       <PocketNotesFeature />
+      <Contact />
+      <ClosingCTA />
     </>
   );
 }
