@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+﻿import { NextResponse } from "next/server";
 import { z } from "zod";
 import { Resend } from "resend";
 
@@ -7,9 +7,6 @@ const schema = z.object({
   email: z.string().email("Invalid email address"),
   message: z.string().min(20, "Message must be at least 20 characters"),
 });
-
-// Instantiate once at module level — reused across requests
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   let body: unknown;
@@ -28,6 +25,11 @@ export async function POST(request: Request) {
   }
 
   const { name, email, message } = result.data;
+
+  // Strip UTF-16 BOM (U+FEFF) that PowerShell can prepend when piping on Windows
+  const rawKey = process.env.RESEND_API_KEY ?? "";
+  const apiKey = rawKey.charCodeAt(0) === 0xFEFF ? rawKey.slice(1) : rawKey;
+  const resend = new Resend(apiKey);
 
   try {
     await resend.emails.send({
