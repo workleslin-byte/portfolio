@@ -1,9 +1,32 @@
 import { createClient } from "next-sanity";
+import imageUrlBuilder from "@sanity/image-url";
+import type { SanityImageSource } from "@sanity/image-url";
 
-// TODO: fill in projectId, dataset, and apiVersion from your Sanity project settings
-export const sanityClient = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ?? "",
+export const client = createClient({
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET ?? "production",
   apiVersion: "2024-01-01",
-  useCdn: true,
+  useCdn: process.env.NODE_ENV === "production",
 });
+
+const builder = imageUrlBuilder(client);
+
+export function urlFor(source: SanityImageSource) {
+  return builder.image(source);
+}
+
+export async function sanityFetch<T>({
+  query,
+  params = {},
+  revalidate = 60,
+  tags = [],
+}: {
+  query: string;
+  params?: Record<string, unknown>;
+  revalidate?: number | false;
+  tags?: string[];
+}): Promise<T> {
+  return client.fetch<T>(query, params, {
+    next: { revalidate, tags },
+  });
+}
