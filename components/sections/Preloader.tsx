@@ -59,16 +59,16 @@ export default function Preloader({ onComplete }: PreloaderProps) {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-obsidian"
+      className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-ink"
     >
       <span
-        className="font-display font-extrabold leading-none tabular-nums text-white"
+        className="font-display font-extrabold leading-none tabular-nums text-paper"
         style={{ fontSize: "clamp(4rem, 10vw, 10rem)" }}
       >
         {count}
       </span>
-      <span className="mt-5 font-mono text-[11px] uppercase tracking-[0.35em] text-linen/30">
-        ( LOADING )
+      <span className="mt-5 font-mono text-[11px] uppercase tracking-[0.35em] text-paper/30">
+        Loading
       </span>
     </div>
   );

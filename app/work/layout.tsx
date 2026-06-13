@@ -1,6 +1,8 @@
 import SmoothScrollProvider from "@/components/layout/SmoothScrollProvider";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import Backdrop from "@/components/webgl/Backdrop";
+import PageTransition from "@/components/layout/PageTransition";
 
 export default function WorkLayout({
   children,
@@ -9,7 +11,9 @@ export default function WorkLayout({
 }) {
   return (
     <SmoothScrollProvider>
-      <div className="flex min-h-screen flex-col bg-obsidian">
+      <Backdrop />
+      <PageTransition />
+      <div className="flex min-h-screen flex-col">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

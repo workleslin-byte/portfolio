@@ -56,7 +56,7 @@ export default function Navbar() {
       <header
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          scrolled ? "bg-[#140D1F] border-b border-[#C9A84C1A]" : "bg-transparent",
+          scrolled ? "bg-paper/90 backdrop-blur-md border-b border-ink/10" : "bg-transparent",
           hidden && !menuOpen ? "-translate-y-full" : "translate-y-0"
         )}
       >
@@ -64,7 +64,10 @@ export default function Navbar() {
           {/* Wordmark */}
           <Link
             href="/"
-            className="font-display font-bold text-[13px] uppercase tracking-[0.18em] text-linen transition-colors duration-200 hover:text-white"
+            className={cn(
+              "font-display font-bold text-[13px] uppercase tracking-[0.18em] transition-colors duration-200",
+              scrolled ? "text-ink" : "text-paper"
+            )}
           >
             LESLIN K SEEMON
           </Link>
@@ -77,9 +80,13 @@ export default function Navbar() {
                   href={href}
                   className={cn(
                     "font-mono text-[11px] uppercase tracking-[0.2em] transition-colors duration-200",
-                    pathname === href
-                      ? "text-white"
-                      : "text-linen/60 hover:text-linen"
+                    scrolled
+                      ? pathname === href
+                        ? "text-accent"
+                        : "text-ink/50 hover:text-ink"
+                      : pathname === href
+                        ? "text-accent"
+                        : "text-paper/60 hover:text-paper"
                   )}
                 >
                   {label}
@@ -96,19 +103,22 @@ export default function Navbar() {
           >
             <span
               className={cn(
-                "block h-px w-6 bg-linen origin-center transition-transform duration-300",
+                "block h-px w-6 origin-center transition-transform duration-300",
+                scrolled ? "bg-ink" : "bg-paper",
                 menuOpen && "rotate-45 translate-y-[7px]"
               )}
             />
             <span
               className={cn(
-                "block h-px w-6 bg-linen transition-opacity duration-300",
+                "block h-px w-6 transition-opacity duration-300",
+                scrolled ? "bg-ink" : "bg-paper",
                 menuOpen && "opacity-0"
               )}
             />
             <span
               className={cn(
-                "block h-px w-6 bg-linen origin-center transition-transform duration-300",
+                "block h-px w-6 origin-center transition-transform duration-300",
+                scrolled ? "bg-ink" : "bg-paper",
                 menuOpen && "-rotate-45 -translate-y-[7px]"
               )}
             />
@@ -119,7 +129,7 @@ export default function Navbar() {
       {/* Full-screen mobile overlay */}
       <div
         className={cn(
-          "fixed inset-0 z-40 bg-[#140D1F] flex flex-col justify-center px-8 md:hidden",
+          "fixed inset-0 z-40 bg-ink flex flex-col justify-center px-8 md:hidden",
           "transition-all duration-500 ease-in-out",
           menuOpen
             ? "opacity-100 pointer-events-auto translate-y-0"
@@ -141,13 +151,13 @@ export default function Navbar() {
                 onClick={() => setMenuOpen(false)}
                 className={cn(
                   "font-display font-extrabold text-5xl leading-none transition-colors duration-200",
-                  pathname === href ? "text-white" : "text-linen hover:text-white"
+                  pathname === href ? "text-accent" : "text-paper hover:text-accent"
                 )}
               >
                 {label}
               </Link>
-              <span className="font-mono text-[11px] text-muted tracking-[0.2em] uppercase ml-1">
-                ( 0{i + 1} )
+              <span className="font-mono text-[11px] text-mute-dark tracking-[0.2em] uppercase ml-1">
+                0{i + 1}
               </span>
             </li>
           ))}

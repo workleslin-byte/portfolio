@@ -16,6 +16,16 @@ export const client = createClient({
   useCdn: process.env.NODE_ENV === "production",
 });
 
+// Server-only client for content queries. The dataset is private, so reads
+// need a token. SANITY_API_TOKEN is NOT a NEXT_PUBLIC_ var, so it is never
+// bundled into client code — and sanityFetch is only called from Server
+// Components, keeping the token server-side.
+const fetchClient = client.withConfig({
+  token: cleanEnv(process.env.SANITY_API_TOKEN, ""),
+  useCdn: false,
+  perspective: "published",
+});
+
 const builder = createImageUrlBuilder(client);
 
 export function urlFor(source: SanityImageSource) {
@@ -34,7 +44,7 @@ export async function sanityFetch<T>({
   tags?: string[];
 }): Promise<T> {
   try {
-    return await client.fetch<T>(query, params, {
+    return await fetchClient.fetch<T>(query, params, {
       next: { revalidate, tags },
     });
   } catch (err) {

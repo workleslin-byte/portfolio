@@ -5,6 +5,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { WorkItem } from "@/types";
+import CountUp from "@/lib/motion/CountUp";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -28,7 +29,6 @@ export default function WorkPreviewGrid({ items }: Props) {
 
   useEffect(() => {
     if (!containerRef.current) return;
-
     const cards = cardsRef.current.filter((c): c is HTMLDivElement => !!c);
     if (!cards.length) return;
 
@@ -42,11 +42,7 @@ export default function WorkPreviewGrid({ items }: Props) {
           duration: 0.8,
           ease: "power3.out",
           stagger: 0.12,
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top 80%",
-            once: true,
-          },
+          scrollTrigger: { trigger: containerRef.current, start: "top 80%", once: true },
         }
       );
     }, containerRef);
@@ -55,48 +51,55 @@ export default function WorkPreviewGrid({ items }: Props) {
   }, []);
 
   return (
-    <div ref={containerRef} className="grid grid-cols-1 gap-px bg-white/[0.04] md:grid-cols-2">
-      {items.map((item, i) => (
-        <div
-          key={item._id}
-          ref={(el) => {
-            cardsRef.current[i] = el;
-          }}
-        >
-          <Link
-            href={`/work/${item.slug.current}`}
-            className="group relative flex flex-col bg-obsidian px-8 py-10 transition-colors duration-300 hover:bg-white/[0.025]"
+    <div ref={containerRef} className="grid grid-cols-1 gap-px bg-paper/10 md:grid-cols-2">
+      {items.map((item, i) => {
+        const signature = item.stats?.[0];
+        return (
+          <div
+            key={item._id}
+            ref={(el) => {
+              cardsRef.current[i] = el;
+            }}
           >
-            {/* Number — large Syne display */}
-            <p
-              className="mb-5 font-display font-extrabold leading-none text-white/15"
-              style={{ fontSize: "clamp(3rem, 5vw, 5rem)" }}
+            <Link
+              href={`/work/${item.slug.current}`}
+              className="group relative flex h-full flex-col justify-between gap-10 bg-ink/80 backdrop-blur-md px-8 py-10 transition-colors duration-300 hover:bg-ink/60"
             >
-              {String(item.order ?? i + 1).padStart(2, "0")}
-            </p>
+              <div>
+                {/* Category */}
+                <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.2em] text-mute-dark">
+                  {CATEGORY_LABELS[item.category ?? ""] ?? item.category}
+                </p>
 
-            {/* Category */}
-            <p className="mb-2 font-sans text-[11px] uppercase tracking-[0.2em] text-linen/30">
-              {CATEGORY_LABELS[item.category ?? ""] ?? item.category}
-            </p>
+                {/* Idea line — the headline (layer 1) */}
+                <h3
+                  className="font-display font-bold leading-[1.15] text-paper"
+                  style={{ fontSize: "clamp(1.5rem, 2.2vw, 2rem)" }}
+                >
+                  {item.headline ?? item.title}
+                </h3>
+              </div>
 
-            {/* Headline — the bold stat line */}
-            <h3
-              className="mb-3 font-display font-bold leading-tight text-white"
-              style={{ fontSize: "clamp(1.75rem, 2.5vw, 2.25rem)" }}
-            >
-              {item.headline ?? item.title}
-            </h3>
-
-            {/* Subheadline */}
-            {item.subheadline && (
-              <p className="font-sans text-xs leading-relaxed text-linen/50">
-                {item.subheadline}
-              </p>
-            )}
-          </Link>
-        </div>
-      ))}
+              {/* Signature number (layer 2) + flat proof sentence */}
+              {signature && (
+                <div>
+                  <p
+                    className="font-display font-extrabold leading-none text-accent"
+                    style={{ fontSize: "clamp(2.75rem, 5vw, 4.5rem)" }}
+                  >
+                    <CountUp value={signature.value} />
+                  </p>
+                  {item.subheadline && (
+                    <p className="mt-3 font-sans text-sm leading-relaxed text-paper/55">
+                      {item.subheadline}
+                    </p>
+                  )}
+                </div>
+              )}
+            </Link>
+          </div>
+        );
+      })}
     </div>
   );
 }

@@ -9,19 +9,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        obsidian: "#140D1F",
-        gold: "#C9A84C",
-        linen: "#F0EBE0",
-        "linen-dark": "#E3DCCF",
-        ink: "#2C1810",
-        muted: "#8B7355",
+        paper: "#FAFAF8",
+        ink: "#111111",
+        accent: "#1F4FE0",
+        mute: "#6B6B6B",
+        "mute-dark": "#9A9A9A",
         white: "#FFFFFF",
       },
       fontFamily: {
-        serif: ["var(--font-playfair)", "serif"],
-        sans: ["var(--font-inter)", "sans-serif"],
-        mono: ["var(--font-jetbrains)", "monospace"],
-        display: ["var(--font-syne)", "sans-serif"],
+        sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
+        display: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
+        mono: ["var(--font-geist-mono)", "monospace"],
       },
       keyframes: {
         "fade-up": {

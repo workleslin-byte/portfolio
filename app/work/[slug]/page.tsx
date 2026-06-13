@@ -10,6 +10,7 @@ import {
 } from "@/lib/queries";
 import type { WorkItem } from "@/types";
 import { portableTextComponents } from "@/components/ui/PortableTextComponents";
+import CaseStudyHero from "@/components/sections/CaseStudyHero";
 
 // ── Static generation ────────────────────────────────────────────────────────
 
@@ -92,77 +93,23 @@ export default async function CaseStudyPage({ params }: Props) {
 
   return (
     <>
-      {/* ── Hero (dark) ─────────────────────────────────────────────── */}
-      <section className="w-full bg-obsidian px-6 pt-32 pb-16 md:px-12 md:pt-[8rem] md:pb-20">
-        <div className="mx-auto max-w-5xl">
-          {/* Number + Category row */}
-          <div className="mb-6 flex items-center gap-6">
-            <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-linen/30">
-              {displayNumber}
-            </span>
-            <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-linen/25">
-              {categoryLabel}
-            </span>
-          </div>
-
-          {/* Content headline */}
-          <h1
-            className="font-display font-extrabold uppercase leading-[0.92] text-white"
-            style={{ fontSize: "clamp(2.5rem, 6vw, 6rem)" }}
-          >
-            {item.title}
-          </h1>
-
-          {/* Impact / stat headline */}
-          {item.headline && (
-            <p
-              className="mt-6 font-serif italic leading-[1.1] text-linen/60"
-              style={{ fontSize: "clamp(1.75rem, 4vw, 4rem)" }}
-            >
-              {item.headline}
-            </p>
-          )}
-
-          {/* Subheadline qualifier */}
-          {item.subheadline && (
-            <p className="mt-4 font-sans text-sm leading-relaxed text-muted">
-              {item.subheadline}
-            </p>
-          )}
-        </div>
-      </section>
-
-      {/* ── Stats grid (dark) ───────────────────────────────────────── */}
-      {item.stats && item.stats.length > 0 && (
-        <section className="w-full border-y border-linen/10 bg-obsidian px-6 py-12 md:px-12">
-          <div className="mx-auto grid max-w-5xl grid-cols-2 gap-8 md:grid-cols-4">
-            {item.stats.map((stat) => (
-              <div key={stat.label}>
-                <p
-                  className="font-display font-extrabold leading-none text-gold"
-                  style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)" }}
-                >
-                  {stat.value}
-                </p>
-                <p className="mt-2 font-sans text-xs text-muted">{stat.label}</p>
-                {stat.delta && (
-                  <p className="mt-1 font-mono text-[10px] tracking-wide text-emerald-400/80">
-                    {stat.delta}
-                  </p>
-                )}
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
+      {/* ── Hero + signature number + scroll-revealed stats (client) ── */}
+      <CaseStudyHero
+        title={item.title}
+        categoryLabel={categoryLabel}
+        displayNumber={displayNumber}
+        headline={item.headline}
+        subheadline={item.subheadline}
+        stats={item.stats}
+      />
 
       {/* ── Body (light) ────────────────────────────────────────────── */}
-      <section className="w-full bg-linen px-6 py-20 md:px-12 md:py-32">
+      <section className="w-full bg-paper px-6 py-20 md:px-12 md:py-32">
         <div className="mx-auto max-w-3xl">
           {item.body && item.body.length > 0 ? (
             <PortableText value={item.body} components={portableTextComponents} />
           ) : (
-            <p className="font-sans text-sm leading-relaxed text-ink/60 italic">
+            <p className="font-sans text-sm leading-relaxed text-ink/60">
               Case study content coming soon.
             </p>
           )}
@@ -170,14 +117,14 @@ export default async function CaseStudyPage({ params }: Props) {
       </section>
 
       {/* ── Prev / Next navigation ───────────────────────────────────── */}
-      <nav className="w-full border-t border-linen/10 bg-obsidian px-6 py-10 md:px-12">
+      <nav className="w-full border-t border-paper/10 px-6 py-10 md:px-12">
         <div className="mx-auto flex max-w-5xl items-center justify-between">
           {prev ? (
             <Link href={`/work/${prev.slug}`} className="group flex flex-col gap-1">
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-linen/30 transition-colors group-hover:text-linen/60">
+              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-mute-dark transition-colors group-hover:text-accent">
                 ← Previous
               </span>
-              <span className="font-sans text-sm font-semibold text-linen/50 transition-colors group-hover:text-linen">
+              <span className="font-sans text-sm font-semibold text-paper/60 transition-colors group-hover:text-paper">
                 {prev.title}
               </span>
             </Link>
@@ -190,10 +137,10 @@ export default async function CaseStudyPage({ params }: Props) {
               href={`/work/${next.slug}`}
               className="group flex flex-col items-end gap-1"
             >
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-linen/30 transition-colors group-hover:text-linen/60">
+              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-mute-dark transition-colors group-hover:text-accent">
                 Next →
               </span>
-              <span className="text-right font-sans text-sm font-semibold text-linen/50 transition-colors group-hover:text-linen">
+              <span className="text-right font-sans text-sm font-semibold text-paper/60 transition-colors group-hover:text-paper">
                 {next.title}
               </span>
             </Link>

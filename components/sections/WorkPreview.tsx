@@ -11,18 +11,18 @@ export default async function WorkPreview() {
   });
 
   return (
-    <section className="w-full bg-obsidian px-6 py-24 md:px-12 md:py-36">
+    <section className="w-full px-6 py-24 md:px-12 md:py-36">
       {/* Section label */}
-      <p className="mb-12 font-mono text-[11px] uppercase tracking-[0.35em] text-gold">
-        ( SELECTED WORK )
+      <p className="mb-12 font-mono text-[11px] uppercase tracking-[0.35em] text-accent">
+        Selected work
       </p>
 
       {/* Grid — renders only when there are items */}
       {items && items.length > 0 ? (
         <WorkPreviewGrid items={items} />
       ) : (
-        <p className="py-16 font-mono text-[11px] uppercase tracking-[0.25em] text-muted">
-          ( Work coming soon — data is being seeded )
+        <p className="py-16 font-mono text-[11px] uppercase tracking-[0.25em] text-mute-dark">
+          Work coming soon — data is being seeded
         </p>
       )}
 
@@ -30,7 +30,7 @@ export default async function WorkPreview() {
       <div className="mt-16 flex justify-center">
         <Link
           href="/work"
-          className="inline-flex items-center border border-gold px-8 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-gold transition-all duration-200 hover:bg-gold hover:text-obsidian"
+          className="inline-flex items-center border border-paper/30 px-8 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-paper transition-colors duration-200 hover:bg-paper hover:text-ink"
         >
           View all work →
         </Link>

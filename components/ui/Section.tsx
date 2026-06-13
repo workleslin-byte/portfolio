@@ -18,7 +18,7 @@ export default function Section({
       id={id}
       className={cn(
         "w-full px-6 md:px-12 py-20 md:py-32",
-        variant === "dark" ? "bg-obsidian text-linen" : "bg-linen text-ink",
+        variant === "dark" ? "bg-ink text-paper" : "bg-paper text-ink",
         className
       )}
     >

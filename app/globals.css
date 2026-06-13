@@ -3,8 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --background: #140D1F;
-  --foreground: #F0EBE0;
+  /* Ink base — the particle field reads against this; light sections
+     are opaque islands layered over it. */
+  --background: #111111;
+  --foreground: #FAFAF8;
 }
 
 body {
