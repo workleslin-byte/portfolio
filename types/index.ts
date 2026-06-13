@@ -18,7 +18,9 @@ export interface WorkItem {
     | "push-notifications"
     | "linkedin"
     | "long-form-writing"
-    | "pocket-notes";
+    | "pocket-notes"
+    | "pocket-notes-build"
+    | "ai-engineering";
   order?: number;
   headline?: string;
   subheadline?: string;

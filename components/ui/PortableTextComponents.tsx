@@ -36,6 +36,16 @@ export const portableTextComponents: PortableTextComponents = {
       <strong className="font-semibold text-ink">{children}</strong>
     ),
     em: ({ children }) => <em className="italic text-accent">{children}</em>,
+    link: ({ children, value }) => (
+      <a
+        href={value?.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-accent underline underline-offset-2 transition-opacity hover:opacity-75"
+      >
+        {children}
+      </a>
+    ),
     code: ({ children }) => (
       <code className="rounded bg-ink/[0.06] px-1.5 py-0.5 font-mono text-[0.875em] text-ink">
         {children}

@@ -4,11 +4,14 @@ import type { Stat } from "@/types";
 import MaskReveal from "@/lib/motion/MaskReveal";
 import CountUp from "@/lib/motion/CountUp";
 import StaggerIn from "@/lib/motion/StaggerIn";
+import FlowDiagram from "@/components/visuals/FlowDiagram";
+import { FLOWS } from "@/lib/caseVisuals";
 
 interface Props {
   title: string;
   categoryLabel: string;
   displayNumber: string;
+  slug: string;
   headline?: string; // idea line (layer 1)
   subheadline?: string; // flat proof sentence (layer 2)
   stats?: Stat[];
@@ -18,10 +21,12 @@ export default function CaseStudyHero({
   title,
   categoryLabel,
   displayNumber,
+  slug,
   headline,
   subheadline,
   stats,
 }: Props) {
+  const flow = FLOWS[slug];
   const signature = stats?.[0];
   const rest = stats?.slice(1) ?? [];
 
@@ -55,8 +60,13 @@ export default function CaseStudyHero({
             </p>
           )}
 
-          {/* Signature number — the spectacle (WebGL morph layers on later) */}
-          {signature && (
+          {/* Spectacle: a flow diagram for engineering items, else the
+              signature number. */}
+          {flow ? (
+            <div className="mt-16 border-t border-paper/10 pt-12">
+              <FlowDiagram steps={flow} tone="ink" />
+            </div>
+          ) : signature ? (
             <div className="mt-16 border-t border-paper/10 pt-12">
               <p
                 data-signature-number
@@ -72,7 +82,7 @@ export default function CaseStudyHero({
                 ) : null}
               </p>
             </div>
-          )}
+          ) : null}
         </div>
       </section>
 

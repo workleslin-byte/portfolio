@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     default: "Leslin K Seemon — Content & Growth. Writer. Kerala.",
   },
   description:
-    "Seven years turning content into measured growth. Every number verified.",
+    "Content, AI-enabled growth, and full-stack building. Seven years of measured work, every number verified.",
   openGraph: {
     type: "website",
     locale: "en_IN",

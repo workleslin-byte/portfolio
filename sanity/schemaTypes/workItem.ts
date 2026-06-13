@@ -31,6 +31,8 @@ export const workItemSchema = defineType({
           { title: "LinkedIn", value: "linkedin" },
           { title: "Long-Form Writing", value: "long-form-writing" },
           { title: "Pocket Notes", value: "pocket-notes" },
+          { title: "Full-Stack Build", value: "pocket-notes-build" },
+          { title: "AI Engineering", value: "ai-engineering" },
         ],
       },
     }),

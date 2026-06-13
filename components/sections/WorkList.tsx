@@ -14,6 +14,8 @@ const CATEGORY_LABELS: Record<string, string> = {
   linkedin: "LinkedIn",
   "long-form-writing": "Long-Form Writing",
   "pocket-notes": "Independent Product",
+  "pocket-notes-build": "Full-Stack Build",
+  "ai-engineering": "AI Engineering",
 };
 
 interface Props {

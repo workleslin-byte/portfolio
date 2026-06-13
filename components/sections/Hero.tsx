@@ -9,19 +9,21 @@ interface HeroProps {
 }
 
 export default function Hero({ ready }: HeroProps) {
+  const sizeClass = "text-[clamp(2.2rem,6vw,5.5rem)]";
   const lineClass =
-    "font-display font-extrabold tracking-tight leading-[0.98] text-paper text-[clamp(2.2rem,6vw,5.5rem)]";
+    `font-display font-extrabold tracking-tight leading-[1.04] text-paper ${sizeClass}`;
 
   return (
     <section className="relative flex min-h-[100svh] items-center overflow-hidden px-[6vw] pt-28 pb-24 md:pb-28">
       <div className="relative z-10 w-full">
-        {/* Attitude-led headline — who he is, before what he does */}
+        {/* Attitude-led headline — who he is, before what he does.
+            Size is also on the root so `ch` resolves against display size. */}
         <MaskReveal
           as="h1"
           play={ready}
           stagger={0.1}
           lineClassName={lineClass}
-          className="max-w-[16ch]"
+          className={`max-w-[15ch] ${sizeClass}`}
           lines={[
             "Most people read",
             "to feel something.",
@@ -35,7 +37,7 @@ export default function Hero({ ready }: HeroProps) {
 
         {/* Quiet role locator — carries the "what" */}
         <p className="mt-10 font-mono text-[11px] uppercase tracking-[0.3em] text-mute-dark">
-          Content &amp; growth · Kerala · Seven years, all measured.
+          I write, I build the systems, I ship them · Kerala, India
         </p>
 
         {/* CTAs */}

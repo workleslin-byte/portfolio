@@ -11,6 +11,7 @@ import {
 import type { WorkItem } from "@/types";
 import { portableTextComponents } from "@/components/ui/PortableTextComponents";
 import CaseStudyHero from "@/components/sections/CaseStudyHero";
+import CaseStudyVisual from "@/components/sections/CaseStudyVisual";
 
 // ── Static generation ────────────────────────────────────────────────────────
 
@@ -51,6 +52,8 @@ const CATEGORY_LABELS: Record<string, string> = {
   linkedin: "LinkedIn",
   "long-form-writing": "Long-Form Writing",
   "pocket-notes": "Independent Product",
+  "pocket-notes-build": "Full-Stack Build",
+  "ai-engineering": "AI Engineering",
 };
 
 // ── Nav item type ────────────────────────────────────────────────────────────
@@ -98,10 +101,14 @@ export default async function CaseStudyPage({ params }: Props) {
         title={item.title}
         categoryLabel={categoryLabel}
         displayNumber={displayNumber}
+        slug={params.slug}
         headline={item.headline}
         subheadline={item.subheadline}
         stats={item.stats}
       />
+
+      {/* ── Animated data viz (growth items only) ───────────────────── */}
+      <CaseStudyVisual slug={params.slug} />
 
       {/* ── Body (light) ────────────────────────────────────────────── */}
       <section className="w-full bg-paper px-6 py-20 md:px-12 md:py-32">

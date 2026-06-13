@@ -43,6 +43,22 @@ const caption = (text) => ({
   children: [{ _type: "span", _key: k(), text, marks: ["em"] }],
 });
 
+// Paragraph with one inline link: pre <link> post
+const linkP = (pre, linkText, href, post = "") => {
+  const linkKey = k();
+  return {
+    _type: "block",
+    _key: k(),
+    style: "normal",
+    markDefs: [{ _type: "link", _key: linkKey, href }],
+    children: [
+      { _type: "span", _key: k(), text: pre, marks: [] },
+      { _type: "span", _key: k(), text: linkText, marks: [linkKey] },
+      { _type: "span", _key: k(), text: post, marks: [] },
+    ],
+  };
+};
+
 const stat = (label, value, delta) => ({ _key: k(), label, value, ...(delta ? { delta } : {}) });
 
 // ── The seven ─────────────────────────────────────────────────────────────────
@@ -62,7 +78,7 @@ const items = [
       stat("FY24 goal attainment", "161%"),
     ],
     body: [
-      caption("GA4 · Apr 2024–Dec 2025"),
+      caption("Rang De · GA4 · Apr 2024–Dec 2025"),
       p("When I took it over, the blog had no editorial strategy and nothing measuring whether any of it worked. It was a side page nobody owned."),
       h2("The approach"),
       p("I built a publishing system around high-intent informational queries, a content calendar that actually held, and weekly measurement. The point was never volume. It was writing the piece that deserved to rank, then proving it did."),
@@ -85,7 +101,7 @@ const items = [
       stat("Non-brand organic", "20.0K", "+130%"),
     ],
     body: [
-      caption("SEMrush India · Dec 2025"),
+      caption("Rang De · SEMrush India · Dec 2025"),
       p("Good content keeps ranking. That is the compounding that shows up in the numbers, and it only happens if the piece is genuinely the best answer to the question."),
       h2("The approach"),
       p("Write the definitive piece on topics the audience already searches for. Link those pieces to conversion-relevant pages. Measure, then repeat. The architecture is deliberately top-of-funnel: informational content does the scale work while product pages catch intent downstream."),
@@ -108,7 +124,7 @@ const items = [
       stat("Campaigns shipped", "321"),
     ],
     body: [
-      caption("Klaviyo · Dec 2024–Dec 2025 · 2.97M sends"),
+      caption("Rang De · Klaviyo · Dec 2024–Dec 2025 · 2.97M sends"),
       p("The highest-performing programmes were built around specific user behaviour: transaction windows, first-investment moments, re-engagement triggers. Timing did as much work as copy."),
       h2("Revenue by programme"),
       p("Transaction-day emails earned ₹6.65 Cr, the weekly newsletter ₹4.93 Cr, active-investor nudges ₹2.63 Cr, the onboarding journey ₹40.98 lakh from just two emails, and dormant reactivation ₹25.58 lakh."),
@@ -131,7 +147,7 @@ const items = [
       stat("Peak campaign open rate", "1.01%"),
     ],
     body: [
-      caption("CleverTap · Dec 2024–Dec 2025 · 130K+ sends"),
+      caption("Rang De · CleverTap · Dec 2024–Dec 2025 · 130K+ sends"),
       p("Push lives or dies on timing, copy, and restraint. A 95.6% deliverability rate and ₹31.5K of revenue for every 1,000 delivered notifications is what a channel looks like when it is used with discipline, not volume for its own sake."),
       p("124,870 notifications delivered of 130,607 sent, across 217 campaigns. ₹8.18 lakh came directly from click-through; the rest was assisted."),
     ],
@@ -151,7 +167,7 @@ const items = [
       stat("Video views", "1.05L"),
     ],
     body: [
-      caption("LinkedIn Page Analytics · Dec 2024–Dec 2025"),
+      caption("Rang De · LinkedIn Page Analytics · Dec 2024–Dec 2025"),
       p("6.3 posts a week, 52 weeks. The kind of output that needs editorial discipline and a clear platform voice, not luck. 79% of all engagement was clicks: people doing something, not just scrolling past."),
       h2("Format by objective"),
       p("Non-video drove intent at 8.22% CTR and a 10.29% engagement rate. Video built awareness at 3.84% CTR. The format was chosen by what the post needed to do, not by habit. Best months: September, November, February."),
@@ -172,10 +188,11 @@ const items = [
       stat("Subjects", "6"),
     ],
     body: [
-      caption("By Leslin K Seemon · FY 2024–25"),
+      caption("Rang De · By Leslin K Seemon · FY 2024–25"),
       p("These were not SEO-first articles dressed up as journalism. Each one was a genuine attempt to explain something real: how India calculates who is poor, what a women's cooperative actually runs on, how a cocoa farmer's year works financially. The search traffic followed because the depth was real."),
       h2("Most read"),
       p("The poverty line explainer drew 29,109 reads, self-help groups 18,176, cocoa farming economics 18,112, and the Lijjat Papad story 15,892. All organic, no paid distribution."),
+      linkP("All of it written for Rang De and published at ", "blog.rangde.in", "https://blog.rangde.in", "."),
     ],
   },
   {
@@ -197,6 +214,55 @@ const items = [
       p("Most notebook brands sell you the idea that you are archiving something precious, so don't waste the page on a half-formed thought. That is the wrong philosophy. Pocket Notes was built on the opposite argument. Writing is a sandbox: write badly, write fast, fill it up, throw it out, get another. Keep it cheap, keep it handy, keep it moving."),
       h2("The whole product"),
       p("I handled concept, cover design, production, and distribution. Printed, packed, and sold through pocketnotes.in, with every run checked in person at the printer. The design ethic, that a good tool doesn't announce itself, is the same conviction driving this portfolio."),
+    ],
+  },
+  {
+    slug: "pocket-notes-build",
+    category: "pocket-notes-build",
+    order: 8,
+    featured: true,
+    title: "Pocket Notes — Full-Stack Web Build",
+    headline: "I taught myself to ship a full-stack site, then shipped one.",
+    subheadline: "Front end through infrastructure. Sole developer. Live.",
+    stats: [
+      stat("Status", "Live"),
+      stat("Role", "Sole developer"),
+      stat("Front end", "Next.js"),
+      stat("Content layer", "Payload CMS"),
+      stat("Database", "Neon Postgres"),
+      stat("Infra", "Vercel"),
+    ],
+    body: [
+      caption("Independent build · pocketnotes.in"),
+      p("I designed, built, and deployed the entire Pocket Notes website end to end as the sole developer, front end through infrastructure, having taught myself agentic coding and modern deployment workflows from scratch for the project. The site is live and in active use."),
+      h2("How it's built"),
+      p("Next.js for the front end, a content layer architected in Payload CMS with its own schema and collections, and the database on Neon Postgres. I owned deployment and infrastructure on Vercel, including the build pipeline and going live. Because I built every layer myself, I can reason about the system end to end, how the data model, rendering, and hosting fit together, rather than treating any part as a black box."),
+      h2("Why it matters"),
+      p("The project doubles as proof of how I work. I went from no production web-development experience to a shipped, live full-stack site by going deep on the fundamentals rather than outsourcing the parts I didn't understand."),
+    ],
+  },
+  {
+    slug: "preventify",
+    category: "ai-engineering",
+    order: 9,
+    featured: true,
+    title: "Preventify — WhatsApp RAG Chatbot",
+    headline: "A health chatbot is only as good as what it refuses to guess.",
+    subheadline: "A WhatsApp RAG system, architected end to end. Prototype.",
+    stats: [
+      stat("System", "RAG"),
+      stat("Role", "System design"),
+      stat("Approach", "Multi-model eval"),
+      stat("Observability", "Langfuse"),
+      stat("Stage", "Prototype"),
+    ],
+    body: [
+      caption("Healthtech · prototype"),
+      p("I architected and oversaw a WhatsApp-based retrieval-augmented generation system for a healthtech startup, designed to answer health-related queries from a curated knowledge base. I owned the system design and direction across the pipeline, retrieval, model inference, and response delivery, and drove the technical decisions rather than writing all the implementation myself."),
+      h2("The decisions that mattered"),
+      p("I defined a multi-model evaluation approach to compare LLM providers on accuracy, latency, and cost for health-specific queries, so model choice was driven by the use case rather than defaulting to one provider. I specified observability via Langfuse for tracing prompts, responses, and execution, and the automated conversion of evaluation logs into formatted Word reports with python-docx, so results were legible to non-technical stakeholders."),
+      h2("How it's structured"),
+      p("The pipeline is modular: retrieval, inference, and reporting are decoupled, so models can be swapped without reworking the system. Currently at prototype stage, pending formal onboarding."),
     ],
   },
 ];

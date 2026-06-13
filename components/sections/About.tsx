@@ -4,10 +4,10 @@ import MaskReveal from "@/lib/motion/MaskReveal";
 import StaggerIn from "@/lib/motion/StaggerIn";
 
 const CREDENTIALS = [
-  { label: "07 years", body: "Professional content & growth work" },
+  { label: "07 years", body: "Full-funnel content & growth work" },
   { label: "₹16.8 Cr", body: "Email revenue attributed, FY25" },
   { label: "1.7L+", body: "Long-form reads across 9 articles" },
-  { label: "Founder", body: "Pocket Notes — pocketnotes.in" },
+  { label: "Full-stack", body: "Shipped pocketnotes.in solo, Next.js to infra" },
 ];
 
 export default function About() {
@@ -23,47 +23,64 @@ export default function About() {
           {/* Headline — same-family emphasis (italic accent, no serif) */}
           <MaskReveal
             as="h2"
-            lineClassName="font-display font-extrabold tracking-tight leading-[0.95] text-[clamp(2.5rem,5vw,5rem)]"
+            lineClassName="font-display font-extrabold tracking-tight leading-[1.04] text-[clamp(2.25rem,4.5vw,4.5rem)]"
+            className="text-[clamp(2.25rem,4.5vw,4.5rem)]"
             lines={[
-              "Coastal boy.",
-              <span key="2" className="italic text-accent">
-                Mountain thinker.
+              "I don't separate",
+              <span key="2">
+                thinking from{" "}
+                <span className="italic text-accent">making.</span>
               </span>,
             ]}
           />
 
-          {/* Body */}
+          {/* Body — three woven movements, personality through specifics */}
           <div
             className="mt-10 space-y-5 font-sans leading-[1.8] text-ink/80"
             style={{ fontSize: "1.125rem" }}
           >
             <p>
-              I grew up by the backwaters in Kochi, so water has always felt
-              like background. Present, unremarkable, mine. The mountains are
-              where my mind moves differently. Something about altitude clears
-              the noise. The Royal Enfield Himalayan in the garage isn&apos;t a
-              travel statement. It&apos;s a thinking tool.
+              I work where philosophy, systems, and craft overlap, and I
+              don&apos;t treat deep thinking as separate from doing. The test of
+              an idea, for me, is whether it survives contact with execution. I
+              keep a commonplace book and write long-form by hand, not out of
+              nostalgia, but because it&apos;s how I metabolize ideas instead of
+              hoarding them. Hand me a problem and I build the architecture
+              first: audience models, content pillars, scoring conventions,
+              naming systems, then I operate inside it.
             </p>
             <p>
-              Seven years building content systems that compound. The method
-              never changes. Take something complicated, find the argument
-              inside it, say it plainly, then measure what happens. Philosophy
-              taught me that before marketing did. It is the same discipline.
+              I go deep before I go wide. I&apos;d rather understand the
+              mechanics of a thing than ship a surface version of it, which is
+              why I taught myself agentic coding and deployment from scratch
+              instead of outsourcing the parts I didn&apos;t understand. Six
+              years of full-funnel content marketing and a decade of writing now
+              point at AI-enabled growth work: automation, system-level prompt
+              engineering, growth strategy. I founded a physical product, Pocket
+              Notes, with a real editorial philosophy behind it, so I know how
+              to build from identity outward, not just campaign outward. I can
+              hold the brand-philosophy layer and the technical-execution layer
+              in the same head.
             </p>
             <p>
-              I still keep a commonplace book, pen and paper. And I use AI where
-              it earns its place, never as the headline.
+              I&apos;m allergic to performative depth and hustle-culture noise. I
+              want work that&apos;s coherent, where the thinking, the making, and
+              the output are one thing instead of three disconnected layers.
+              I&apos;m self-directed, sometimes to a fault, and honest about the
+              gap between insight and execution, so I&apos;d rather show the work
+              than narrate it. Give me the problem and the why, and I&apos;ll
+              build the system. I&apos;m less useful where execution is decoupled
+              from thinking.
             </p>
           </div>
 
-          {/* Blockquote — same family, accent rule */}
+          {/* Pull-quote — the Substack ethos */}
           <blockquote className="mt-10 border-l-2 border-accent pl-6">
             <p
               className="font-display font-semibold leading-snug text-ink"
               style={{ fontSize: "clamp(1.2rem, 2vw, 1.6rem)" }}
             >
-              Most people read to feel something. I read to find out how to
-              think.
+              Slow ideas, plain living and high thinking.
             </p>
           </blockquote>
         </div>

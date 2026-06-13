@@ -3,6 +3,7 @@ import PreloaderHero from "@/components/sections/PreloaderHero";
 import Marquee from "@/components/sections/Marquee";
 import About from "@/components/sections/About";
 import WorkPreview from "@/components/sections/WorkPreview";
+import Capabilities from "@/components/sections/Capabilities";
 import PocketNotesFeature from "@/components/sections/PocketNotesFeature";
 import Contact from "@/components/sections/Contact";
 import ClosingCTA from "@/components/sections/ClosingCTA";
@@ -20,6 +21,7 @@ export default function HomePage() {
       <Marquee />
       <About />
       <WorkPreview />
+      <Capabilities />
       <PocketNotesFeature />
       <Contact />
       <ClosingCTA />

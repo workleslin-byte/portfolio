@@ -86,7 +86,7 @@ export default function MaskReveal({
   return (
     <Tag ref={rootRef as never} className={className}>
       {lines.map((line, i) => (
-        <span key={i} className="block overflow-hidden pb-[0.08em]">
+        <span key={i} className="block overflow-hidden pb-[0.14em]">
           <span data-line-inner className={`block ${lineClassName}`}>
             {line}
           </span>
