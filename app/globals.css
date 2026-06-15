@@ -194,10 +194,10 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 60vw;
-  height: 60vw;
-  max-width: 880px;
-  max-height: 880px;
+  width: 30vw;
+  height: 30vw;
+  max-width: 440px;
+  max-height: 440px;
   border-radius: 50%;
   background: radial-gradient(
     circle at center,
@@ -206,7 +206,7 @@ body {
     rgba(95, 217, 140, 0.3) 58%,
     transparent 72%
   );
-  filter: blur(36px);
+  filter: blur(28px);
   will-change: transform;
 }
 
