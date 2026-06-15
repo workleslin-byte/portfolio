@@ -53,7 +53,7 @@ export default function SystemsPage() {
         </div>
 
         {/* The architecture, drawn in the line language */}
-        <div className="mt-16">
+        <div className="panel mx-auto mt-16 max-w-dossier p-6 md:p-10">
           <p className="mb-10 text-center font-mono text-[11px] uppercase tracking-[0.2em] text-ink-soft">
             Two-phase pipeline
           </p>

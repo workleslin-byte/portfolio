@@ -13,7 +13,7 @@ export function Kicker({ children }: { children: ReactNode }) {
 /** Fraunces section subhead inside a case body. */
 export function Subhead({ children }: { children: ReactNode }) {
   return (
-    <h2 className="font-display text-[clamp(1.5rem,3vw,2.1rem)] font-semibold leading-[1.15] tracking-tight text-ink">
+    <h2 className="gradient-text font-display text-[clamp(1.5rem,3vw,2.1rem)] font-semibold leading-[1.15] tracking-tight">
       {children}
     </h2>
   );
@@ -40,12 +40,12 @@ export function Stats({
   items: { value: string; label: string; accent?: boolean }[];
 }) {
   return (
-    <Reveal className="grid grid-cols-2 gap-x-8 gap-y-8 border-y border-line py-8 sm:grid-cols-4">
+    <Reveal className="panel grid grid-cols-2 gap-x-8 gap-y-8 p-7 sm:grid-cols-4 sm:p-8">
       {items.map((s) => (
         <div key={s.label}>
           <p
             className={`font-display text-[clamp(1.5rem,3vw,2.1rem)] font-semibold leading-none tracking-tight ${
-              s.accent ? "text-[color:var(--accent)]" : "text-ink"
+              s.accent ? "gradient-text" : "text-ink"
             }`}
           >
             {s.value}

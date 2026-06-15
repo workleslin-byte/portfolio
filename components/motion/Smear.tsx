@@ -17,12 +17,16 @@ export default function Smear({
   className = "",
   ghost = false,
   eager = false,
+  gradient = false,
 }: {
   as?: ElementType;
   children: ReactNode;
   className?: string;
   ghost?: boolean;
   eager?: boolean;
+  /** Clip the sharp front copy to the panning multi-hue gradient. The ghost
+   *  duplicate stays solid (clip + blur don't mix well). */
+  gradient?: boolean;
 }) {
   const Tag = (as ?? "h2") as ElementType;
   const ref = useRef<HTMLElement | null>(null);
@@ -61,7 +65,7 @@ export default function Smear({
           {children}
         </span>
       ) : null}
-      {children}
+      {gradient ? <span className="gradient-text">{children}</span> : children}
     </Tag>
   );
 }

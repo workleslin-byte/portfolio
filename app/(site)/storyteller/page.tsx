@@ -69,7 +69,7 @@ export default function StorytellerPage() {
           >
             <div className="mb-8 flex items-start justify-between gap-4">
               <div>
-                <h2 className="font-display text-2xl font-semibold text-ink md:text-3xl">
+                <h2 className="gradient-text font-display text-2xl font-semibold md:text-3xl">
                   LinkedIn
                 </h2>
                 <p className="mt-2 font-mono text-[11px] uppercase tracking-wider text-ink-soft">
@@ -141,7 +141,7 @@ export default function StorytellerPage() {
           >
             <div className="mb-8 flex items-start justify-between gap-4">
               <div>
-                <h2 className="font-display text-2xl font-semibold text-ink md:text-3xl">
+                <h2 className="gradient-text font-display text-2xl font-semibold md:text-3xl">
                   Email
                 </h2>
                 <p className="mt-2 font-mono text-[11px] uppercase tracking-wider text-ink-soft">
@@ -197,7 +197,7 @@ export default function StorytellerPage() {
           >
             <div className="mb-8 flex items-start justify-between gap-4">
               <div>
-                <h2 className="font-display text-2xl font-semibold text-ink md:text-3xl">
+                <h2 className="gradient-text font-display text-2xl font-semibold md:text-3xl">
                   Push notifications
                 </h2>
                 <p className="mt-2 font-mono text-[11px] uppercase tracking-wider text-ink-soft">
@@ -241,7 +241,7 @@ export default function StorytellerPage() {
           >
             <div className="mb-8 flex items-start justify-between gap-4">
               <div>
-                <h2 className="font-display text-2xl font-semibold text-ink md:text-3xl">
+                <h2 className="gradient-text font-display text-2xl font-semibold md:text-3xl">
                   Blog Growth
                 </h2>
                 <p className="mt-2 font-mono text-[11px] uppercase tracking-wider text-ink-soft">
@@ -289,7 +289,7 @@ export default function StorytellerPage() {
           >
             <div className="mb-8 flex items-start justify-between gap-4">
               <div>
-                <h2 className="font-display text-2xl font-semibold text-ink md:text-3xl">
+                <h2 className="gradient-text font-display text-2xl font-semibold md:text-3xl">
                   SEO
                 </h2>
                 <p className="mt-2 font-mono text-[11px] uppercase tracking-wider text-ink-soft">
@@ -361,7 +361,7 @@ export default function StorytellerPage() {
           >
             <div className="mb-8 flex items-start justify-between gap-4">
               <div>
-                <h2 className="font-display text-2xl font-semibold text-ink md:text-3xl">
+                <h2 className="gradient-text font-display text-2xl font-semibold md:text-3xl">
                   Long-Form Writing
                 </h2>
                 <p className="mt-2 font-mono text-[11px] uppercase tracking-wider text-ink-soft">
@@ -445,8 +445,8 @@ function Metric({
   return (
     <div>
       <div
-        className={`font-display text-[clamp(1.9rem,3.4vw,2.6rem)] font-semibold leading-none tracking-tight ${
-          accent ? "text-[color:var(--accent)]" : "text-ink"
+        className={`gradient-text font-display text-[clamp(1.9rem,3.4vw,2.6rem)] font-semibold leading-none tracking-tight ${
+          accent ? "" : "gradient-text-warm"
         }`}
       >
         {children}

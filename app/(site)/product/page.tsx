@@ -37,7 +37,7 @@ export default function ProductPage() {
           </P>
         </Column>
 
-        <div className="mx-auto mt-12 max-w-2xl">
+        <div className="panel mx-auto mt-12 max-w-2xl p-6 md:p-7">
           <p
             className="mb-4 font-mono text-[11px] uppercase tracking-[0.2em]"
             style={{ color: GOLD }}

@@ -45,7 +45,7 @@ export default function CaseTease({
               </span>
             </div>
 
-            <h3 className="font-display text-[clamp(1.5rem,3vw,2.3rem)] font-semibold leading-[1.12] tracking-tight text-ink">
+            <h3 className="gradient-text font-display text-[clamp(1.5rem,3vw,2.3rem)] font-semibold leading-[1.12] tracking-tight">
               {c.headline}
             </h3>
 

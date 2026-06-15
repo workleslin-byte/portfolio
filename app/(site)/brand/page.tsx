@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import CaseHeader from "@/components/case/CaseHeader";
 import CasePager from "@/components/case/CasePager";
-import { Column, Kicker, Subhead, P, Callout, Masonry } from "@/components/case/Editorial";
+import { Column, Kicker, Subhead, P, Callout } from "@/components/case/Editorial";
 import AssetSlot from "@/components/shell/AssetSlot";
+import Deck, { type DeckTile } from "@/components/case/Deck";
 
 export const metadata: Metadata = {
   title: "Brand — a full identity for an agro company",
@@ -21,6 +22,26 @@ const PALETTE = [
   { hex: "#118441", name: "80%" },
   { hex: "#046530", name: "90%" },
   { hex: "#04150B", name: "Black" },
+];
+
+// The packaging system, rendered in the live palette — drop hi-res photography
+// into the same rail later.
+const NILAMBUR_PRODUCTS: DeckTile[] = [
+  { name: "Nilambur Farms", sub: "Leaf + mountain mark", hex: "#046530", glyph: "mountain", wordmark: "The identity" },
+  { name: "Natural Honey", sub: "Raw · Wayanad", hex: "#1F944D", glyph: "jar" },
+  { name: "Vechur Cow Ghee", sub: "A2 · small-batch", hex: "#118441", glyph: "jar" },
+  { name: "Coffee Beans", sub: "Single origin", hex: "#04150B", glyph: "jar" },
+  { name: "Kasthuri Manjal", sub: "Turmeric powder", hex: "#33B763", glyph: "leaf" },
+  { name: "Dried Jackfruit", sub: "Sun-dried", hex: "#046530", glyph: "leaf" },
+];
+
+// Grwth — the side shop. Oxblood, the house accent.
+const AGENCY_TILES: DeckTile[] = [
+  { name: "Grwth", sub: "Brand & growth shop", hex: "#C2381B", glyph: "spark", wordmark: "Other work" },
+  { name: "Brand identity", sub: "Naming → system", hex: "#9E2C14", glyph: "spark", wordmark: "Grwth" },
+  { name: "Content strategy", sub: "Editorial → SEO", hex: "#7A2210", glyph: "spark", wordmark: "Grwth" },
+  { name: "Full-funnel growth", sub: "Acquisition → retention", hex: "#56180C", glyph: "spark", wordmark: "Grwth" },
+  { name: "Client work", sub: "Case studies on request", hex: "#2A0E08", glyph: "spark", wordmark: "Grwth" },
 ];
 
 export default function BrandPage() {
@@ -152,33 +173,34 @@ export default function BrandPage() {
           </div>
         </div>
 
-        {/* Payoff — packaging */}
-        <div className="mt-20">
+        {/* Payoff — packaging system as a horizontal deck */}
+        <div className="mx-auto mt-20 max-w-dossier">
           <p
             className="mb-6 font-mono text-[11px] uppercase tracking-[0.2em]"
             style={{ color: GREEN }}
           >
-            The payoff — on the shelf
+            The payoff — the packaging system
           </p>
-          <Masonry>
-            <AssetSlot label="Natural Honey" file="/brand-mockup-honey.jpg" ratio="1 / 1" />
-            <AssetSlot label="Vechur Cow Ghee" file="/brand-mockup-ghee.jpg" ratio="3 / 4" />
-            <AssetSlot label="Coffee Beans" file="/brand-mockup-coffee.jpg" ratio="4 / 3" />
-            <AssetSlot
-              label="Kasthuri Manjal Powder"
-              file="/brand-mockup-manjal.jpg"
-              ratio="3 / 4"
-            />
-            <AssetSlot
-              label="Dried Jackfruit"
-              file="/brand-mockup-jackfruit.jpg"
-              ratio="1 / 1"
-            />
-          </Masonry>
-          <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.12em] text-ink-soft">
-            Production assets (logo SVGs, hi-res mockups, tokens) to be exported
-            from Figma.
+          <Deck tiles={NILAMBUR_PRODUCTS} />
+          <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.12em] text-ink-soft">
+            Label system shown in the live Nilambur ramp · scroll →
+            hi-res product photography drops into the same rail.
           </p>
+        </div>
+
+        {/* Other work — the Grwth agency strip */}
+        <div className="mx-auto mt-24 max-w-dossier border-t border-line pt-16">
+          <Kicker>Other work</Kicker>
+          <Subhead>Grwth — my brand &amp; growth shop.</Subhead>
+          <p className="mt-4 max-w-2xl font-sans text-[15px] leading-relaxed text-ink/80">
+            Alongside client work I run a small brand and growth shop — content
+            strategy, design, and full-funnel growth for clients who want work
+            that doesn&apos;t look like everyone else&apos;s. Logo and case
+            studies available on request.
+          </p>
+          <div className="mt-8">
+            <Deck tiles={AGENCY_TILES} />
+          </div>
         </div>
       </div>
 

@@ -30,7 +30,7 @@ export default function Hero() {
           eager
           className="text-[clamp(3.2rem,13.5vw,12.5rem)] font-semibold leading-[0.86]"
         >
-          Leslin <em>K&nbsp;Seemon</em>
+          Leslin <em className="gradient-text">K&nbsp;Seemon</em>
         </Smear>
 
         <p className="mt-12 max-w-2xl text-pretty font-sans text-[clamp(1.05rem,2vw,1.35rem)] leading-relaxed text-ink/85">

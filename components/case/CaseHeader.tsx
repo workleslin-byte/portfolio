@@ -23,7 +23,7 @@ export default function CaseHeader({ id }: { id: CaseId }) {
           <p className="mb-5 font-mono text-[11px] uppercase tracking-[0.2em] text-ink-soft">
             {c.num} — {c.metric.value} · {c.metric.label}
           </p>
-          <h1 className="font-display text-[clamp(1.9rem,4vw,3rem)] font-semibold leading-[1.08] tracking-tight text-ink">
+          <h1 className="gradient-text font-display text-[clamp(1.9rem,4vw,3rem)] font-semibold leading-[1.08] tracking-tight">
             {c.headline}
           </h1>
           <p className="mt-6 text-pretty font-sans text-[1.0625rem] leading-relaxed text-ink/80">

@@ -14,6 +14,8 @@
   --ink-soft: #6e6a63; /* secondary text / captions */
   --line: #d9d5cc; /* hairline rules / borders */
   --accent: #c2381b; /* Grwth oxblood — markers, star, active nav, key data */
+  --green: #1f944d; /* Nilambur green — second hue in the gradient ramp */
+  --gold: #c2811b; /* warm amber — third hue, sibling of the oxblood */
 
   --gutter: clamp(1.25rem, 5vw, 5.5rem);
   --maxw: 1440px;
@@ -67,6 +69,105 @@ body {
   .text-pretty {
     text-wrap: pretty;
   }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   GRADIENT TEXT — multi-hue oxblood → green → gold, slowly panning.
+   Clipped to the glyphs. Used on display headings, key numbers, divider
+   italics. Falls back to solid accent where background-clip is unsupported.
+   ══════════════════════════════════════════════════════════════════════════ */
+.gradient-text {
+  color: var(--accent); /* fallback */
+  background-image: linear-gradient(
+    100deg,
+    var(--accent) 0%,
+    var(--green) 38%,
+    var(--gold) 68%,
+    var(--accent) 100%
+  );
+  background-size: 220% 100%;
+  background-position: 0% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-pan 9s ease-in-out infinite;
+}
+/* A warmer ramp (gold-led) for sections that lean editorial over data. */
+.gradient-text-warm {
+  background-image: linear-gradient(
+    100deg,
+    var(--gold) 0%,
+    var(--accent) 45%,
+    var(--green) 80%,
+    var(--gold) 100%
+  );
+}
+@keyframes gradient-pan {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gradient-text,
+  .gradient-text-warm {
+    animation: none;
+  }
+}
+
+/* Divider-word italics inherit the gradient but settle sharp after the smear.
+   Kept separate so the blurred ghost copy stays solid (clip + blur conflict). */
+.smear .gradient-text {
+  -webkit-text-fill-color: transparent;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   PANEL — the rounded container with a faint hue wash. The shared treatment
+   behind stats, diagrams, and feature blocks across every case page.
+   ══════════════════════════════════════════════════════════════════════════ */
+.panel {
+  border-radius: 1rem;
+  border: 1px solid var(--line);
+  background-image: linear-gradient(
+    135deg,
+    rgba(31, 148, 77, 0.05) 0%,
+    rgba(198, 56, 27, 0.025) 100%
+  );
+}
+.panel-warm {
+  background-image: linear-gradient(
+    135deg,
+    rgba(198, 56, 27, 0.05) 0%,
+    rgba(31, 148, 77, 0.02) 100%
+  );
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   BRAND DECK — horizontal scroll-snap rail for the Nilambur tiles.
+   ══════════════════════════════════════════════════════════════════════════ */
+.deck-rail {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+  padding-bottom: 10px;
+}
+.deck-rail > * {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+}
+.deck-rail::-webkit-scrollbar {
+  height: 6px;
+}
+.deck-rail::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 999px;
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
