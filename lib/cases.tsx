@@ -21,6 +21,8 @@ export type CaseDef = {
   metric: { value: string; label: string };
   /** The single non-obvious decision (the judgment beat). */
   decision: string;
+  /** Two candy colours for this section's soft background glow. */
+  glow: [string, string];
 };
 
 export const CASES: CaseDef[] = [
@@ -47,6 +49,7 @@ export const CASES: CaseDef[] = [
     metric: { value: "₹16.8 Cr", label: "attributed email revenue · Klaviyo, FY24–25" },
     decision:
       "LinkedIn for reach, email for revenue, push for moments, long-form for depth. Each channel optimized for what it's good at — not forced into a single narrative.",
+    glow: ["#FF6FA3", "#FF9E3D"],
   },
   {
     id: "systems",
@@ -71,6 +74,7 @@ export const CASES: CaseDef[] = [
     metric: { value: "4,059", label: "clinical chunks · two-phase retrieval" },
     decision:
       "Most chatbots optimize for answering. This one optimizes for refusing — every answer is pinned to a dated, evidence-graded guideline, or it declines and asks a clarifying question.",
+    glow: ["#4FD1E0", "#6E8BFF"],
   },
   {
     id: "product",
@@ -95,6 +99,7 @@ export const CASES: CaseDef[] = [
     metric: { value: "Solo", label: "concept → design → code → infra" },
     decision:
       "I went from no production web experience to a live full-stack site by going deep on the fundamentals rather than outsourcing the parts I didn't understand.",
+    glow: ["#FFC24D", "#FF7A3D"],
   },
   {
     id: "brand",
@@ -119,6 +124,7 @@ export const CASES: CaseDef[] = [
     metric: { value: "60 / 40", label: "brand name to symbol, tuned for recall" },
     decision:
       "I tested palm, coconut, and teak as the symbol and rejected each with a reason — palm and coconut lacked impact, teak was too complex — before landing on a leaf, then a mountain, as the most relatable cue.",
+    glow: ["#57D98C", "#3FC6B4"],
   },
 ];
 

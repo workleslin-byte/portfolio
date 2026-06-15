@@ -188,40 +188,34 @@ body {
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
-   HOLOGRAPHIC BLOBS — exactly TWO site-wide. Heavy blur + grain on top.
+   SECTION GLOWS — one soft candy orb behind each section title. Vivid colour,
+   heavy blur, low opacity (ambient wash). Grain sits over them. The two-colour
+   gradient is set inline per instance; this only owns size, blur, drift.
    ══════════════════════════════════════════════════════════════════════════ */
-.blob {
+.glow {
   position: absolute;
   width: 48vw;
   height: 48vw;
-  max-width: 760px;
-  max-height: 760px;
+  max-width: 720px;
+  max-height: 720px;
   border-radius: 50%;
-  filter: blur(110px);
-  opacity: 0.5;
+  filter: blur(100px);
+  opacity: 0.32;
   pointer-events: none;
   z-index: 0;
-  background: conic-gradient(
-    from 90deg,
-    #ff4d8d,
-    #ff7a3d,
-    #6ee7e7,
-    #8b7cff,
-    #ff4d8d
-  );
-  animation: blob-drift 34s ease-in-out infinite;
+  animation: glow-drift 36s ease-in-out infinite;
 }
-@keyframes blob-drift {
+@keyframes glow-drift {
   0%,
   100% {
-    transform: translate(0, 0) scale(1) rotate(0deg);
+    transform: translate(0, 0) scale(1);
   }
   50% {
-    transform: translate(4%, -3%) scale(1.08) rotate(18deg);
+    transform: translate(3%, -2.5%) scale(1.07);
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .blob {
+  .glow {
     animation: none;
   }
 }

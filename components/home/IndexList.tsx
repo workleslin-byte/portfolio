@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Reveal from "@/components/motion/Reveal";
+import Glow from "@/components/shell/Glow";
 import { CASES } from "@/lib/cases";
 
 const DESC: Record<string, string> = {
@@ -20,9 +21,11 @@ export default function IndexList() {
       id="index"
       data-section="Index"
       data-folio="P/03"
-      className="w-full scroll-mt-24 px-[var(--gutter)] py-24 md:py-32"
+      className="relative w-full overflow-hidden scroll-mt-24 px-[var(--gutter)] py-24 md:py-32"
     >
-      <div className="mx-auto max-w-dossier">
+      <Glow from="#6E8BFF" to="#6EE7E7" style={{ top: "8%", right: "-12%" }} />
+
+      <div className="relative z-10 mx-auto max-w-dossier">
         <p className="mb-12 font-mono text-[11px] uppercase tracking-[0.3em] text-ink-soft">
           Index
         </p>

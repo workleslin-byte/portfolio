@@ -1,5 +1,6 @@
 import Smear from "@/components/motion/Smear";
 import Reveal from "@/components/motion/Reveal";
+import Glow from "@/components/shell/Glow";
 
 const COLUMNS: { label: string; items: string[] }[] = [
   {
@@ -47,9 +48,11 @@ export default function Capabilities() {
       id="capabilities"
       data-section="Capabilities"
       data-folio="P/04"
-      className="w-full scroll-mt-24 border-y border-line bg-paper-2/40 px-[var(--gutter)] py-24 md:py-32"
+      className="relative w-full overflow-hidden scroll-mt-24 border-y border-line bg-paper-2/40 px-[var(--gutter)] py-24 md:py-32"
     >
-      <div className="mx-auto max-w-dossier">
+      <Glow from="#8B7CFF" to="#B879FF" style={{ top: "6%", left: "-12%" }} />
+
+      <div className="relative z-10 mx-auto max-w-dossier">
         <Smear
           as="h2"
           className="max-w-3xl text-[clamp(1.6rem,3.4vw,2.75rem)] font-semibold leading-[1.1]"

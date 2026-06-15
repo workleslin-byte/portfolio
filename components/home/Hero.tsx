@@ -1,5 +1,5 @@
 import Smear from "@/components/motion/Smear";
-import Blob from "@/components/shell/Blob";
+import Glow from "@/components/shell/Glow";
 
 /**
  * Hero — the dossier cover. Eyebrow, the giant smeared name (roman "Leslin",
@@ -14,11 +14,8 @@ export default function Hero() {
       data-folio="P/01"
       className="relative flex min-h-[88vh] flex-col items-center justify-center overflow-hidden px-[var(--gutter)] pb-24 pt-10 text-center"
     >
-      {/* Instance 1 of 2 — bleeds off the top-right corner */}
-      <Blob
-        style={{ top: "-22vw", right: "-14vw" }}
-        className="opacity-[0.42]"
-      />
+      {/* Intro glow — coral → pink, bleeds off the top-right corner */}
+      <Glow from="#FF7A3D" to="#FF4D8D" style={{ top: "-16%", right: "-8%" }} />
 
       <div className="relative z-10 flex flex-col items-center">
         <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.3em] text-ink-soft">

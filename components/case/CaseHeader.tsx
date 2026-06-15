@@ -16,6 +16,7 @@ export default function CaseHeader({ id }: { id: CaseId }) {
         caption={c.caption}
         label={c.section}
         meta={c.meta}
+        glow={c.glow}
       />
 
       <div className="mx-auto max-w-dossier px-[var(--gutter)] pt-16 md:pt-24">

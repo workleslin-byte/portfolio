@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Smear from "@/components/motion/Smear";
+import Glow from "./Glow";
 import Star from "./Star";
 
 export type DividerMeta = {
@@ -22,6 +23,7 @@ export default function SectionDivider({
   caption,
   label,
   meta,
+  glow,
   wordClassName = "text-[clamp(3.5rem,15vw,13rem)]",
 }: {
   id?: string;
@@ -31,6 +33,7 @@ export default function SectionDivider({
   caption: string;
   label: string;
   meta: DividerMeta;
+  glow?: [string, string];
   wordClassName?: string;
 }) {
   return (
@@ -38,9 +41,13 @@ export default function SectionDivider({
       id={id}
       data-section={section}
       data-folio={folio}
-      className="relative w-full scroll-mt-24"
+      className="relative w-full overflow-hidden scroll-mt-24"
     >
-      <div className="flex min-h-[80vh] flex-col items-center justify-center px-[var(--gutter)] py-24 text-center">
+      {glow ? (
+        <Glow from={glow[0]} to={glow[1]} style={{ top: "4%", left: "12%" }} />
+      ) : null}
+
+      <div className="relative z-10 flex min-h-[80vh] flex-col items-center justify-center px-[var(--gutter)] py-24 text-center">
         <Smear
           as="h2"
           ghost
@@ -53,7 +60,7 @@ export default function SectionDivider({
         </p>
       </div>
 
-      <div className="mx-auto max-w-dossier px-[var(--gutter)]">
+      <div className="relative z-10 mx-auto max-w-dossier px-[var(--gutter)]">
         <div className="relative border-t border-line pt-5">
           <span className="absolute -top-[8px] right-[20%] text-[color:var(--accent)]">
             <Star size={16} />

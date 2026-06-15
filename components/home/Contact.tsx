@@ -1,5 +1,5 @@
 import Smear from "@/components/motion/Smear";
-import Blob from "@/components/shell/Blob";
+import Glow from "@/components/shell/Glow";
 import SendGlyph from "@/components/shell/SendGlyph";
 
 const CALENDLY = "https://calendly.com/ks-leslin"; // TODO: confirm real Calendly slug
@@ -18,8 +18,8 @@ export default function Contact() {
       data-folio="P/09"
       className="relative w-full scroll-mt-24 overflow-hidden px-[var(--gutter)] py-28 md:py-40"
     >
-      {/* Instance 2 of 2 — bleeds off the bottom-left corner */}
-      <Blob style={{ bottom: "-24vw", left: "-16vw" }} className="opacity-40" />
+      {/* Contact glow — violet → pink, bleeds off the bottom-left corner */}
+      <Glow from="#A87CFF" to="#FF6FB0" style={{ bottom: "-18%", left: "-10%" }} />
 
       <div className="relative z-10 mx-auto max-w-dossier">
         <p className="mb-10 font-mono text-[11px] uppercase tracking-[0.3em] text-ink-soft">

@@ -26,6 +26,7 @@ export default function CaseTease({
         caption={c.caption}
         label={c.section}
         meta={c.meta}
+        glow={c.glow}
       />
 
       <div className="mx-auto max-w-dossier px-[var(--gutter)] pb-28 pt-16 md:pt-20">
