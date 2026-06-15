@@ -69,7 +69,7 @@ export default function StorytellerPage() {
           >
             <div className="mb-8 flex items-start justify-between gap-4">
               <div>
-                <h2 className="gradient-text font-display text-2xl font-semibold md:text-3xl">
+                <h2 className="font-display text-2xl font-semibold text-ink md:text-3xl">
                   LinkedIn
                 </h2>
                 <p className="mt-2 font-mono text-[11px] uppercase tracking-wider text-ink-soft">
@@ -141,7 +141,7 @@ export default function StorytellerPage() {
           >
             <div className="mb-8 flex items-start justify-between gap-4">
               <div>
-                <h2 className="gradient-text font-display text-2xl font-semibold md:text-3xl">
+                <h2 className="font-display text-2xl font-semibold text-ink md:text-3xl">
                   Email
                 </h2>
                 <p className="mt-2 font-mono text-[11px] uppercase tracking-wider text-ink-soft">
@@ -197,7 +197,7 @@ export default function StorytellerPage() {
           >
             <div className="mb-8 flex items-start justify-between gap-4">
               <div>
-                <h2 className="gradient-text font-display text-2xl font-semibold md:text-3xl">
+                <h2 className="font-display text-2xl font-semibold text-ink md:text-3xl">
                   Push notifications
                 </h2>
                 <p className="mt-2 font-mono text-[11px] uppercase tracking-wider text-ink-soft">
@@ -241,7 +241,7 @@ export default function StorytellerPage() {
           >
             <div className="mb-8 flex items-start justify-between gap-4">
               <div>
-                <h2 className="gradient-text font-display text-2xl font-semibold md:text-3xl">
+                <h2 className="font-display text-2xl font-semibold text-ink md:text-3xl">
                   Blog Growth
                 </h2>
                 <p className="mt-2 font-mono text-[11px] uppercase tracking-wider text-ink-soft">
@@ -289,7 +289,7 @@ export default function StorytellerPage() {
           >
             <div className="mb-8 flex items-start justify-between gap-4">
               <div>
-                <h2 className="gradient-text font-display text-2xl font-semibold md:text-3xl">
+                <h2 className="font-display text-2xl font-semibold text-ink md:text-3xl">
                   SEO
                 </h2>
                 <p className="mt-2 font-mono text-[11px] uppercase tracking-wider text-ink-soft">
@@ -361,7 +361,7 @@ export default function StorytellerPage() {
           >
             <div className="mb-8 flex items-start justify-between gap-4">
               <div>
-                <h2 className="gradient-text font-display text-2xl font-semibold md:text-3xl">
+                <h2 className="font-display text-2xl font-semibold text-ink md:text-3xl">
                   Long-Form Writing
                 </h2>
                 <p className="mt-2 font-mono text-[11px] uppercase tracking-wider text-ink-soft">
@@ -392,25 +392,67 @@ export default function StorytellerPage() {
               </p>
               <ul className="divide-y divide-line border-y border-line">
                 {[
-                  ["What Is the Poverty Line in India?", "Development data", "29,109"],
-                  ["How Self-Help Groups (SHGs) Work", "Community finance", "18,176"],
-                  ["Economics of Cocoa Farming in India", "Agriculture", "18,112"],
-                  ["The Lijjat Papad Story", "Co-operative enterprise", "15,892"],
-                  ["The Waterman of India: Rajendra Singh", "Environment", "12,533"],
-                ].map(([title, subject, views]) => (
-                  <li
-                    key={title}
-                    className="flex items-baseline justify-between gap-4 py-3"
-                  >
-                    <span className="min-w-0">
-                      <span className="text-sm text-ink">{title}</span>
-                      <span className="ml-2 font-mono text-[10px] uppercase tracking-[0.12em] text-ink-soft">
-                        {subject}
+                  {
+                    t: "What Is the Poverty Line in India?",
+                    s: "Development data",
+                    v: "40,579",
+                    href: "https://rangde.in/blog/understanding-the-poverty-line-in-india",
+                  },
+                  {
+                    t: "Economics of Cocoa Farming in India",
+                    s: "Agriculture",
+                    v: "26,560",
+                    href: "https://rangde.in/blog/economics-of-cocoa-farming-in-india",
+                  },
+                  {
+                    t: "The Lijjat Papad Story",
+                    s: "Co-operative enterprise",
+                    v: "21,922",
+                    href: "https://rangde.in/blog/lijjat-papad-story",
+                  },
+                  {
+                    t: "How Self-Help Groups (SHGs) Work",
+                    s: "Community finance",
+                    v: "18,176",
+                    href: "https://rangde.in/blog/shgs-self-help-groups-india",
+                  },
+                  {
+                    t: "The Waterman of India: Rajendra Singh",
+                    s: "Environment",
+                    v: "15,201",
+                    href: "https://rangde.in/blog/the-waterman-of-india-rajendra-singh",
+                  },
+                ].map((a) => (
+                  <li key={a.t} className="py-3">
+                    <a
+                      href={a.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-baseline justify-between gap-4"
+                    >
+                      <span className="min-w-0">
+                        <span className="text-sm text-ink underline-offset-4 group-hover:text-[color:var(--accent)] group-hover:underline">
+                          {a.t}
+                        </span>
+                        <span className="mx-2 text-ink-soft/50" aria-hidden="true">
+                          ·
+                        </span>
+                        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-soft">
+                          {a.s}
+                        </span>
                       </span>
-                    </span>
-                    <span className="shrink-0 font-mono text-sm tabular-nums text-ink">
-                      {views}
-                    </span>
+                      <span className="flex shrink-0 items-baseline gap-2">
+                        <span className="font-mono text-sm tabular-nums text-ink">
+                          {a.v}
+                        </span>
+                        <span
+                          aria-hidden="true"
+                          className="font-mono text-[11px] text-ink-soft transition-all group-hover:translate-x-0.5 group-hover:text-[color:var(--accent)]"
+                        >
+                          ↗
+                        </span>
+                      </span>
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -445,8 +487,8 @@ function Metric({
   return (
     <div>
       <div
-        className={`gradient-text font-display text-[clamp(1.9rem,3.4vw,2.6rem)] font-semibold leading-none tracking-tight ${
-          accent ? "" : "gradient-text-warm"
+        className={`font-display text-[clamp(1.9rem,3.4vw,2.6rem)] font-semibold leading-none tracking-tight ${
+          accent ? "text-[color:var(--accent)]" : "text-ink"
         }`}
       >
         {children}

@@ -44,7 +44,6 @@ export default function SectionDivider({
         <Smear
           as="h2"
           ghost
-          gradient
           className={`${wordClassName} font-semibold leading-[0.9]`}
         >
           {word}

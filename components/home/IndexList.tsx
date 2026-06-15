@@ -43,7 +43,7 @@ export default function IndexList() {
                   >
                     {c.num}
                   </span>
-                  <span className="gradient-text font-display text-[clamp(2rem,4vw,3.25rem)] font-semibold leading-none tracking-tight">
+                  <span className="font-display text-[clamp(2rem,4vw,3.25rem)] font-semibold leading-none tracking-tight text-ink">
                     {c.section}
                   </span>
                   <span className="ml-auto font-mono text-[11px] uppercase tracking-[0.14em] text-ink-soft transition-colors group-hover:text-ink">

@@ -54,8 +54,7 @@ export default function Capabilities() {
           as="h2"
           className="max-w-3xl text-[clamp(1.6rem,3.4vw,2.75rem)] font-semibold leading-[1.1]"
         >
-          One head holding the brand layer <em className="gradient-text">and</em>{" "}
-          the build layer.
+          One head holding the brand layer <em>and</em> the build layer.
         </Smear>
 
         <div className="mt-16 grid grid-cols-1 gap-12 sm:grid-cols-3 sm:gap-8">

@@ -13,7 +13,7 @@ export function Kicker({ children }: { children: ReactNode }) {
 /** Fraunces section subhead inside a case body. */
 export function Subhead({ children }: { children: ReactNode }) {
   return (
-    <h2 className="gradient-text font-display text-[clamp(1.5rem,3vw,2.1rem)] font-semibold leading-[1.15] tracking-tight">
+    <h2 className="font-display text-[clamp(1.5rem,3vw,2.1rem)] font-semibold leading-[1.15] tracking-tight text-ink">
       {children}
     </h2>
   );
@@ -45,7 +45,7 @@ export function Stats({
         <div key={s.label}>
           <p
             className={`font-display text-[clamp(1.5rem,3vw,2.1rem)] font-semibold leading-none tracking-tight ${
-              s.accent ? "gradient-text" : "text-ink"
+              s.accent ? "text-[color:var(--accent)]" : "text-ink"
             }`}
           >
             {s.value}
@@ -75,7 +75,10 @@ export function Callout({
       <span className="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-ink-soft">
         {label}
       </span>
-      <span className="font-display text-[clamp(1.2rem,2.2vw,1.6rem)] font-medium leading-snug text-ink">
+      <span
+        className="font-display text-[clamp(1.1rem,1.8vw,1.4rem)] font-medium leading-[1.6] text-ink"
+        style={{ fontVariationSettings: '"opsz" 34, "SOFT" 0, "WONK" 0', letterSpacing: 0 }}
+      >
         {children}
       </span>
     </Reveal>

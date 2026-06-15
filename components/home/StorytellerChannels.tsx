@@ -58,7 +58,7 @@ export default function StorytellerChannels() {
             </span>
             <span
               className={`font-display text-xl font-semibold tracking-tight tabular-nums ${
-                r.accent ? "gradient-text" : "gradient-text-warm"
+                r.accent ? "text-[color:var(--accent)]" : "text-ink"
               }`}
             >
               {r.value}
