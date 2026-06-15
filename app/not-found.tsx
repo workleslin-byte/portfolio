@@ -1,32 +1,35 @@
 import Link from "next/link";
+import Grain from "@/components/shell/Grain";
+import Smear from "@/components/motion/Smear";
 
 export default function NotFound() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-ink px-6 text-center">
-      <p className="mb-6 font-mono text-[11px] uppercase tracking-[0.35em] text-accent">
+    <main className="relative flex min-h-screen flex-col items-center justify-center px-[var(--gutter)] text-center">
+      <Grain />
+
+      <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.35em] text-[color:var(--accent)]">
         404
       </p>
 
-      <h1
-        className="font-display font-extrabold tracking-tight leading-[1.0] text-paper"
-        style={{ fontSize: "clamp(3rem, 8vw, 7rem)" }}
+      <Smear
+        as="h1"
+        eager
+        className="text-[clamp(3rem,11vw,8rem)] font-semibold leading-[0.9]"
       >
-        Page not found.
-      </h1>
+        Lost the <em>thread.</em>
+      </Smear>
 
-      <p
-        className="mt-6 max-w-md font-sans leading-relaxed text-paper/60"
-        style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)" }}
-      >
-        The page you&rsquo;re looking for doesn&rsquo;t exist, or has been moved.
+      <p className="mt-8 max-w-md font-sans text-[1.0625rem] leading-relaxed text-ink/80">
+        This page doesn&apos;t exist, or it moved. Even a good filing system
+        loses a card now and then.
       </p>
 
       <Link
         href="/"
-        className="mt-12 inline-flex items-center border border-paper/30 px-8 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-paper transition-colors duration-200 hover:bg-paper hover:text-ink"
+        className="pill mt-12"
       >
-        ← Back to home
+        ← Back to the index
       </Link>
-    </div>
+    </main>
   );
 }

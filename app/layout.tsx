@@ -1,42 +1,57 @@
 import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
+import { Fraunces, Hanken_Grotesk } from "next/font/google";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 
+// Display — the smear face. High optical contrast at large sizes.
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  axes: ["opsz", "SOFT", "WONK"],
+  variable: "--font-fraunces",
+  display: "swap",
+});
+
+// Body / UI — clean, neutral, modern.
+const hanken = Hanken_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-hanken",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://leslin-portfolio.vercel.app"),
   title: {
-    template: "%s | Leslin K Seemon",
-    default: "Leslin K Seemon — Content & Growth. Writer. Kerala.",
+    template: "%s — Leslin K Seemon",
+    default: "Leslin K Seemon — Growth Operator + AI Systems Builder",
   },
   description:
-    "Content, AI-enabled growth, and full-stack building. Seven years of measured work, every number verified.",
+    "I find the growth problem, build the system that solves it, and write the thing that sells it. Kerala, India — remote and relocation both on the table.",
   openGraph: {
     type: "website",
     locale: "en_IN",
     siteName: "Leslin K Seemon",
-    title: "Leslin K Seemon — Content & Growth. Writer. Kerala.",
+    title: "Leslin K Seemon — Growth Operator + AI Systems Builder",
     description:
-      "Seven years turning content into measured growth. Every number verified.",
+      "One head holding the brand layer and the build layer. ₹16.8 Cr of social investment moved through comms, a clinical RAG architected end to end, a product built solo.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Leslin K Seemon — Content & Growth. Writer. Kerala.",
+    title: "Leslin K Seemon — Growth Operator + AI Systems Builder",
     description:
-      "Seven years turning content into measured growth. Every number verified.",
+      "One head holding the brand layer and the build layer. Kerala, India.",
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="en"
-      className={`${GeistSans.variable} ${GeistMono.variable}`}
+      className={`${hanken.variable} ${fraunces.variable} ${GeistMono.variable}`}
     >
-      <body className="antialiased">{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

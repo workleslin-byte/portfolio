@@ -5,8 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: "/studio/",
     },
-    sitemap: "https://leslin.in/sitemap.xml",
+    sitemap: "https://leslin-portfolio.vercel.app/sitemap.xml",
   };
 }

@@ -2,75 +2,334 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ══════════════════════════════════════════════════════════════════════════
+   TOKENS — light, warm, paper-toned editorial dossier.
+   The shell is paper + ink. Color is spent only on the accent and the two
+   holographic blobs. Each case study repaints itself inside its own section.
+   ══════════════════════════════════════════════════════════════════════════ */
 :root {
-  /* Ink base — the particle field reads against this; light sections
-     are opaque islands layered over it. */
-  --background: #111111;
-  --foreground: #FAFAF8;
+  --paper: #efede8; /* warm off-white, uncoated-stock feel */
+  --paper-2: #e7e4dd; /* faint panel tint */
+  --ink: #14110f; /* near-black text */
+  --ink-soft: #6e6a63; /* secondary text / captions */
+  --line: #d9d5cc; /* hairline rules / borders */
+  --accent: #c2381b; /* Grwth oxblood — markers, star, active nav, key data */
+
+  --gutter: clamp(1.25rem, 5vw, 5.5rem);
+  --maxw: 1440px;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: var(--ink);
+  background: var(--paper);
+  font-family: var(--font-hanken), system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Display face — Fraunces at high optical size = Didone-class contrast.
+   The smear treatment makes it the signature; the contrast carries it. */
+.font-display {
+  font-variation-settings: "opsz" 144, "SOFT" 0, "WONK" 0;
+  letter-spacing: -0.02em;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+  .text-pretty {
+    text-wrap: pretty;
+  }
 }
 
-/* ─── Gradient ambient orb drift ─────────────────────────────────────── */
-@keyframes orb-drift {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33%       { transform: translate(3%, 2%) scale(1.05); }
-  66%       { transform: translate(-2%, 3.5%) scale(0.97); }
+/* ══════════════════════════════════════════════════════════════════════════
+   FILM GRAIN — SVG feTurbulence, resolution-independent, ~0 bytes.
+   Fixed full-viewport, behind text, above background, low opacity.
+   ══════════════════════════════════════════════════════════════════════════ */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.055;
+  mix-blend-mode: multiply;
 }
 
-/* ─── Accent text shimmer sweep ──────────────────────────────────────── */
-@keyframes shimmer-text {
-  0%   { background-position: 0% center; }
-  100% { background-position: 200% center; }
+/* ══════════════════════════════════════════════════════════════════════════
+   THE SIGNATURE — motion-blur smear: arrives blurred + offset, settles sharp.
+   Never permanent blur on readable text. Reduced-motion = instant + sharp.
+   ══════════════════════════════════════════════════════════════════════════ */
+.smear {
+  filter: blur(14px);
+  opacity: 0;
+  transform: translateX(-24px) scaleX(1.06);
+  transition:
+    filter 0.75s cubic-bezier(0.2, 0.7, 0.2, 1),
+    opacity 0.75s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.75s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: filter, opacity, transform;
+}
+.smear.in {
+  filter: blur(0);
+  opacity: 1;
+  transform: none;
+}
+/* The italic portion smears harder and settles a beat later (print echo). */
+.smear em {
+  font-style: italic;
+  transition-duration: 0.95s;
+}
+.smear:not(.in) em {
+  filter: blur(8px);
+  transform: translateX(10px);
 }
 
-/* Gradient text on accent italic spans */
-.gradient-text-accent {
-  background: linear-gradient(135deg, #1F4FE0 0%, #638EFF 50%, #1F4FE0 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shimmer-text 5s linear infinite;
+/* Persistent ghost — divider words only. A blurred duplicate sits behind the
+   sharp, readable copy. The front copy is always crisp. */
+.ghost {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  filter: blur(10px);
+  opacity: 0.22;
+  transform: translateX(8px);
+  z-index: -1;
+}
+.ghost em {
+  font-style: italic;
 }
 
-/* Gradient text for large closing headline — white bleeding into blue */
-.gradient-text-closing {
-  background: linear-gradient(to right, #FAFAF8 20%, #8AABFF 80%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+@media (prefers-reduced-motion: reduce) {
+  .smear,
+  .smear em {
+    filter: none;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .ghost {
+    display: none;
+  }
 }
 
-/* Marquee edge fade — masks left/right 12% to transparent */
-.marquee-fade-mask {
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 10%,
-    black 90%,
-    transparent 100%
+/* ══════════════════════════════════════════════════════════════════════════
+   HOLOGRAPHIC BLOBS — exactly TWO site-wide. Heavy blur + grain on top.
+   ══════════════════════════════════════════════════════════════════════════ */
+.blob {
+  position: absolute;
+  width: 48vw;
+  height: 48vw;
+  max-width: 760px;
+  max-height: 760px;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+  background: conic-gradient(
+    from 90deg,
+    #ff4d8d,
+    #ff7a3d,
+    #6ee7e7,
+    #8b7cff,
+    #ff4d8d
   );
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 10%,
-    black 90%,
-    transparent 100%
-  );
+  animation: blob-drift 34s ease-in-out infinite;
+}
+@keyframes blob-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate(4%, -3%) scale(1.08) rotate(18deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .blob {
+    animation: none;
+  }
 }
 
-/* ─── Marquee scroll animation ───────────────────────────────────────── */
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+/* ══════════════════════════════════════════════════════════════════════════
+   RUNNING HEADS + FOLIOS — editorial page furniture on the viewport edges.
+   ══════════════════════════════════════════════════════════════════════════ */
+.runhead {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: var(--font-geist-mono), monospace;
+  font-weight: 600;
+  font-size: 10.5px;
+  line-height: 1;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  z-index: 30;
+  user-select: none;
+  pointer-events: none;
+}
+.runhead.left {
+  left: 16px;
+}
+.runhead.right {
+  right: 16px;
+}
+@media (max-width: 880px) {
+  .runhead {
+    display: none;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   ROTATING STAMP — curved text + 4-point star.
+   ══════════════════════════════════════════════════════════════════════════ */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.stamp-rotate {
+  animation: spin 32s linear infinite;
+  transform-origin: center;
+}
+@media (prefers-reduced-motion: reduce) {
+  .stamp-rotate {
+    animation: none;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   MASONRY — true masonry via CSS columns. Never an even card grid.
+   ══════════════════════════════════════════════════════════════════════════ */
+.masonry {
+  columns: 3;
+  column-gap: 16px;
+}
+.masonry > * {
+  break-inside: avoid;
+  margin-bottom: 16px;
+  border-radius: 14px;
+  overflow: hidden;
+}
+@media (max-width: 980px) {
+  .masonry {
+    columns: 2;
+  }
+}
+@media (max-width: 620px) {
+  .masonry {
+    columns: 1;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   PILL NAV — outlined, transparent on paper; active uses accent.
+   ══════════════════════════════════════════════════════════════════════════ */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+  font-family: var(--font-hanken), sans-serif;
+  font-size: 13px;
+  color: var(--ink);
+  background: transparent;
+  transition:
+    border-color 0.3s ease,
+    color 0.3s ease,
+    background 0.3s ease;
+  white-space: nowrap;
+}
+.pill:hover {
+  border-color: var(--ink);
+}
+.pill[data-active="true"] {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   STAGGERED LINE-DRAW — for the RAG architecture diagram on scroll.
+   ══════════════════════════════════════════════════════════════════════════ */
+.draw-line {
+  stroke-dasharray: var(--len, 600);
+  stroke-dashoffset: var(--len, 600);
+  transition: stroke-dashoffset 0.7s ease;
+}
+.draw-line.in {
+  stroke-dashoffset: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .draw-line {
+    stroke-dashoffset: 0;
+    transition: none;
+  }
+}
+
+/* Generic reveal for non-display elements (rows, columns, captions). */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Animated data bar grow. */
+.bar-grow {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.bar-grow.in {
+  transform: scaleX(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .bar-grow {
+    transform: scaleX(1);
+    transition: none;
+  }
 }

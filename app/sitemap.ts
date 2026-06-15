@@ -1,20 +1,12 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://leslin.in";
+const BASE_URL = "https://leslin-portfolio.vercel.app";
 
-const WORK_SLUGS = [
-  "blog-growth",
-  "seo",
-  "email-marketing",
-  "push-notifications",
-  "linkedin",
-  "long-form-writing",
-  "pocket-notes",
-];
+const CASE_ROUTES = ["capital", "systems", "product", "brand"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const workRoutes = WORK_SLUGS.map((slug) => ({
-    url: `${BASE_URL}/work/${slug}`,
+  const cases = CASE_ROUTES.map((slug) => ({
+    url: `${BASE_URL}/${slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.8,
@@ -27,12 +19,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 1,
     },
-    {
-      url: `${BASE_URL}/work`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.9,
-    },
-    ...workRoutes,
+    ...cases,
   ];
 }
