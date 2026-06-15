@@ -33,9 +33,11 @@ export async function POST(request: Request) {
 
   try {
     await resend.emails.send({
-      // TODO: replace with verified sender domain in Resend dashboard
+      // onboarding@resend.dev works without a verified domain but only
+      // delivers to the Resend account owner. Verify a domain to send freely.
       from: "Portfolio Contact <onboarding@resend.dev>",
-      to: process.env.CONTACT_EMAIL!,
+      to: process.env.CONTACT_EMAIL || "work.leslin@gmail.com",
+      replyTo: email,
       subject: `Portfolio enquiry from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
     });

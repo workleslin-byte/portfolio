@@ -1,10 +1,19 @@
 import CountUp from "@/components/motion/CountUp";
 
+type Tone = "money" | "reach" | "ink";
+
 type Row = {
   channel: string;
   tool: string;
   value: React.ReactNode;
-  accent?: boolean;
+  tone?: Tone;
+};
+
+/** Money metrics read oxblood, reach/volume metrics read Nilambur green. */
+const toneClass: Record<Tone, string> = {
+  money: "text-[color:var(--accent)]",
+  reach: "text-[color:var(--green)]",
+  ink: "text-ink",
 };
 
 /**
@@ -15,23 +24,26 @@ type Row = {
 const ROWS: Row[] = [
   {
     channel: "Email",
-    tool: "Klaviyo",
-    accent: true,
+    tool: "WebEngage",
+    tone: "money",
     value: <CountUp target={16.8} decimals={1} prefix="₹" suffix=" Cr" />,
   },
   {
     channel: "LinkedIn",
     tool: "impressions",
+    tone: "reach",
     value: <CountUp target={804} suffix="K" />,
   },
   {
     channel: "Long-form",
     tool: "reads",
-    value: <CountUp target={1.7} decimals={1} suffix="L+" />,
+    tone: "reach",
+    value: <CountUp target={2.0} decimals={1} suffix="L+" />,
   },
   {
     channel: "Push",
     tool: "CleverTap",
+    tone: "money",
     value: <CountUp target={39.33} decimals={2} prefix="₹" suffix="L" />,
   },
 ];
@@ -58,7 +70,7 @@ export default function StorytellerChannels() {
             </span>
             <span
               className={`font-display text-xl font-semibold tracking-tight tabular-nums ${
-                r.accent ? "text-[color:var(--accent)]" : "text-ink"
+                toneClass[r.tone ?? "ink"]
               }`}
             >
               {r.value}

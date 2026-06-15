@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
 import CaseHeader from "@/components/case/CaseHeader";
 import CasePager from "@/components/case/CasePager";
-import { Column, Kicker, P, Stats, Callout } from "@/components/case/Editorial";
+import { Column, Kicker, P, Stats, Callout, toneClass, type Tone } from "@/components/case/Editorial";
 import CountUp from "@/components/motion/CountUp";
 import ChannelGlyph from "@/components/case/ChannelGlyph";
+import TechLogo from "@/components/case/TechLogo";
 import ProgrammeBars from "@/components/viz/ProgrammeBars";
 
 export const metadata: Metadata = {
   title:
-    "Digital Storyteller — 804K impressions, ₹16.8 Cr revenue, 1.7L reads",
+    "Digital Storyteller — 804K impressions, ₹16.8 Cr revenue, 2.0L+ reads",
   description:
-    "Rang De, 2024–25. LinkedIn consistency, a ₹16.8 Cr email programme, push discipline — across channels with one editorial standard. All figures verified from LinkedIn, Klaviyo, and CleverTap exports.",
+    "Rang De, 2024–25. LinkedIn consistency, a ₹16.8 Cr email programme, push discipline — across channels with one editorial standard. All figures verified from LinkedIn, WebEngage, and CleverTap exports.",
 };
 
-/** Email revenue by programme — Klaviyo, Dec 2024–Dec 2025. Share of the
+/** Email revenue by programme — WebEngage, Dec 2024–Dec 2025. Share of the
  *  largest line (Transaction-Day, ₹6.65 Cr) drives the bar width. */
 const EMAIL_PROGRAMMES = [
   { label: "Transaction-day · 36 campaigns", value: 1, display: "₹6.65 Cr" },
@@ -48,10 +49,10 @@ export default function StorytellerPage() {
 
           <Stats
             items={[
-              { value: "804K", label: "LinkedIn impressions", accent: true },
-              { value: "₹16.8 Cr", label: "Email revenue attributed" },
-              { value: "₹39.33 L", label: "Push revenue" },
-              { value: "1.7L+", label: "Long-form reads" },
+              { value: "804K", label: "LinkedIn impressions", tone: "reach" },
+              { value: "₹16.8 Cr", label: "Email revenue attributed", tone: "money" },
+              { value: "₹39.33 L", label: "Push revenue", tone: "money" },
+              { value: "2.0L+", label: "Long-form reads", tone: "reach" },
             ]}
           />
         </Column>
@@ -80,7 +81,7 @@ export default function StorytellerPage() {
             </div>
 
             <div className="mb-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-              <Metric label="Impressions">
+              <Metric label="Impressions" tone="reach">
                 <CountUp target={804} suffix="K" eagerLoad />
               </Metric>
               <Metric label="Engagement rate">
@@ -145,14 +146,14 @@ export default function StorytellerPage() {
                   Email
                 </h2>
                 <p className="mt-2 font-mono text-[11px] uppercase tracking-wider text-ink-soft">
-                  The weekly newsletter, inside a ₹16.8 Cr programme · Klaviyo
+                  The weekly newsletter, inside a ₹16.8 Cr programme · WebEngage
                 </p>
               </div>
               <ChannelGlyph glyph="mail" tint="rgba(198, 56, 27, 0.08)" />
             </div>
 
             <div className="mb-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-              <Metric label="Revenue attributed" accent>
+              <Metric label="Revenue attributed" tone="money">
                 <CountUp target={16.8} decimals={1} prefix="₹" suffix=" Cr" />
               </Metric>
               <Metric label="Emails delivered">
@@ -208,7 +209,7 @@ export default function StorytellerPage() {
             </div>
 
             <div className="mb-8 grid gap-6 md:grid-cols-3">
-              <Metric label="Revenue attributed" accent>
+              <Metric label="Revenue attributed" tone="money">
                 <CountUp target={39.33} decimals={2} prefix="₹" suffix="L" />
               </Metric>
               <Metric label="Campaigns">
@@ -248,11 +249,11 @@ export default function StorytellerPage() {
                   From side page to primary discovery channel · GA4
                 </p>
               </div>
-              <ChannelGlyph glyph="chart" tint="rgba(31, 148, 77, 0.10)" />
+              <TechLogo slug="googleanalytics" name="Google Analytics" tint="rgba(31, 148, 77, 0.10)" />
             </div>
 
             <div className="mb-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-              <Metric label="Sessions · FY25 (+120% YoY)" accent>
+              <Metric label="Sessions · FY25 (+120% YoY)" tone="reach">
                 <CountUp target={31464} />
               </Metric>
               <Metric label="Blog views (+98% YoY)">
@@ -296,11 +297,11 @@ export default function StorytellerPage() {
                   Organic visibility, no paid placements · SEMrush India
                 </p>
               </div>
-              <ChannelGlyph glyph="search" tint="rgba(198, 56, 27, 0.08)" />
+              <TechLogo slug="semrush" name="Semrush" tint="rgba(198, 56, 27, 0.08)" />
             </div>
 
             <div className="mb-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-              <Metric label="Organic traffic (+97% YoY)" accent>
+              <Metric label="Organic traffic (+97% YoY)" tone="reach">
                 <CountUp target={20.2} decimals={1} suffix="K" />
               </Metric>
               <Metric label="Top-100 keywords">
@@ -365,18 +366,18 @@ export default function StorytellerPage() {
                   Long-Form Writing
                 </h2>
                 <p className="mt-2 font-mono text-[11px] uppercase tracking-wider text-ink-soft">
-                  1.7L+ reads on rural India · FY24–25
+                  2.0L+ reads on rural India · FY24–25
                 </p>
               </div>
               <ChannelGlyph glyph="article" tint="rgba(31, 148, 77, 0.08)" />
             </div>
 
             <div className="mb-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-              <Metric label="Reads · top 9 articles" accent>
-                <CountUp target={1.7} decimals={1} suffix="L+" />
+              <Metric label="Cumulative reads" tone="reach">
+                <CountUp target={2.0} decimals={1} suffix="L+" />
               </Metric>
               <Metric label="Articles published">
-                <CountUp target={9} />
+                <CountUp target={356} />
               </Metric>
               <Metric label="Average read time">
                 <CountUp target={8} prefix="~" suffix=" min" />
@@ -474,22 +475,20 @@ export default function StorytellerPage() {
   );
 }
 
-/** A single channel metric: large accent/ink number over a mono label. */
+/** A single channel metric: large number (toned by meaning) over a mono label. */
 function Metric({
   label,
-  accent = false,
+  tone = "ink",
   children,
 }: {
   label: string;
-  accent?: boolean;
+  tone?: Tone;
   children: React.ReactNode;
 }) {
   return (
     <div>
       <div
-        className={`font-display text-[clamp(1.9rem,3.4vw,2.6rem)] font-semibold leading-none tracking-tight ${
-          accent ? "text-[color:var(--accent)]" : "text-ink"
-        }`}
+        className={`font-display text-[clamp(1.9rem,3.4vw,2.6rem)] font-semibold leading-none tracking-tight ${toneClass[tone]}`}
       >
         {children}
       </div>

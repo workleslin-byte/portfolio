@@ -33,11 +33,19 @@ export function Column({ children }: { children: ReactNode }) {
   return <div className="mx-auto max-w-2xl space-y-6">{children}</div>;
 }
 
+/** Money metrics read oxblood, reach/volume metrics read Nilambur green. */
+export type Tone = "money" | "reach" | "ink";
+export const toneClass: Record<Tone, string> = {
+  money: "text-[color:var(--accent)]",
+  reach: "text-[color:var(--green)]",
+  ink: "text-ink",
+};
+
 /** A horizontal row of headline stats. */
 export function Stats({
   items,
 }: {
-  items: { value: string; label: string; accent?: boolean }[];
+  items: { value: string; label: string; tone?: Tone }[];
 }) {
   return (
     <Reveal className="panel grid grid-cols-2 gap-x-8 gap-y-8 p-7 sm:grid-cols-4 sm:p-8">
@@ -45,7 +53,7 @@ export function Stats({
         <div key={s.label}>
           <p
             className={`font-display text-[clamp(1.5rem,3vw,2.1rem)] font-semibold leading-none tracking-tight ${
-              s.accent ? "text-[color:var(--accent)]" : "text-ink"
+              toneClass[s.tone ?? "ink"]
             }`}
           >
             {s.value}

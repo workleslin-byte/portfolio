@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { ElementType, ReactNode } from "react";
 import Smear from "@/components/motion/Smear";
 import Glow from "./Glow";
 import Star from "./Star";
@@ -24,6 +24,7 @@ export default function SectionDivider({
   label,
   meta,
   glow,
+  wordAs = "h2",
   wordClassName = "text-[clamp(3.5rem,15vw,13rem)]",
 }: {
   id?: string;
@@ -34,6 +35,9 @@ export default function SectionDivider({
   label: string;
   meta: DividerMeta;
   glow?: [string, string];
+  /** Heading level for the display word. Case pages pass "p" so the word
+   *  doesn't precede the page <h1>. */
+  wordAs?: ElementType;
   wordClassName?: string;
 }) {
   return (
@@ -49,7 +53,7 @@ export default function SectionDivider({
 
       <div className="relative z-10 flex min-h-[80vh] flex-col items-center justify-center px-[var(--gutter)] py-24 text-center">
         <Smear
-          as="h2"
+          as={wordAs}
           ghost
           className={`${wordClassName} font-semibold leading-[0.9]`}
         >

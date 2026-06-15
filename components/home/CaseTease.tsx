@@ -59,7 +59,7 @@ export default function CaseTease({
 
             <Link
               href={c.href}
-              className="group mt-8 inline-flex w-fit items-center gap-2 font-mono text-[12px] uppercase tracking-[0.16em] text-ink transition-colors hover:text-[color:var(--accent)]"
+              className="group mt-8 inline-flex w-fit items-center gap-2 rounded-full border border-[color:var(--accent)]/45 px-5 py-2.5 font-mono text-[12px] uppercase tracking-[0.16em] text-[color:var(--accent)] transition-colors duration-300 hover:bg-[color:var(--accent)] hover:text-[color:var(--paper)]"
             >
               Read the full case
               <span

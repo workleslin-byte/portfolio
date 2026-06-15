@@ -19,10 +19,10 @@ export default function SiteFooter() {
 
         <div className="flex flex-col gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-soft md:text-right">
           <a
-            href="mailto:leslin@pocketnotes.in"
+            href="mailto:work.leslin@gmail.com"
             className="transition-colors hover:text-ink"
           >
-            leslin@pocketnotes.in
+            work.leslin@gmail.com
           </a>
           <a
             href="https://www.linkedin.com/in/leslin-k-seemon"

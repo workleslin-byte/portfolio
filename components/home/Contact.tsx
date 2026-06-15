@@ -2,8 +2,8 @@ import Smear from "@/components/motion/Smear";
 import Glow from "@/components/shell/Glow";
 import SendGlyph from "@/components/shell/SendGlyph";
 
-const CALENDLY = "https://calendly.com/ks-leslin"; // TODO: confirm real Calendly slug
-const EMAIL = "leslin@pocketnotes.in";
+const CALENDLY = "https://cal.id/leslin-k-seemon";
+const EMAIL = "work.leslin@gmail.com";
 const LINKEDIN = "https://www.linkedin.com/in/leslin-k-seemon";
 
 /**

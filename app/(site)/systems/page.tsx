@@ -77,7 +77,7 @@ export default function SystemsPage() {
 
             <Stats
               items={[
-                { value: "4,059", label: "Retrievable clinical chunks", accent: true },
+                { value: "4,059", label: "Retrievable clinical chunks", tone: "reach" },
                 { value: "10", label: "Source guidelines" },
                 { value: "14", label: "Metadata fields per chunk" },
                 { value: "1,024-d", label: "bge-large vectors · pgvector" },

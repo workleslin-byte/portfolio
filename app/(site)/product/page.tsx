@@ -12,7 +12,13 @@ export const metadata: Metadata = {
 };
 
 const GOLD = "#A8842E"; // aged gold — Pocket Notes' own accent, used only here
-const STACK = ["Next.js", "Payload CMS", "Neon Postgres", "Vercel", "Resend"];
+const STACK = [
+  { name: "Next.js", slug: "nextdotjs" },
+  { name: "Payload CMS", slug: "payloadcms" },
+  { name: "Neon Postgres", slug: "neon" },
+  { name: "Vercel", slug: "vercel" },
+  { name: "Resend", slug: "resend" },
+];
 
 export default function ProductPage() {
   return (
@@ -44,14 +50,22 @@ export default function ProductPage() {
           >
             The stack — built solo
           </p>
-          <ul className="flex flex-wrap gap-2">
+          <ul className="flex flex-wrap gap-2.5">
             {STACK.map((s) => (
               <li
-                key={s}
-                className="rounded-full border px-4 py-1.5 font-mono text-[12px] text-ink"
+                key={s.name}
+                className="inline-flex items-center gap-2 rounded-full border px-4 py-2 font-mono text-[12px] text-ink"
                 style={{ borderColor: GOLD }}
               >
-                {s}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`/logos/${s.slug}.svg`}
+                  alt={`${s.name} logo`}
+                  width={14}
+                  height={14}
+                  loading="lazy"
+                />
+                {s.name}
               </li>
             ))}
           </ul>

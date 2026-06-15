@@ -17,12 +17,13 @@ export default function CaseHeader({ id }: { id: CaseId }) {
         label={c.section}
         meta={c.meta}
         glow={c.glow}
+        wordAs="p"
       />
 
       <div className="mx-auto max-w-dossier px-[var(--gutter)] pt-16 md:pt-24">
         <div className="max-w-3xl">
           <p className="mb-5 font-mono text-[11px] uppercase tracking-[0.2em] text-ink-soft">
-            {c.num} — {c.metric.value} · {c.metric.label}
+            {c.num} — {c.metric.label}
           </p>
           <h1 className="font-display text-[clamp(1.9rem,4vw,3rem)] font-semibold leading-[1.08] tracking-tight text-ink">
             {c.headline}

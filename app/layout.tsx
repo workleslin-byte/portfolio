@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Fraunces, Hanken_Grotesk } from "next/font/google";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
@@ -41,6 +41,10 @@ export const metadata: Metadata = {
     description:
       "One head holding the brand layer and the build layer. Kerala, India.",
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#efede8",
 };
 
 export default function RootLayout({

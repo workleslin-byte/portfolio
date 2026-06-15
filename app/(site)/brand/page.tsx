@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import CaseHeader from "@/components/case/CaseHeader";
 import CasePager from "@/components/case/CasePager";
 import { Column, Kicker, Subhead, P, Callout } from "@/components/case/Editorial";
-import AssetSlot from "@/components/shell/AssetSlot";
-import Deck, { type DeckTile } from "@/components/case/Deck";
+import SlideDeck, { type Slide } from "@/components/case/SlideDeck";
 
 export const metadata: Metadata = {
   title: "Brand — a full identity for an agro company",
@@ -24,25 +24,68 @@ const PALETTE = [
   { hex: "#04150B", name: "Black" },
 ];
 
-// The packaging system, rendered in the live palette — drop hi-res photography
-// into the same rail later.
-const NILAMBUR_PRODUCTS: DeckTile[] = [
-  { name: "Nilambur Farms", sub: "Leaf + mountain mark", hex: "#046530", glyph: "mountain", wordmark: "The identity" },
-  { name: "Natural Honey", sub: "Raw · Wayanad", hex: "#1F944D", glyph: "jar" },
-  { name: "Vechur Cow Ghee", sub: "A2 · small-batch", hex: "#118441", glyph: "jar" },
-  { name: "Coffee Beans", sub: "Single origin", hex: "#04150B", glyph: "jar" },
-  { name: "Kasthuri Manjal", sub: "Turmeric powder", hex: "#33B763", glyph: "leaf" },
-  { name: "Dried Jackfruit", sub: "Sun-dried", hex: "#046530", glyph: "leaf" },
+// Real slides from the Grwth × Nilambur Farms branding deck.
+const DECK_SLIDES: Slide[] = [
+  {
+    src: "/brand/mockup-honey.png",
+    alt: "Natural Honey jar carrying the Nilambur Farms label",
+    caption: "Product mockup — Natural Honey",
+  },
+  {
+    src: "/brand/guidelines.png",
+    alt: "Nilambur Farms brand guidelines cover",
+    caption: "Brand guidelines — visual identity v1",
+  },
+  {
+    src: "/brand/client-brief.png",
+    alt: "Client brief — core identity pillars",
+    caption: "Client brief — core identity",
+  },
+  {
+    src: "/brand/moodboard.png",
+    alt: "Moodboard — colours, fonts, and forest references",
+    caption: "Moodboard — palette & type direction",
+  },
+  {
+    src: "/brand/cover.png",
+    alt: "Branding deck cover — branding for an agro company",
+    caption: "The deck — branding for an agro company",
+  },
 ];
 
-// Grwth — the side shop. Oxblood, the house accent.
-const AGENCY_TILES: DeckTile[] = [
-  { name: "Grwth", sub: "Brand & growth shop", hex: "#C2381B", glyph: "spark", wordmark: "Other work" },
-  { name: "Brand identity", sub: "Naming → system", hex: "#9E2C14", glyph: "spark", wordmark: "Grwth" },
-  { name: "Content strategy", sub: "Editorial → SEO", hex: "#7A2210", glyph: "spark", wordmark: "Grwth" },
-  { name: "Full-funnel growth", sub: "Acquisition → retention", hex: "#56180C", glyph: "spark", wordmark: "Grwth" },
-  { name: "Client work", sub: "Case studies on request", hex: "#2A0E08", glyph: "spark", wordmark: "Grwth" },
-];
+function Plate({
+  src,
+  alt,
+  w,
+  h,
+  caption,
+  green = false,
+}: {
+  src: string;
+  alt: string;
+  w: number;
+  h: number;
+  caption?: string;
+  green?: boolean;
+}) {
+  return (
+    <figure>
+      <div className="overflow-hidden rounded-2xl border border-line bg-paper-2/30">
+        <Image src={src} alt={alt} width={w} height={h} className="h-auto w-full" />
+      </div>
+      {caption ? (
+        <figcaption
+          className={`mt-3 font-mono text-[10px] uppercase tracking-[0.14em] ${
+            green ? "" : "text-ink-soft"
+          }`}
+          style={green ? { color: GREEN } : undefined}
+        >
+          {caption}
+        </figcaption>
+      ) : null}
+    </figure>
+  );
+}
 
 export default function BrandPage() {
   return (
@@ -58,31 +101,13 @@ export default function BrandPage() {
           >
             Before → after
           </p>
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-            <div>
-              <AssetSlot
-                label="Old mark — Pepper Valley Farm (busy, illustrative)"
-                file="/brand-old-pepper-valley.png"
-                ratio="4 / 3"
-              />
-              <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.14em] text-ink-soft">
-                Before
-              </p>
-            </div>
-            <div>
-              <AssetSlot
-                label="New identity — Nilambur Farms (clean, recallable)"
-                file="/brand-new-nilambur.svg"
-                ratio="4 / 3"
-              />
-              <p
-                className="mt-2 font-mono text-[10px] uppercase tracking-[0.14em]"
-                style={{ color: GREEN }}
-              >
-                After
-              </p>
-            </div>
-          </div>
+          <Plate
+            src="/brand/before-after.png"
+            alt="The old, busy Pepper Valley Farm illustration beside the clean new Nilambur Farms mark"
+            w={1728}
+            h={1117}
+            caption="From the busy Pepper Valley Farm illustration to a clean, recallable Nilambur Farms mark."
+          />
         </div>
 
         {/* The judgment beat + symbol exploration */}
@@ -96,10 +121,21 @@ export default function BrandPage() {
             </Callout>
           </Column>
           <div className="mx-auto mt-10 max-w-dossier">
-            <AssetSlot
-              label="Symbol exploration grid — palm · coconut · teak · leaf · mountain"
-              file="/brand-symbol-exploration.png"
-              ratio="16 / 7"
+            <Plate
+              src="/brand/symbol-hill.png"
+              alt="Symbol exploration converging on a hill / mountain mark"
+              w={1728}
+              h={1117}
+              caption="Symbol exploration — converging on the hill."
+            />
+          </div>
+          <div className="mx-auto mt-6 max-w-dossier">
+            <Plate
+              src="/brand/logo-reveal.png"
+              alt="The final Nilambur Farms logo with the 60/40 name-to-symbol balance"
+              w={1728}
+              h={1117}
+              caption="The mark — 60 / 40 name-to-symbol balance, tuned for recall."
             />
           </div>
         </div>
@@ -118,7 +154,7 @@ export default function BrandPage() {
             </P>
           </Column>
 
-          {/* Palette — real swatches, no asset needed */}
+          {/* Palette — real swatches */}
           <div className="mx-auto mt-12 max-w-dossier">
             <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.2em] text-ink-soft">
               Palette
@@ -163,32 +199,40 @@ export default function BrandPage() {
             </div>
           </div>
 
-          {/* Usage system */}
-          <div className="mx-auto mt-6 max-w-dossier">
-            <AssetSlot
-              label="Logo system — safe space · mono · usage do's & don'ts"
-              file="/brand-logo-system.png"
-              ratio="16 / 9"
+          {/* Safe space + usage */}
+          <div className="mx-auto mt-8 grid max-w-dossier gap-5 md:grid-cols-2">
+            <Plate
+              src="/brand/logo-safespace.png"
+              alt="Logo safe-space and clear-space construction"
+              w={1728}
+              h={972}
+              caption="Clear space — built on the x-height of the mark."
+            />
+            <Plate
+              src="/brand/logo-usage.png"
+              alt="Logo usage across light, dark, and photographic backgrounds"
+              w={1728}
+              h={972}
+              caption="Usage — across light, dark, and photographic grounds."
             />
           </div>
         </div>
 
-        {/* Payoff — packaging system as a horizontal deck */}
+        {/* Payoff — the deck */}
         <div className="mx-auto mt-20 max-w-dossier">
           <p
             className="mb-6 font-mono text-[11px] uppercase tracking-[0.2em]"
             style={{ color: GREEN }}
           >
-            The payoff — the packaging system
+            The payoff — the brand deck
           </p>
-          <Deck tiles={NILAMBUR_PRODUCTS} />
+          <SlideDeck slides={DECK_SLIDES} />
           <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.12em] text-ink-soft">
-            Label system shown in the live Nilambur ramp · scroll →
-            hi-res product photography drops into the same rail.
+            Scroll → real slides from the Grwth × Nilambur Farms branding deck.
           </p>
         </div>
 
-        {/* Other work — the Grwth agency strip */}
+        {/* Other work — the Grwth shop */}
         <div className="mx-auto mt-24 max-w-dossier border-t border-line pt-16">
           <Kicker>Other work</Kicker>
           <Subhead>Grwth — my brand &amp; growth shop.</Subhead>
@@ -199,7 +243,12 @@ export default function BrandPage() {
             studies available on request.
           </p>
           <div className="mt-8">
-            <Deck tiles={AGENCY_TILES} />
+            <Plate
+              src="/brand/grwth-cover.png"
+              alt="Grwth — nurture potential, accelerate growth"
+              w={1728}
+              h={1117}
+            />
           </div>
         </div>
       </div>
