@@ -3,12 +3,12 @@ import Image from "next/image";
 import CaseHeader from "@/components/case/CaseHeader";
 import CasePager from "@/components/case/CasePager";
 import { Column, Kicker, Subhead, P, Callout } from "@/components/case/Editorial";
-import SlideDeck, { type Slide } from "@/components/case/SlideDeck";
+import Gallery, { type GalleryItem } from "@/components/case/Gallery";
 
 export const metadata: Metadata = {
   title: "Brand — a full identity for an agro company",
   description:
-    "Grwth × Nilambur Farms, 2024. From the busy old Pepper Valley mark to a clean, recallable identity — naming, symbol exploration, palette, type, and the jar on the shelf.",
+    "Grwth × Nilambur Farms, 2024. From the busy old Pepper Valley mark to a clean, recallable identity — moodboard, symbol exploration, wordmark, and the jar on the shelf.",
 };
 
 const GREEN = "#1F944D";
@@ -24,68 +24,40 @@ const PALETTE = [
   { hex: "#04150B", name: "Black" },
 ];
 
-// Real slides from the Grwth × Nilambur Farms branding deck.
-const DECK_SLIDES: Slide[] = [
-  {
-    src: "/brand/mockup-honey.png",
-    alt: "Natural Honey jar carrying the Nilambur Farms label",
-    caption: "Product mockup — Natural Honey",
-  },
-  {
-    src: "/brand/guidelines.png",
-    alt: "Nilambur Farms brand guidelines cover",
-    caption: "Brand guidelines — visual identity v1",
-  },
-  {
-    src: "/brand/client-brief.png",
-    alt: "Client brief — core identity pillars",
-    caption: "Client brief — core identity",
-  },
-  {
-    src: "/brand/moodboard.png",
-    alt: "Moodboard — colours, fonts, and forest references",
-    caption: "Moodboard — palette & type direction",
-  },
-  {
-    src: "/brand/cover.png",
-    alt: "Branding deck cover — branding for an agro company",
-    caption: "The deck — branding for an agro company",
-  },
+// The logo journey — moodboard references → symbol exploration → wordmark →
+// landing on the mountain → the final mark.
+const BUILD: GalleryItem[] = [
+  { src: "/brand/build/01.png", caption: "Nilambur — from where you are", alt: "The Nilambur hills, the brand's home" },
+  { src: "/brand/build/02.png", caption: "Reference — mandala geometry", alt: "Crown-chakra mandala references" },
+  { src: "/brand/build/03.png", caption: "Reference — tree-in-circle marks", alt: "Treeline reference logo on a mountain photo" },
+  { src: "/brand/build/04.png", caption: "Reference — palm badge lockups", alt: "Palm badge reference logo" },
+  { src: "/brand/build/05.png", caption: "Symbols — field & forest", alt: "Early field and forest symbol concepts" },
+  { src: "/brand/build/06.png", caption: "Symbols — palm & leaf", alt: "Palm and leaf symbol explorations" },
+  { src: "/brand/build/07.png", caption: "Symbols — palm, coconut, leaf", alt: "Palm, coconut and leaf symbol sheet" },
+  { src: "/brand/build/08.png", caption: "Symbols — mandala geometry", alt: "Mandala symbol explorations" },
+  { src: "/brand/build/09.png", caption: "Wordmark — font journey", alt: "Palm mark with wordmark font tests" },
+  { src: "/brand/build/10.png", caption: "Wordmark — script refinements", alt: "Script wordmark refinements" },
+  { src: "/brand/build/11.png", caption: "Lockups — directions explored", alt: "Logo lockup explorations" },
+  { src: "/brand/build/12.png", caption: "Landing on the mountain", alt: "Mountain-in-circle badge versions" },
+  { src: "/brand/logo-reveal.png", caption: "The final mark", alt: "The final Nilambur Farms mountain logo" },
 ];
 
-function Plate({
-  src,
-  alt,
-  w,
-  h,
-  caption,
-  green = false,
-}: {
-  src: string;
-  alt: string;
-  w: number;
-  h: number;
-  caption?: string;
-  green?: boolean;
-}) {
-  return (
-    <figure>
-      <div className="overflow-hidden rounded-2xl border border-line bg-paper-2/30">
-        <Image src={src} alt={alt} width={w} height={h} className="h-auto w-full" />
-      </div>
-      {caption ? (
-        <figcaption
-          className={`mt-3 font-mono text-[10px] uppercase tracking-[0.14em] ${
-            green ? "" : "text-ink-soft"
-          }`}
-          style={green ? { color: GREEN } : undefined}
-        >
-          {caption}
-        </figcaption>
-      ) : null}
-    </figure>
-  );
-}
+// The core branding deck, in presentation order.
+const DECK: GalleryItem[] = [
+  { src: "/brand/cover.png", num: "—", caption: "The deck", alt: "Branding deck cover — branding for an agro company" },
+  { src: "/brand/before-after.png", num: "01", caption: "Old → new mark", alt: "Old Pepper Valley mark vs the new Nilambur mark" },
+  { src: "/brand/client-brief.png", num: "02", caption: "Client brief", alt: "Client brief — core identity pillars" },
+  { src: "/brand/moodboard.png", num: "03", caption: "Moodboard", alt: "Moodboard — colour, type, and references" },
+  { src: "/brand/name.png", num: "04", caption: "Brand name", alt: "Brand name — Nilambur Farms" },
+  { src: "/brand/symbols.png", num: "05", caption: "Symbol exploration", alt: "Symbol exploration — palm, coconut, teak, leaf, mountain" },
+  { src: "/brand/fonts-hand.png", num: "06", caption: "Type — handwritten", alt: "Font choices — handwritten journey" },
+  { src: "/brand/fonts-block.png", num: "07", caption: "Type — the outcome", alt: "Font choices — the Chillax outcome" },
+  { src: "/brand/symbol-hill.png", num: "09", caption: "Final visual cue — hill", alt: "Final visual cue — the hill" },
+  { src: "/brand/logo-reveal.png", num: "10", caption: "Logo & balance", alt: "Logo and brand name — 60/40 balance" },
+  { src: "/brand/mockup-honey.png", num: "11", caption: "Mockups — honey", alt: "Product mockup — Natural Honey" },
+  { src: "/brand/mockup-ghee.png", num: "12", caption: "Mockups — ghee & coffee", alt: "Product mockups — ghee and coffee" },
+  { src: "/brand/mockup-manjal.png", num: "13", caption: "Mockups — manjal & jackfruit", alt: "Product mockups — manjal and jackfruit" },
+];
 
 export default function BrandPage() {
   return (
@@ -101,16 +73,24 @@ export default function BrandPage() {
           >
             Before → after
           </p>
-          <Plate
-            src="/brand/before-after.png"
-            alt="The old, busy Pepper Valley Farm illustration beside the clean new Nilambur Farms mark"
-            w={1728}
-            h={1117}
-            caption="From the busy Pepper Valley Farm illustration to a clean, recallable Nilambur Farms mark."
-          />
+          <figure>
+            <div className="overflow-hidden rounded-2xl border border-line bg-paper-2/30">
+              <Image
+                src="/brand/before-after.png"
+                alt="The old, busy Pepper Valley Farm illustration beside the clean new Nilambur Farms mark"
+                width={1728}
+                height={1117}
+                className="h-auto w-full"
+              />
+            </div>
+            <figcaption className="mt-3 font-mono text-[10px] uppercase tracking-[0.14em] text-ink-soft">
+              From the busy Pepper Valley Farm illustration to a clean,
+              recallable Nilambur Farms mark.
+            </figcaption>
+          </figure>
         </div>
 
-        {/* The judgment beat + symbol exploration */}
+        {/* The judgment beat */}
         <div className="mt-20">
           <Column>
             <Callout label="The decision that mattered">
@@ -120,24 +100,18 @@ export default function BrandPage() {
               relatable cue for the audience.
             </Callout>
           </Column>
-          <div className="mx-auto mt-10 max-w-dossier">
-            <Plate
-              src="/brand/symbol-hill.png"
-              alt="Symbol exploration converging on a hill / mountain mark"
-              w={1728}
-              h={1117}
-              caption="Symbol exploration — converging on the hill."
-            />
-          </div>
-          <div className="mx-auto mt-6 max-w-dossier">
-            <Plate
-              src="/brand/logo-reveal.png"
-              alt="The final Nilambur Farms logo with the 60/40 name-to-symbol balance"
-              w={1728}
-              h={1117}
-              caption="The mark — 60 / 40 name-to-symbol balance, tuned for recall."
-            />
-          </div>
+        </div>
+
+        {/* How the mark was built */}
+        <div className="mx-auto mt-16 max-w-dossier">
+          <Kicker>The logo journey</Kicker>
+          <Subhead>How the mark was built.</Subhead>
+          <p className="mb-8 mt-4 max-w-2xl font-sans text-[15px] leading-relaxed text-ink/80">
+            From the hills of Nilambur and a wall of references, through symbol
+            and wordmark exploration, to the mountain the brand finally stood on.
+            Tap any tile to enlarge.
+          </p>
+          <Gallery items={BUILD} layout="grid" />
         </div>
 
         {/* The system */}
@@ -198,37 +172,19 @@ export default function BrandPage() {
               </p>
             </div>
           </div>
-
-          {/* Safe space + usage */}
-          <div className="mx-auto mt-8 grid max-w-dossier gap-5 md:grid-cols-2">
-            <Plate
-              src="/brand/logo-safespace.png"
-              alt="Logo safe-space and clear-space construction"
-              w={1728}
-              h={972}
-              caption="Clear space — built on the x-height of the mark."
-            />
-            <Plate
-              src="/brand/logo-usage.png"
-              alt="Logo usage across light, dark, and photographic backgrounds"
-              w={1728}
-              h={972}
-              caption="Usage — across light, dark, and photographic grounds."
-            />
-          </div>
         </div>
 
-        {/* Payoff — the deck */}
+        {/* The deck, in order */}
         <div className="mx-auto mt-20 max-w-dossier">
           <p
             className="mb-6 font-mono text-[11px] uppercase tracking-[0.2em]"
             style={{ color: GREEN }}
           >
-            The payoff — the brand deck
+            The branding deck — in order
           </p>
-          <SlideDeck slides={DECK_SLIDES} />
+          <Gallery items={DECK} layout="grid" />
           <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.12em] text-ink-soft">
-            Scroll → real slides from the Grwth × Nilambur Farms branding deck.
+            Tap any slide to open it full-size · the Grwth × Nilambur Farms deck.
           </p>
         </div>
 
@@ -242,12 +198,13 @@ export default function BrandPage() {
             that doesn&apos;t look like everyone else&apos;s. Logo and case
             studies available on request.
           </p>
-          <div className="mt-8">
-            <Plate
+          <div className="mx-auto mt-8 max-w-md overflow-hidden rounded-2xl border border-line">
+            <Image
               src="/brand/agency.png"
               alt="Grwth — get. set. grow."
-              w={2880}
-              h={2048}
+              width={2880}
+              height={2048}
+              className="h-auto w-full"
             />
           </div>
         </div>
