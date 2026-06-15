@@ -244,10 +244,10 @@ export default function BrandPage() {
           </p>
           <div className="mt-8">
             <Plate
-              src="/brand/grwth-cover.png"
-              alt="Grwth — nurture potential, accelerate growth"
-              w={1728}
-              h={1117}
+              src="/brand/agency.png"
+              alt="Grwth — get. set. grow."
+              w={2880}
+              h={2048}
             />
           </div>
         </div>
