@@ -40,7 +40,7 @@ export default function PillNav({ home = false }: { home?: boolean }) {
   }, [home]);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/40 bg-[color:var(--paper)]/70 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.6)] backdrop-blur-xl supports-[backdrop-filter]:bg-[color:var(--paper)]/55">
+    <header className="sticky top-0 z-50 w-full border-b border-line/70 bg-[color:var(--paper)]/85 backdrop-blur-md supports-[backdrop-filter]:bg-[color:var(--paper)]/75">
       <div className="mx-auto flex max-w-dossier items-center justify-between gap-4 px-[var(--gutter)] py-4">
         <Link
           href="/"

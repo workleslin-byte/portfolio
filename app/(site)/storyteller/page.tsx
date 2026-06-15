@@ -62,7 +62,7 @@ export default function StorytellerPage() {
       <div className="border-t border-line px-[var(--gutter)] py-16 md:py-24">
         <div className="mx-auto max-w-dossier">
           <div
-            className="panel rounded-2xl p-8 md:p-10"
+            className="rounded-2xl border border-line p-8 md:p-10"
             style={{
               backgroundImage:
                 "linear-gradient(135deg, rgba(31, 148, 77, 0.05) 0%, rgba(198, 56, 27, 0.02) 100%)",
@@ -134,7 +134,7 @@ export default function StorytellerPage() {
       <div className="border-t border-line px-[var(--gutter)] py-16 md:py-24">
         <div className="mx-auto max-w-dossier">
           <div
-            className="panel rounded-2xl p-8 md:p-10"
+            className="rounded-2xl border border-line p-8 md:p-10"
             style={{
               backgroundImage:
                 "linear-gradient(135deg, rgba(198, 56, 27, 0.05) 0%, rgba(31, 148, 77, 0.02) 100%)",
@@ -190,7 +190,7 @@ export default function StorytellerPage() {
       <div className="border-t border-line px-[var(--gutter)] py-16 md:py-24">
         <div className="mx-auto max-w-dossier">
           <div
-            className="panel rounded-2xl p-8 md:p-10"
+            className="rounded-2xl border border-line p-8 md:p-10"
             style={{
               backgroundImage:
                 "linear-gradient(135deg, rgba(198, 56, 27, 0.04) 0%, rgba(31, 148, 77, 0.03) 100%)",
@@ -234,7 +234,7 @@ export default function StorytellerPage() {
       <div className="border-t border-line px-[var(--gutter)] py-16 md:py-24">
         <div className="mx-auto max-w-dossier">
           <div
-            className="panel rounded-2xl p-8 md:p-10"
+            className="rounded-2xl border border-line p-8 md:p-10"
             style={{
               backgroundImage:
                 "linear-gradient(135deg, rgba(31, 148, 77, 0.05) 0%, rgba(198, 56, 27, 0.02) 100%)",
@@ -282,7 +282,7 @@ export default function StorytellerPage() {
       <div className="border-t border-line px-[var(--gutter)] py-16 md:py-24">
         <div className="mx-auto max-w-dossier">
           <div
-            className="panel rounded-2xl p-8 md:p-10"
+            className="rounded-2xl border border-line p-8 md:p-10"
             style={{
               backgroundImage:
                 "linear-gradient(135deg, rgba(198, 56, 27, 0.05) 0%, rgba(31, 148, 77, 0.02) 100%)",
@@ -354,7 +354,7 @@ export default function StorytellerPage() {
       <div className="border-t border-line px-[var(--gutter)] py-16 md:py-24">
         <div className="mx-auto max-w-dossier">
           <div
-            className="panel rounded-2xl p-8 md:p-10"
+            className="rounded-2xl border border-line p-8 md:p-10"
             style={{
               backgroundImage:
                 "linear-gradient(135deg, rgba(31, 148, 77, 0.04) 0%, rgba(198, 56, 27, 0.03) 100%)",

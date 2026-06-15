@@ -50,7 +50,7 @@ const ROWS: Row[] = [
 
 export default function StorytellerChannels() {
   return (
-    <div className="panel rounded-2xl p-6 md:p-8">
+    <div className="rounded-2xl border border-line p-6 md:p-8">
       <p className="mb-5 font-mono text-[11px] uppercase tracking-[0.2em] text-ink-soft">
         One year, four channels · Rang De
       </p>
