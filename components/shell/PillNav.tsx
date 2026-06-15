@@ -8,10 +8,10 @@ import SendGlyph from "./SendGlyph";
 type Item = { label: string; href: string; id?: string };
 
 const ITEMS: Item[] = [
-  { label: "Capital", href: "/#capital", id: "capital" },
-  { label: "Systems", href: "/#systems", id: "systems" },
-  { label: "Product", href: "/#product", id: "product" },
-  { label: "Brand", href: "/#brand", id: "brand" },
+  { label: "Storyteller", href: "/storyteller", id: "storyteller" },
+  { label: "Systems", href: "/systems", id: "systems" },
+  { label: "Product", href: "/product", id: "product" },
+  { label: "Brand", href: "/brand", id: "brand" },
   { label: "Contact", href: "/#contact", id: "contact" },
 ];
 

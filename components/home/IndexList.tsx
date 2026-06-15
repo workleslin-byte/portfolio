@@ -3,7 +3,7 @@ import Reveal from "@/components/motion/Reveal";
 import { CASES } from "@/lib/cases";
 
 const DESC: Record<string, string> = {
-  capital: "Social investment mobilized through comms",
+  storyteller: "804K impressions, ₹16.8 Cr revenue — three channels, one discipline",
   systems: "Clinical RAG, architected end to end",
   product: "A notebook brand, built and shipped solo",
   brand: "Full identity for an agro company",

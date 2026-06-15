@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 const BASE_URL = "https://leslin-portfolio.vercel.app";
 
-const CASE_ROUTES = ["capital", "systems", "product", "brand"];
+const CASE_ROUTES = ["storyteller", "systems", "product", "brand"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const cases = CASE_ROUTES.map((slug) => ({

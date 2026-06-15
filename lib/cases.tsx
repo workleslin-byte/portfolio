@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import type { DividerMeta } from "@/components/shell/SectionDivider";
 
-export type CaseId = "capital" | "systems" | "product" | "brand";
+export type CaseId = "storyteller" | "systems" | "product" | "brand";
 
 export type CaseDef = {
   id: CaseId;
@@ -25,33 +25,33 @@ export type CaseDef = {
 
 export const CASES: CaseDef[] = [
   {
-    id: "capital",
+    id: "storyteller",
     num: "01",
     folio: "P/05",
-    section: "Capital",
-    href: "/capital",
+    section: "Digital Storyteller",
+    href: "/storyteller",
     word: (
       <>
-        Cap<em>ital.</em>
+        Sto<em>ryteller.</em>
       </>
     ),
     caption:
-      "Real people, persuaded to fund rural borrowers — on a platform that, by law, can't promise them a return.",
+      "804K LinkedIn impressions · ₹16.8 Cr email revenue · 1.7L+ long-form reads.",
     meta: {
       client: "Rang De",
-      industry: "Social investment via comms",
+      industry: "Content across LinkedIn, email, push, long-form",
       year: "2024–25",
     },
-    headline: "I wrote the emails that moved ₹16.8 crore of social investment.",
-    sub: "Not revenue. Capital. Real people, persuaded to fund rural borrowers — on a platform that, by law, can't promise them a return.",
-    metric: { value: "₹16.8 Cr", label: "social investment mobilized through comms" },
+    headline: "Content marketing isn't viral moments. It's showing up with things worth reading.",
+    sub: "804K LinkedIn impressions, ₹16.8 crore in attributed email revenue, 1.7 lakh long-form reads — built across channels on one standard: editorial discipline.",
+    metric: { value: "₹16.8 Cr", label: "attributed email revenue · Klaviyo, FY24–25" },
     decision:
-      "Everyone optimizes subject lines. The revenue was hiding in send-timing, so I rebuilt the programmes around transaction windows, first-investment moments, and re-engagement triggers instead.",
+      "LinkedIn for reach, email for revenue, push for moments, long-form for depth. Each channel optimized for what it's good at — not forced into a single narrative.",
   },
   {
     id: "systems",
     num: "02",
-    folio: "P/06",
+    folio: "P/05",
     section: "Systems",
     href: "/systems",
     word: (
