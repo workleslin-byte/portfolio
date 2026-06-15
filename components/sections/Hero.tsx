@@ -15,29 +15,83 @@ export default function Hero({ ready }: HeroProps) {
 
   return (
     <section className="relative flex min-h-[100svh] items-center overflow-hidden px-[6vw] pt-28 pb-24 md:pb-28">
+      {/* Ambient gradient orbs — breathe slowly behind content */}
+      <div
+        aria-hidden="true"
+        className="absolute pointer-events-none rounded-full"
+        style={{
+          top: "-12%",
+          left: "-8%",
+          width: "65vw",
+          height: "65vw",
+          maxWidth: "780px",
+          maxHeight: "780px",
+          background: "radial-gradient(ellipse at center, rgba(31,79,224,0.13) 0%, transparent 68%)",
+          filter: "blur(32px)",
+          animation: "orb-drift 16s ease-in-out infinite",
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="absolute pointer-events-none rounded-full"
+        style={{
+          bottom: "8%",
+          right: "-4%",
+          width: "42vw",
+          height: "42vw",
+          maxWidth: "480px",
+          maxHeight: "480px",
+          background: "radial-gradient(ellipse at center, rgba(31,79,224,0.07) 0%, transparent 70%)",
+          filter: "blur(48px)",
+          animation: "orb-drift 22s ease-in-out infinite reverse",
+        }}
+      />
+
       <div className="relative z-10 w-full">
-        {/* Attitude-led headline — who he is, before what he does.
-            Size is also on the root so `ch` resolves against display size. */}
+        {/* Category line — lets a recruiter place him in two seconds */}
+        <p
+          className={`mb-6 font-mono text-[11px] uppercase tracking-[0.3em] text-paper/50 transition-opacity duration-700 ${
+            ready ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          Growth operator <span className="text-accent">+</span> AI systems builder
+        </p>
+
+        {/* Headline — what he does, stated plainly */}
         <MaskReveal
           as="h1"
           play={ready}
           stagger={0.1}
           lineClassName={lineClass}
-          className={`max-w-[15ch] ${sizeClass}`}
+          className={`max-w-[16ch] ${sizeClass}`}
           lines={[
-            "Most people read",
-            "to feel something.",
-            "I read to find out",
+            "I run the growth,",
             <>
-              how to{" "}
-              <span className="italic text-accent">think.</span>
+              and I{" "}
+              <span className="italic gradient-text-accent">build the AI</span>
             </>,
+            "that runs it.",
           ]}
         />
 
-        {/* Quiet role locator — carries the "what" */}
-        <p className="mt-10 font-mono text-[11px] uppercase tracking-[0.3em] text-mute-dark">
-          I write, I build the systems, I ship them · Kerala, India
+        {/* Proof line — the two hardest facts, immediately */}
+        <p
+          className={`mt-8 max-w-xl font-sans leading-relaxed text-paper/70 transition-opacity duration-700 delay-200 ${
+            ready ? "opacity-100" : "opacity-0"
+          }`}
+          style={{ fontSize: "1.0625rem" }}
+        >
+          ₹16.8 Cr in attributed revenue over seven years — and a clinical RAG
+          system I architected end to end. One person, both layers.
+        </p>
+
+        {/* Locator */}
+        <p
+          className={`mt-5 font-mono text-[11px] uppercase tracking-[0.3em] text-mute-dark transition-opacity duration-700 delay-300 ${
+            ready ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          Kerala, India · Remote &amp; relocation
         </p>
 
         {/* CTAs */}

@@ -9,9 +9,9 @@ import Contact from "@/components/sections/Contact";
 import ClosingCTA from "@/components/sections/ClosingCTA";
 
 export const metadata: Metadata = {
-  title: "AI-Enabled Growth Consultant",
+  title: "Growth Operator + AI Systems Builder",
   description:
-    "Leslin K Seemon — AI-enabled growth consultant based in Kerala, India. Seven years of content, email, SEO, and product work — all measured.",
+    "Leslin K Seemon — Kerala, India. Seven years of full-funnel growth (₹16.8 Cr attributed) and the engineering to build the AI systems that run it, including a clinical RAG system architected end to end.",
 };
 
 export default function HomePage() {

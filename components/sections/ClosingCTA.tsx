@@ -9,7 +9,7 @@ export default function ClosingCTA() {
         </p>
         <MaskReveal
           as="h2"
-          lineClassName="font-display font-extrabold tracking-tight leading-[0.9] text-paper text-[clamp(3rem,8vw,9rem)]"
+          lineClassName="font-display font-extrabold tracking-tight leading-[0.9] gradient-text-closing text-[clamp(3rem,8vw,9rem)]"
           lines={["Kerala → Anywhere."]}
         />
         <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.2em] text-paper/30">

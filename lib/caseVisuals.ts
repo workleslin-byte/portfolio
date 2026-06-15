@@ -68,11 +68,11 @@ export const FLOWS: Record<string, FlowStep[]> = {
     { label: "Vercel", meta: "build + deploy" },
   ],
   preventify: [
-    { label: "Query", meta: "WhatsApp" },
-    { label: "Retrieval", meta: "knowledge base" },
-    { label: "Inference", meta: "multi-model eval" },
-    { label: "Response", meta: "delivery" },
-    { label: "Langfuse", meta: "tracing" },
-    { label: "Report", meta: "python-docx" },
+    { label: "Classify", meta: "intent · depth" },
+    { label: "Enrich", meta: "query builder" },
+    { label: "Retrieve", meta: "pgvector ANN" },
+    { label: "Rerank", meta: "cross-encoder" },
+    { label: "Generate", meta: "grounded" },
+    { label: "Safety", meta: "SaMD check" },
   ],
 };

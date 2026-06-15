@@ -10,10 +10,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 const STATS = [
   "₹16.8Cr email revenue",
+  "4,059-chunk clinical RAG",
   "804K LinkedIn impressions",
   "2.2× blog growth",
   "97.7% deliverability",
   "1,70,000+ reads",
+  "Two-phase RAG architecture",
   "988 ranking keywords",
   "9% engagement rate",
   "₹39.33L push revenue",
@@ -48,7 +50,7 @@ export default function Marquee() {
 
   return (
     <div
-      className="overflow-hidden border-y border-paper/10 bg-ink/40 backdrop-blur-sm py-5 cursor-default"
+      className="overflow-hidden border-y border-paper/10 bg-ink/40 backdrop-blur-sm py-5 cursor-default marquee-fade-mask"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >

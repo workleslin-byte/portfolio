@@ -67,6 +67,14 @@ export default function WorkPreviewGrid({ items }: Props) {
               href={`/work/${item.slug.current}`}
               className="group relative flex h-full flex-col justify-between gap-10 bg-ink/80 backdrop-blur-md px-8 py-10 transition-colors duration-300 hover:bg-ink/60"
             >
+              {/* Gradient sweep on hover */}
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 opacity-0 transition-opacity duration-500 pointer-events-none group-hover:opacity-100"
+                style={{
+                  background: "linear-gradient(135deg, rgba(31,79,224,0.1) 0%, transparent 55%)",
+                }}
+              />
               <div>
                 {/* Category */}
                 <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.2em] text-mute-dark">

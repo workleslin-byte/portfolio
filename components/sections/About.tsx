@@ -4,10 +4,10 @@ import MaskReveal from "@/lib/motion/MaskReveal";
 import StaggerIn from "@/lib/motion/StaggerIn";
 
 const CREDENTIALS = [
-  { label: "07 years", body: "Full-funnel content & growth work" },
   { label: "₹16.8 Cr", body: "Email revenue attributed, FY25" },
-  { label: "1.7L+", body: "Long-form reads across 9 articles" },
-  { label: "Full-stack", body: "Shipped pocketnotes.in solo, Next.js to infra" },
+  { label: "07 years", body: "Full-funnel content & growth work" },
+  { label: "4,059", body: "Clinical chunks in a RAG system built end to end" },
+  { label: "Full-stack", body: "Shipped pocketnotes.in solo, front end to infra" },
 ];
 
 export default function About() {
@@ -29,7 +29,7 @@ export default function About() {
               "I don't separate",
               <span key="2">
                 thinking from{" "}
-                <span className="italic text-accent">making.</span>
+                <span className="italic gradient-text-accent">making.</span>
               </span>,
             ]}
           />
@@ -40,37 +40,22 @@ export default function About() {
             style={{ fontSize: "1.125rem" }}
           >
             <p>
-              I work where philosophy, systems, and craft overlap, and I
-              don&apos;t treat deep thinking as separate from doing. The test of
-              an idea, for me, is whether it survives contact with execution. I
-              keep a commonplace book and write long-form by hand, not out of
-              nostalgia, but because it&apos;s how I metabolize ideas instead of
-              hoarding them. Hand me a problem and I build the architecture
-              first: audience models, content pillars, scoring conventions,
-              naming systems, then I operate inside it.
+              I work at the seam between growth and engineering — the strategy
+              and the system that executes it. For seven years that meant
+              full-funnel content, email, and SEO, with the numbers to back it:
+              ₹16.8 crore in attributed email revenue, a blog doubled, organic
+              traffic compounded. Then I taught myself to build, end to end, so I
+              could ship the systems rather than spec them for someone else.
             </p>
             <p>
               I go deep before I go wide. I&apos;d rather understand the
-              mechanics of a thing than ship a surface version of it, which is
-              why I taught myself agentic coding and deployment from scratch
-              instead of outsourcing the parts I didn&apos;t understand. Six
-              years of full-funnel content marketing and a decade of writing now
-              point at AI-enabled growth work: automation, system-level prompt
-              engineering, growth strategy. I founded a physical product, Pocket
-              Notes, with a real editorial philosophy behind it, so I know how
-              to build from identity outward, not just campaign outward. I can
-              hold the brand-philosophy layer and the technical-execution layer
-              in the same head.
-            </p>
-            <p>
-              I&apos;m allergic to performative depth and hustle-culture noise. I
-              want work that&apos;s coherent, where the thinking, the making, and
-              the output are one thing instead of three disconnected layers.
-              I&apos;m self-directed, sometimes to a fault, and honest about the
-              gap between insight and execution, so I&apos;d rather show the work
-              than narrate it. Give me the problem and the why, and I&apos;ll
-              build the system. I&apos;m less useful where execution is decoupled
-              from thinking.
+              mechanics of a thing than ship a surface version of it — which is
+              why I learned agentic coding and deployment from scratch instead of
+              outsourcing the parts I didn&apos;t understand, and why building a
+              clinical RAG system meant owning the retrieval, the reasoning, and
+              the safety layer myself. I can hold the brand-philosophy layer and
+              the technical-execution layer in the same head, and I&apos;m least
+              useful where the two are kept apart.
             </p>
           </div>
 
