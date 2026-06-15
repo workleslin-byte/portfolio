@@ -1,6 +1,7 @@
 import Smear from "@/components/motion/Smear";
 import Glow from "@/components/shell/Glow";
 import SendGlyph from "@/components/shell/SendGlyph";
+import WaterRipple from "@/components/fx/WaterRipple";
 
 const CALENDLY = "https://cal.id/leslin-k-seemon";
 const EMAIL = "work.leslin@gmail.com";
@@ -20,6 +21,9 @@ export default function Contact() {
     >
       {/* Contact glow — violet → pink, bleeds off the bottom-left corner */}
       <Glow from="#A87CFF" to="#FF6FB0" style={{ bottom: "-18%", left: "-10%" }} />
+
+      {/* Option B — water ripple, scoped to the contact block */}
+      <WaterRipple />
 
       <div className="relative z-10 mx-auto max-w-dossier">
         <p className="mb-10 font-mono text-[11px] uppercase tracking-[0.3em] text-ink-soft">

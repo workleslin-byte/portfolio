@@ -187,6 +187,30 @@ body {
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
+   CURSOR GLOW (Option A) — a large candy light that trails the pointer,
+   multiply-blended over the page for an immersive liquid-glass wash.
+   ══════════════════════════════════════════════════════════════════════════ */
+.cursor-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60vw;
+  height: 60vw;
+  max-width: 880px;
+  max-height: 880px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 120, 170, 0.55) 0%,
+    rgba(120, 139, 255, 0.42) 34%,
+    rgba(95, 217, 140, 0.3) 58%,
+    transparent 72%
+  );
+  filter: blur(36px);
+  will-change: transform;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
    SECTION GLOWS — one soft candy orb behind each section title. Vivid colour,
    heavy blur, low opacity (ambient wash). Grain sits over them. The two-colour
    gradient is set inline per instance; this only owns size, blur, drift.

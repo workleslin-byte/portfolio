@@ -6,6 +6,7 @@ import Capabilities from "@/components/home/Capabilities";
 import CaseTease from "@/components/home/CaseTease";
 import Contact from "@/components/home/Contact";
 import StorytellerChannels from "@/components/home/StorytellerChannels";
+import LiquidGlass from "@/components/fx/LiquidGlass";
 import RagDiagram from "@/components/viz/RagDiagram";
 import AssetSlot from "@/components/shell/AssetSlot";
 import GradedImage from "@/components/shell/GradedImage";
@@ -18,6 +19,8 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
+      {/* Option A — liquid-glass cursor wash (home-wide) */}
+      <LiquidGlass />
       <Hero />
       <Intro />
       <IndexList />

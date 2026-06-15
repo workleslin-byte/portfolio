@@ -1,39 +1,42 @@
 import Smear from "@/components/motion/Smear";
 import Reveal from "@/components/motion/Reveal";
 import Glow from "@/components/shell/Glow";
+import CapabilityIcon, { type Glyph } from "./CapabilityIcon";
 
-const COLUMNS: { label: string; items: string[] }[] = [
+type Item = { name: string; logo?: string; glyph?: Glyph };
+
+const COLUMNS: { label: string; items: Item[] }[] = [
   {
     label: "Stack",
     items: [
-      "Python",
-      "Next.js",
-      "Payload CMS",
-      "Neon Postgres",
-      "Vercel",
-      "Agentic coding",
+      { name: "Python", logo: "python" },
+      { name: "Next.js", logo: "nextdotjs" },
+      { name: "Payload CMS", logo: "payloadcms" },
+      { name: "Neon Postgres", logo: "neon" },
+      { name: "Vercel", logo: "vercel" },
+      { name: "Agentic coding", glyph: "agentic" },
     ],
   },
   {
     label: "AI engineering",
     items: [
-      "RAG design",
-      "Multi-model eval",
-      "System-prompt engineering",
-      "LLM output analysis",
-      "Observability (Langfuse)",
-      "Workflow automation (n8n)",
+      { name: "RAG design", glyph: "rag" },
+      { name: "Multi-model eval", glyph: "eval" },
+      { name: "System-prompt engineering", glyph: "prompt" },
+      { name: "LLM output analysis", glyph: "analysis" },
+      { name: "Observability (Langfuse)", glyph: "observe" },
+      { name: "Workflow automation (n8n)", logo: "n8n" },
     ],
   },
   {
     label: "Growth & content",
     items: [
-      "Full-funnel strategy",
-      "Editorial systems",
-      "SEO architecture",
-      "Lifecycle email",
-      "Long-form writing",
-      "Brand from identity out",
+      { name: "Full-funnel strategy", glyph: "funnel" },
+      { name: "Editorial systems", glyph: "editorial" },
+      { name: "SEO architecture", glyph: "seo" },
+      { name: "Lifecycle email", glyph: "email" },
+      { name: "Long-form writing", glyph: "writing" },
+      { name: "Brand from identity out", glyph: "brand" },
     ],
   },
 ];
@@ -69,10 +72,11 @@ export default function Capabilities() {
               <ul className="space-y-2.5">
                 {col.items.map((item) => (
                   <li
-                    key={item}
-                    className="font-sans text-[15px] leading-snug text-ink/85"
+                    key={item.name}
+                    className="flex items-center gap-2.5 font-sans text-[15px] leading-snug text-ink/85"
                   >
-                    {item}
+                    <CapabilityIcon logo={item.logo} glyph={item.glyph} />
+                    {item.name}
                   </li>
                 ))}
               </ul>
