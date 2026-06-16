@@ -134,7 +134,7 @@ export default function PillNav({ home = false }: { home?: boolean }) {
               variants={{ hidden: { opacity: 0 }, show: { opacity: 1 } }}
               transition={{ duration: 0.25 }}
               onClick={() => setOpen(false)}
-              className="absolute inset-0 h-full w-full cursor-default bg-[color:var(--paper)]/92 backdrop-blur-xl"
+              className="absolute inset-0 h-full w-full cursor-default bg-[color:var(--paper)]"
             />
 
             <motion.nav
