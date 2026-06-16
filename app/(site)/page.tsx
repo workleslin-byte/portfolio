@@ -24,6 +24,7 @@ export default function HomePage() {
       <LiquidGlass />
       <Hero />
       <Profile />
+      <Education />
       <IndexList />
       <Capabilities />
 
@@ -45,7 +46,6 @@ export default function HomePage() {
       />
       <CaseTease c={caseById("brand")} visual={<GrwthAgencyCard />} />
 
-      <Education />
       <Contact />
     </>
   );

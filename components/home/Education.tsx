@@ -1,18 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import Glow from "@/components/shell/Glow";
 
-/**
- * Education — a ruled timeline, newest first. Each institution gets a
- * typographic monogram badge (kept in the dossier's own ink instead of a grid
- * of clashing colour logos); drop a real mark into /public/logos/edu/{slug}.png
- * and swap the badge for an <Image> if ever wanted. Rows draw in on scroll.
- */
-
 type School = {
   slug: string;
-  monogram: string;
+  ext: "jpg" | "png";
   name: string;
   degree: string;
   years: string;
@@ -21,28 +15,28 @@ type School = {
 const SCHOOLS: School[] = [
   {
     slug: "stoa",
-    monogram: "S",
+    ext: "jpg",
     name: "Stoa",
     degree: "General Management · Marketing",
     years: "2022–23",
   },
   {
     slug: "jain",
-    monogram: "JU",
+    ext: "jpg",
     name: "Jain University",
     degree: "MA — Communication & Journalism",
     years: "2018–20",
   },
   {
     slug: "scet",
-    monogram: "SC",
-    name: "Sarvajanik College of Engineering & Technology",
+    ext: "png",
+    name: "Sarvajanik University",
     degree: "BE — Electronics & Communications",
     years: "2014–18",
   },
   {
     slug: "ambani",
-    monogram: "JH",
+    ext: "jpg",
     name: "J. H. Ambani Saraswati Vidyamandir",
     degree: "Secondary school",
     years: "2000–14",
@@ -85,12 +79,27 @@ export default function Education() {
               }}
               className="flex flex-wrap items-center gap-x-5 gap-y-2 border-b border-line py-6"
             >
-              {/* monogram badge */}
+              {/* logo — frosted glass tile */}
               <span
                 aria-hidden="true"
-                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-line font-display text-[15px] font-semibold text-ink-soft"
+                className="relative flex h-[52px] w-[52px] shrink-0 items-center justify-center overflow-hidden rounded-xl"
+                style={{
+                  background: "rgba(255,255,255,0.28)",
+                  backdropFilter: "blur(10px)",
+                  WebkitBackdropFilter: "blur(10px)",
+                  border: "1px solid rgba(255,255,255,0.55)",
+                  boxShadow:
+                    "0 2px 8px -2px rgba(20,17,15,0.10), inset 0 1px 0 rgba(255,255,255,0.35)",
+                }}
               >
-                {s.monogram}
+                <Image
+                  src={`/logos/edu/${s.slug}.${s.ext}`}
+                  alt={s.name}
+                  fill
+                  sizes="52px"
+                  className="object-contain p-1.5"
+                  style={{ filter: "saturate(0.72) contrast(0.92)" }}
+                />
               </span>
 
               <span className="font-display text-[18px] font-semibold leading-tight text-ink">
