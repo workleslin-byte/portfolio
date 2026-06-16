@@ -50,7 +50,7 @@ export default function Capabilities() {
     <section
       id="capabilities"
       data-section="Capabilities"
-      data-folio="P/04"
+      data-folio="P/05"
       className="relative w-full overflow-hidden scroll-mt-24 border-y border-line bg-paper-2/40 px-[var(--gutter)] py-24 md:py-32"
     >
       <Glow from="#8B7CFF" to="#B879FF" style={{ top: "6%", left: "-12%" }} />

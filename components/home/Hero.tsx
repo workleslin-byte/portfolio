@@ -1,49 +1,114 @@
+"use client";
+
+import Image from "next/image";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
 import Smear from "@/components/motion/Smear";
 import Glow from "@/components/shell/Glow";
 
 /**
- * Hero — the dossier cover. Eyebrow, the giant smeared name (roman "Leslin",
- * italic "K Seemon" smearing harder), the claim, and one holographic blob
- * bleeding from the top corner (instance 1 of 2 site-wide).
+ * Hero — the dossier cover, reworked as a 50/50 spread: a full-height portrait
+ * on the left, the smeared name + claim on the right with an organic colour
+ * wash sitting behind the type. Framer Motion drives the entrance (image in
+ * from the left, text settling in from the right); the name keeps its own CSS
+ * smear. Reduced-motion collapses all of it to a clean static state.
  */
 export default function Hero() {
+  const reduce = useReducedMotion();
+
+  const textContainer: Variants = {
+    hidden: {},
+    show: {
+      transition: { staggerChildren: reduce ? 0 : 0.12, delayChildren: 0.1 },
+    },
+  };
+  const item: Variants = {
+    hidden: { opacity: 0, y: reduce ? 0 : 16 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.7, ease: [0.2, 0.7, 0.2, 1] },
+    },
+  };
+
   return (
     <section
       id="intro"
       data-section="Intro"
       data-folio="P/01"
-      className="relative flex min-h-[88vh] flex-col items-center justify-center overflow-hidden px-[var(--gutter)] pb-24 pt-10 text-center"
+      className="relative grid min-h-[100svh] grid-cols-1 overflow-hidden md:grid-cols-2"
     >
-      {/* Intro glow — coral → pink, bleeds off the top-right corner */}
-      <Glow from="#FF7A3D" to="#FF4D8D" style={{ top: "-16%", right: "-8%" }} />
+      {/* Left — portrait */}
+      <motion.div
+        initial={{ opacity: 0, x: reduce ? 0 : -48 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ type: "spring", stiffness: 58, damping: 18, mass: 0.9 }}
+        className="relative min-h-[54vh] border-line md:min-h-[100svh] md:border-r"
+      >
+        <Image
+          src="/leslin-casual.jpg"
+          alt="Leslin K Seemon."
+          fill
+          priority
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-cover object-[50%_28%]"
+        />
+        {/* a whisper of paper at the seam so the photo meets the page, not cuts */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[var(--paper)]/15 md:to-[var(--paper)]/35"
+        />
+      </motion.div>
 
-      <div className="relative z-10 flex flex-col items-center">
-        <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.3em] text-ink-soft">
-          Growth Operator · AI Systems Builder · Kerala, India
-        </p>
+      {/* Right — name + claim */}
+      <div className="relative flex items-center px-[var(--gutter)] py-20 md:py-0">
+        <Glow
+          from="#FF8A4D"
+          via="#FF5D8F"
+          to="#9C7BFF"
+          style={{ position: "absolute", inset: 0, margin: "auto", opacity: 0.5 }}
+        />
 
-        <Smear
-          as="h1"
-          eager
-          className="text-[clamp(3.2rem,13.5vw,12.5rem)] font-semibold leading-[0.86]"
+        <motion.div
+          variants={textContainer}
+          initial="hidden"
+          animate="show"
+          className="relative z-10 flex w-full flex-col"
         >
-          Leslin <em>K&nbsp;Seemon</em>
-        </Smear>
+          <motion.p
+            variants={item}
+            className="mb-7 font-mono text-[11px] uppercase tracking-[0.3em] text-ink-soft"
+          >
+            Growth Operator · AI Systems Builder · Kerala, India
+          </motion.p>
 
-        <p className="mt-12 max-w-2xl text-pretty font-sans text-[clamp(1.05rem,2vw,1.35rem)] leading-relaxed text-ink/85">
-          I find the growth problem, build the system that solves it, and write
-          the thing that sells it.
-        </p>
+          {/* The name keeps its own eager smear — no Framer wrapper on it. */}
+          <Smear
+            as="h1"
+            eager
+            className="text-[clamp(2.8rem,8.5vw,7rem)] font-semibold leading-[0.9]"
+          >
+            Leslin <em>K&nbsp;Seemon</em>
+          </Smear>
 
-        <a
-          href="#approach"
-          className="mt-12 inline-flex flex-col items-center gap-2 font-mono text-[10px] uppercase tracking-[0.25em] text-ink-soft transition-colors hover:text-ink"
-        >
-          Scroll
-          <span aria-hidden="true" className="text-base leading-none">
-            ↓
-          </span>
-        </a>
+          <motion.p
+            variants={item}
+            className="mt-9 max-w-xl text-pretty font-sans text-[clamp(1.05rem,1.7vw,1.3rem)] leading-relaxed text-ink/85"
+          >
+            I find the growth problem, build the system that solves it, and write
+            the thing that sells it.
+          </motion.p>
+
+          <motion.a
+            variants={item}
+            href="#approach"
+            className="mt-12 inline-flex w-fit flex-col items-start gap-2 font-mono text-[10px] uppercase tracking-[0.25em] text-ink-soft transition-colors hover:text-ink"
+          >
+            Scroll
+            <span aria-hidden="true" className="text-base leading-none">
+              ↓
+            </span>
+          </motion.a>
+        </motion.div>
       </div>
     </section>
   );

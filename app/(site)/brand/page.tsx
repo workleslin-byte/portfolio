@@ -187,27 +187,6 @@ export default function BrandPage() {
             Tap any slide to open it full-size · the Grwth × Nilambur Farms deck.
           </p>
         </div>
-
-        {/* Other work — the Grwth shop */}
-        <div className="mx-auto mt-24 max-w-dossier border-t border-line pt-16">
-          <Kicker>Other work</Kicker>
-          <Subhead>Grwth — my brand &amp; growth shop.</Subhead>
-          <p className="mt-4 max-w-2xl font-sans text-[15px] leading-relaxed text-ink/80">
-            Alongside client work I run a small brand and growth shop — content
-            strategy, design, and full-funnel growth for clients who want work
-            that doesn&apos;t look like everyone else&apos;s. Logo and case
-            studies available on request.
-          </p>
-          <div className="mx-auto mt-8 max-w-md overflow-hidden rounded-2xl border border-line">
-            <Image
-              src="/brand/agency.png"
-              alt="Grwth — get. set. grow."
-              width={2880}
-              height={2048}
-              className="h-auto w-full"
-            />
-          </div>
-        </div>
       </div>
 
       <CasePager id="brand" />

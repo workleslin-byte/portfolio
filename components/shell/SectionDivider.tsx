@@ -47,21 +47,27 @@ export default function SectionDivider({
       data-folio={folio}
       className="relative w-full overflow-hidden scroll-mt-24"
     >
-      {glow ? (
-        <Glow from={glow[0]} to={glow[1]} style={{ top: "4%", left: "12%" }} />
-      ) : null}
+      <div className="relative flex min-h-[80vh] flex-col items-center justify-center px-[var(--gutter)] py-24 text-center">
+        {glow ? (
+          <Glow
+            from={glow[0]}
+            to={glow[1]}
+            style={{ position: "absolute", inset: 0, margin: "auto" }}
+          />
+        ) : null}
 
-      <div className="relative z-10 flex min-h-[80vh] flex-col items-center justify-center px-[var(--gutter)] py-24 text-center">
-        <Smear
-          as={wordAs}
-          ghost
-          className={`${wordClassName} font-semibold leading-[0.9]`}
-        >
-          {word}
-        </Smear>
-        <p className="mt-8 max-w-xl font-sans text-[15px] leading-relaxed text-ink-soft">
-          {caption}
-        </p>
+        <div className="relative z-10 flex flex-col items-center">
+          <Smear
+            as={wordAs}
+            ghost
+            className={`${wordClassName} font-semibold leading-[0.9]`}
+          >
+            {word}
+          </Smear>
+          <p className="mt-8 max-w-xl font-sans text-[15px] leading-relaxed text-ink-soft">
+            {caption}
+          </p>
+        </div>
       </div>
 
       <div className="relative z-10 mx-auto max-w-dossier px-[var(--gutter)]">
