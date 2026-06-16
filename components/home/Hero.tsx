@@ -62,7 +62,7 @@ export default function Hero() {
         {/* portrait — glass lens with rotating halo */}
         <motion.div
           variants={disc}
-          className="relative mx-auto h-44 w-44 md:h-56 md:w-56"
+          className="relative mx-auto h-[14.25rem] w-[14.25rem] md:h-[18.25rem] md:w-[18.25rem]"
         >
           <span aria-hidden="true" className="avatar-halo" />
           <div className="avatar-disc h-full w-full p-2.5">
@@ -72,8 +72,8 @@ export default function Hero() {
                 alt="Leslin K Seemon."
                 fill
                 priority
-                sizes="(max-width: 768px) 176px, 224px"
-                className="object-cover object-[50%_22%]"
+                sizes="(max-width: 768px) 228px, 292px"
+                className="object-cover object-[50%_52%]"
               />
             </div>
           </div>
