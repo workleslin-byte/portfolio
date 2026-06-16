@@ -77,12 +77,12 @@ export default function Education() {
                 delay: reduce ? 0 : i * 0.08,
                 ease: [0.2, 0.7, 0.2, 1],
               }}
-              className="flex flex-wrap items-center gap-x-5 gap-y-2 border-b border-line py-6"
+              className="flex items-center gap-4 border-b border-line py-5 sm:gap-5 sm:py-6"
             >
               {/* logo — frosted glass tile */}
               <span
                 aria-hidden="true"
-                className="relative flex h-[52px] w-[52px] shrink-0 items-center justify-center overflow-hidden rounded-xl"
+                className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl sm:h-[52px] sm:w-[52px]"
                 style={{
                   background: "rgba(255,255,255,0.28)",
                   backdropFilter: "blur(10px)",
@@ -102,17 +102,19 @@ export default function Education() {
                 />
               </span>
 
-              <span className="font-display text-[18px] font-semibold leading-tight text-ink">
-                {s.name}
-              </span>
-
-              <span className="font-sans text-[13.5px] leading-snug text-ink-soft">
-                {s.degree}
-              </span>
-
-              <span className="ml-auto font-mono text-[11px] uppercase tracking-[0.14em] text-ink-soft/70">
-                {s.years}
-              </span>
+              <div className="min-w-0 flex-1">
+                <div className="flex items-baseline justify-between gap-3">
+                  <span className="font-display text-[16px] font-semibold leading-tight text-ink sm:text-[18px]">
+                    {s.name}
+                  </span>
+                  <span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.14em] text-ink-soft/70 sm:text-[11px]">
+                    {s.years}
+                  </span>
+                </div>
+                <span className="mt-1 block font-sans text-[13px] leading-snug text-ink-soft sm:text-[13.5px]">
+                  {s.degree}
+                </span>
+              </div>
             </motion.li>
           ))}
         </ul>
