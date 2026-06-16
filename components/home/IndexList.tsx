@@ -4,7 +4,7 @@ import Glow from "@/components/shell/Glow";
 import { CASES } from "@/lib/cases";
 
 const DESC: Record<string, string> = {
-  storyteller: "804K impressions, ₹16.8 Cr revenue — three channels, one discipline",
+  storyteller: "804K impressions, ₹16.8 Cr investment — three channels, one discipline",
   systems: "Clinical RAG, architected end to end",
   product: "A notebook brand, built and shipped solo",
   brand: "Full identity for an agro company",

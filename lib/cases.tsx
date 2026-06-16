@@ -38,17 +38,17 @@ export const CASES: CaseDef[] = [
       </>
     ),
     caption:
-      "804K LinkedIn impressions · ₹16.8 Cr email revenue · 2.0L+ long-form reads.",
+      "804K LinkedIn impressions · ₹16.8 Cr email-attributed investment · 2.0L+ long-form reads.",
     meta: {
       client: "Rang De",
       industry: "Content across LinkedIn, email, push, long-form",
       year: "2024–25",
     },
     headline: "Content marketing isn't viral moments. It's showing up with things worth reading.",
-    sub: "804K LinkedIn impressions, ₹16.8 crore in attributed email revenue, 2 lakh+ long-form reads — built across channels on one standard: editorial discipline.",
-    metric: { value: "₹16.8 Cr", label: "attributed email revenue · WebEngage, FY24–25" },
+    sub: "804K LinkedIn impressions, ₹16.8 crore in attributed email investment, 2 lakh+ long-form reads — built across channels on one standard: editorial discipline.",
+    metric: { value: "₹16.8 Cr", label: "attributed investment · WebEngage, FY24–25" },
     decision:
-      "LinkedIn for reach, email for revenue, push for moments, long-form for depth. Each channel optimized for what it's good at — not forced into a single narrative.",
+      "LinkedIn for reach, email for investment, push for moments, long-form for depth. Each channel optimized for what it's good at — not forced into a single narrative.",
     glow: ["#FF6FA3", "#FF9E3D"],
   },
   {

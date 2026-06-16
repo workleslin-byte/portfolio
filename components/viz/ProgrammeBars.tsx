@@ -10,7 +10,7 @@ export type ProgrammeBar = {
 };
 
 /**
- * Capital's revenue-by-programme bars. Pure data — no binary assets.
+ * Investment-by-programme bars. Pure data — no binary assets.
  * Bars grow left-to-right, staggered, when scrolled into view.
  */
 export default function ProgrammeBars({

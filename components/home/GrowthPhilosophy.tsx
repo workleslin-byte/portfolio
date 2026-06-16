@@ -36,14 +36,14 @@ export default function GrowthPhilosophy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.75, ease: [0.2, 0.7, 0.2, 1] }}
-          className="text-pretty font-sans text-[clamp(1.1rem,1.8vw,1.45rem)] font-normal leading-[1.6] text-ink/90"
+          className="text-pretty font-display text-[clamp(1.6rem,3.2vw,2.5rem)] font-semibold leading-[1.22] tracking-tight text-ink"
         >
           Most early-stage growth fails the same way: teams chase channel volume
           before they&apos;ve earned channel discipline — more posts, more spend,
           more automation, and nothing instrumented to learn from. I work the
           other way around. Find the one channel where the audience already is,
-          build an editorial system that compounds instead of resetting every
-          week, and only widen once the narrow thing is working. The AI layer
+          build a system that compounds instead of resetting every week, and
+          only widen once the narrow thing is working. The AI layer
           earns its place when it clears a bottleneck in that loop — faster
           research, tighter iteration, sharper instrumentation — never as the
           headline. Growth that holds isn&apos;t louder. It&apos;s better aimed.

@@ -9,12 +9,12 @@ import ProgrammeBars from "@/components/viz/ProgrammeBars";
 
 export const metadata: Metadata = {
   title:
-    "Digital Storyteller — 804K impressions, ₹16.8 Cr revenue, 2.0L+ reads",
+    "Digital Storyteller — 804K impressions, ₹16.8 Cr investment, 2.0L+ reads",
   description:
     "Rang De, 2024–25. LinkedIn consistency, a ₹16.8 Cr email programme, push discipline — across channels with one editorial standard. All figures verified from LinkedIn, WebEngage, and CleverTap exports.",
 };
 
-/** Email revenue by programme — WebEngage, Dec 2024–Dec 2025. Share of the
+/** Email-attributed investment by programme — WebEngage, Dec 2024–Dec 2025. Share of the
  *  largest line (Transaction-Day, ₹6.65 Cr) drives the bar width. */
 const EMAIL_PROGRAMMES = [
   { label: "Transaction-day · 36 campaigns", value: 1, display: "₹6.65 Cr" },
@@ -53,8 +53,8 @@ export default function StorytellerPage() {
             already searching, the SEO to feed it, and a behaviour-triggered
             email programme that spoke to investors at the moments that mattered —
             transaction windows, first investments, dormancy. Reach channels like
-            LinkedIn were tuned for what they&apos;re good at, not forced to carry
-            revenue.
+            LinkedIn were tuned for what they&apos;re good at, not forced to drive
+            investment directly.
           </P>
           <P>
             Once the system was measurable, the numbers followed by design: the
@@ -74,7 +74,7 @@ export default function StorytellerPage() {
             showing up consistently with things worth reading — across every
             surface where the audience already is. One year at Rang De, the
             peer-to-peer social-investment platform for rural India: LinkedIn
-            for reach, email for revenue, push for moments, and an organic
+            for reach, email for investment, push for moments, and an organic
             engine underneath — a blog grown 2.2×, the SEO that fed it, and the
             long-form writing the search engines rewarded.
           </P>
@@ -82,8 +82,8 @@ export default function StorytellerPage() {
           <Stats
             items={[
               { value: "804K", label: "LinkedIn impressions", tone: "reach" },
-              { value: "₹16.8 Cr", label: "Email revenue attributed", tone: "money" },
-              { value: "₹39.33 L", label: "Push revenue", tone: "money" },
+              { value: "₹16.8 Cr", label: "Email-attributed investment", tone: "money" },
+              { value: "₹39.33 L", label: "Push-attributed investment", tone: "money" },
               { value: "2.0L+", label: "Long-form reads", tone: "reach" },
             ]}
           />
@@ -177,7 +177,7 @@ export default function StorytellerPage() {
             </div>
 
             <div className="mb-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-              <Metric label="Revenue attributed" tone="money">
+              <Metric label="Investment attributed" tone="money">
                 <CountUp target={16.8} decimals={1} prefix="₹" suffix=" Cr" />
               </Metric>
               <Metric label="Emails delivered">
@@ -192,7 +192,7 @@ export default function StorytellerPage() {
             </div>
 
             <ProgrammeBars
-              title="Revenue by programme — where the ₹16.8 Cr came from"
+              title="Investment by programme — where the ₹16.8 Cr came from"
               bars={EMAIL_PROGRAMMES}
             />
 
@@ -229,7 +229,7 @@ export default function StorytellerPage() {
             </div>
 
             <div className="mb-8 grid gap-6 md:grid-cols-3">
-              <Metric label="Revenue attributed" tone="money">
+              <Metric label="Investment attributed" tone="money">
                 <CountUp target={39.33} decimals={2} prefix="₹" suffix="L" />
               </Metric>
               <Metric label="Campaigns">
@@ -242,9 +242,9 @@ export default function StorytellerPage() {
 
             <Callout>
               Push lives or dies on timing, copy, and restraint. 124,870
-              delivered of 130,607 sent (95.6%), returning ₹31.5K for every
-              1,000 delivered — a channel used with discipline, not volume for
-              its own sake.
+              delivered of 130,607 sent (95.6%), attributing ₹31.5K in
+              investment for every 1,000 delivered — a channel used with
+              discipline, not volume for its own sake.
             </Callout>
           </div>
         </div>
