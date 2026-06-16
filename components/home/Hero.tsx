@@ -35,14 +35,16 @@ export default function Hero() {
       id="intro"
       data-section="Intro"
       data-folio="P/01"
-      className="relative grid min-h-[100svh] grid-cols-1 overflow-hidden md:grid-cols-2"
+      className="relative grid h-[58vh] min-h-0 grid-cols-1 overflow-hidden border-b border-line md:grid-cols-2"
+      style={{ maxHeight: "680px" }}
     >
       {/* Left — portrait */}
       <motion.div
         initial={{ opacity: 0, x: reduce ? 0 : -48 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ type: "spring", stiffness: 58, damping: 18, mass: 0.9 }}
-        className="relative min-h-[54vh] border-line md:min-h-[100svh] md:border-r"
+        className="relative h-[38vh] border-line md:h-full md:border-r"
+        style={{ maxHeight: "680px" }}
       >
         <Image
           src="/leslin-casual.jpg"
@@ -52,7 +54,6 @@ export default function Hero() {
           sizes="(max-width: 768px) 100vw, 50vw"
           className="object-cover object-[50%_28%]"
         />
-        {/* a whisper of paper at the seam so the photo meets the page, not cuts */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[var(--paper)]/15 md:to-[var(--paper)]/35"
@@ -60,7 +61,7 @@ export default function Hero() {
       </motion.div>
 
       {/* Right — name + claim */}
-      <div className="relative flex items-center px-[var(--gutter)] py-20 md:py-0">
+      <div className="relative flex items-center px-[var(--gutter)] py-8 md:py-0">
         <Glow
           from="#FF8A4D"
           via="#FF5D8F"
@@ -76,38 +77,26 @@ export default function Hero() {
         >
           <motion.p
             variants={item}
-            className="mb-7 font-mono text-[11px] uppercase tracking-[0.3em] text-ink-soft"
+            className="mb-5 font-mono text-[11px] uppercase tracking-[0.3em] text-ink-soft"
           >
             Growth Operator · AI Systems Builder · Kerala, India
           </motion.p>
 
-          {/* The name keeps its own eager smear — no Framer wrapper on it. */}
           <Smear
             as="h1"
             eager
-            className="text-[clamp(2.8rem,8.5vw,7rem)] font-semibold leading-[0.9]"
+            className="text-[clamp(2.4rem,6.5vw,5.5rem)] font-semibold leading-[0.9]"
           >
             Leslin <em>K&nbsp;Seemon</em>
           </Smear>
 
           <motion.p
             variants={item}
-            className="mt-9 max-w-xl text-pretty font-sans text-[clamp(1.05rem,1.7vw,1.3rem)] leading-relaxed text-ink/85"
+            className="mt-6 max-w-md text-pretty font-sans text-[clamp(0.95rem,1.4vw,1.15rem)] leading-relaxed text-ink/80"
           >
             I find the growth problem, build the system that solves it, and write
             the thing that sells it.
           </motion.p>
-
-          <motion.a
-            variants={item}
-            href="#approach"
-            className="mt-12 inline-flex w-fit flex-col items-start gap-2 font-mono text-[10px] uppercase tracking-[0.25em] text-ink-soft transition-colors hover:text-ink"
-          >
-            Scroll
-            <span aria-hidden="true" className="text-base leading-none">
-              ↓
-            </span>
-          </motion.a>
         </motion.div>
       </div>
     </section>

@@ -75,7 +75,7 @@ export default function Profile() {
       id="profile"
       data-section="Profile"
       data-folio="P/04"
-      className="relative w-full scroll-mt-24 overflow-hidden border-t border-line px-[var(--gutter)] py-24 md:py-32"
+      className="relative w-full scroll-mt-24 overflow-hidden px-[var(--gutter)] py-14 md:py-20"
     >
       <Glow
         from="#6E8BFF"

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Hero from "@/components/home/Hero";
-import Intro from "@/components/home/Intro";
 import IndexList from "@/components/home/IndexList";
 import Profile from "@/components/home/Profile";
 import Capabilities from "@/components/home/Capabilities";
@@ -24,9 +23,8 @@ export default function HomePage() {
       {/* Option A — liquid-glass cursor wash (home-wide) */}
       <LiquidGlass />
       <Hero />
-      <Intro />
-      <IndexList />
       <Profile />
+      <IndexList />
       <Capabilities />
 
       <CaseTease
