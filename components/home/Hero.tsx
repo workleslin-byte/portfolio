@@ -44,7 +44,7 @@ export default function Hero() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ type: "spring", stiffness: 58, damping: 18, mass: 0.9 }}
         className="relative h-[38vh] border-line md:h-full md:border-r"
-        style={{ maxHeight: "680px" }}
+        style={{ maxHeight: "680px", background: "var(--paper-2)" }}
       >
         <Image
           src="/leslin-casual.jpg"
@@ -52,11 +52,11 @@ export default function Hero() {
           fill
           priority
           sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover object-[50%_28%]"
+          className="object-contain object-center"
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[var(--paper)]/15 md:to-[var(--paper)]/35"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--paper-2)]/40"
         />
       </motion.div>
 
