@@ -70,7 +70,7 @@ export const CASES: CaseDef[] = [
       year: "2025",
     },
     headline: "A health chatbot is only as good as what it refuses to guess.",
-    sub: "Two-phase retrieval over 4,059 chunks of clinical guidelines. I built the retrieval, the reasoning, and the safety gate — because in healthcare, a confident wrong answer is the failure mode that matters.",
+    sub: "Two-phase retrieval over 4,059 chunks of clinical guidelines. I designed the retrieval architecture, the reasoning pipeline, and the safety constraints — and directed the implementation end to end. In healthcare, a confident wrong answer is the failure mode that matters.",
     metric: { value: "4,059", label: "clinical chunks · two-phase retrieval" },
     decision:
       "Most chatbots optimize for answering. This one optimizes for refusing — every answer is pinned to a dated, evidence-graded guideline, or it declines and asks a clarifying question.",

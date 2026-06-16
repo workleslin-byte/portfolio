@@ -18,7 +18,7 @@ const RIGHT_FIT = [
 
 const WRONG_FIT = [
   "You need a pure single-channel specialist",
-  "Strategy is locked; you only need hands on execution",
+  "You want a pure executor with no systems thinking",
   "You're scaling a built machine, not building one",
 ];
 
@@ -26,14 +26,9 @@ const ROLES = [
   "Founder's Office",
   "Head of Growth",
   "GTM Lead",
-  "Chief of Staff · Growth",
-  "Head of Marketing",
-  "AI Growth Lead",
   "Content Strategy Lead",
   "Head of Content & Growth",
   "Growth PM",
-  "Fractional CMO",
-  "Marketing Lead · Seed–Series A",
 ];
 
 const PRINCIPLES = [

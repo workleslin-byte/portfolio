@@ -44,6 +44,30 @@ export default function ProductPage() {
           </P>
         </Column>
 
+        <div className="mt-16">
+          <Column>
+            <Kicker>The bet behind the build</Kicker>
+            <P>
+              Pocket Notes began as a positioning bet, not a coding project. The
+              notebook market sells reverence — heavyweight paper, archival
+              promises, a page too precious to waste. I saw the opening for the
+              opposite argument and a disposable notebook for people who think by
+              writing fast and badly. The brand and the site exist to make that
+              argument and test whether it lands.
+            </P>
+            <P>
+              What it taught me is the part a growth role cares about:
+              distribution for a physical product with no ad budget is the hard
+              problem, not the build. Positioning, owned-channel discipline, and
+              writing that earns its own search traffic — the same levers as the
+              Rang De work — are what a bootstrapped product like this lives or
+              dies on. Running it as my own distribution problem, on my own brand,
+              is how I pressure-tested the playbook I&apos;d otherwise only run for
+              someone else.
+            </P>
+          </Column>
+        </div>
+
         <div className="panel mx-auto mt-12 max-w-2xl p-6 md:p-7">
           <p
             className="mb-4 font-mono text-[11px] uppercase tracking-[0.2em]"

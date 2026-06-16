@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Hero from "@/components/home/Hero";
 import IndexList from "@/components/home/IndexList";
 import Profile from "@/components/home/Profile";
+import GrowthPhilosophy from "@/components/home/GrowthPhilosophy";
 import Capabilities from "@/components/home/Capabilities";
 import CaseTease from "@/components/home/CaseTease";
 import Education from "@/components/home/Education";
@@ -14,7 +15,7 @@ import GrwthAgencyCard from "@/components/home/GrwthAgencyCard";
 import { caseById } from "@/lib/cases";
 
 export const metadata: Metadata = {
-  title: "Leslin K Seemon — Growth Operator + AI Systems Builder",
+  title: "Leslin K Seemon — Content & Growth Lead",
 };
 
 export default function HomePage() {
@@ -24,6 +25,7 @@ export default function HomePage() {
       <LiquidGlass />
       <Hero />
       <Profile />
+      <GrowthPhilosophy />
       <Education />
       <IndexList />
       <Capabilities />

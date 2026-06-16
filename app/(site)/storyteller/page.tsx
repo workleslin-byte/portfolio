@@ -36,6 +36,38 @@ export default function StorytellerPage() {
 
       <div className="px-[var(--gutter)] py-20 md:py-28">
         <Column>
+          <Kicker>The growth frame</Kicker>
+          <P>
+            Rang De is a peer-to-peer social-investment platform — individuals
+            funding low-interest loans to rural entrepreneurs across India. When
+            I picked up content, the raw material was strong but the engine
+            wasn&apos;t: channels were run by habit rather than objective, the
+            blog had no editorial strategy and no performance tracking, and
+            almost nothing was instrumented to show which effort actually moved
+            investors.
+          </P>
+          <P>
+            The gap wasn&apos;t volume — it was discipline. So I started with the
+            owned, compounding surfaces before chasing reach: an editorial system
+            on the blog built around the high-intent questions the audience was
+            already searching, the SEO to feed it, and a behaviour-triggered
+            email programme that spoke to investors at the moments that mattered —
+            transaction windows, first investments, dormancy. Reach channels like
+            LinkedIn were tuned for what they&apos;re good at, not forced to carry
+            revenue.
+          </P>
+          <P>
+            Once the system was measurable, the numbers followed by design: the
+            blog doubled its audience year on year, organic traffic grew 97%, and
+            the email programme attributed ₹16.8 crore across the year. The point
+            isn&apos;t the totals — it&apos;s that each was the output of a system
+            built to learn, not a lucky run of good posts.
+          </P>
+        </Column>
+      </div>
+
+      <div className="border-t border-line px-[var(--gutter)] py-16 md:py-24">
+        <Column>
           <Kicker>Every surface. One discipline.</Kicker>
           <P>
             Content marketing isn&apos;t viral moments or volume. It&apos;s

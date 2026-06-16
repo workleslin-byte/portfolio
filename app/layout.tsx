@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://leslin-portfolio.vercel.app"),
   title: {
     template: "%s — Leslin K Seemon",
-    default: "Leslin K Seemon — Growth Operator + AI Systems Builder",
+    default: "Leslin K Seemon — Content & Growth Lead",
   },
   description:
     "I find the growth problem, build the system that solves it, and write the thing that sells it. Kerala, India — remote and relocation both on the table.",
@@ -31,13 +31,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     siteName: "Leslin K Seemon",
-    title: "Leslin K Seemon — Growth Operator + AI Systems Builder",
+    title: "Leslin K Seemon — Content & Growth Lead",
     description:
       "One head holding the brand layer and the build layer. ₹16.8 Cr of social investment moved through comms, a clinical RAG architected end to end, a product built solo.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Leslin K Seemon — Growth Operator + AI Systems Builder",
+    title: "Leslin K Seemon — Content & Growth Lead",
     description:
       "One head holding the brand layer and the build layer. Kerala, India.",
   },

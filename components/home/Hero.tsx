@@ -83,7 +83,7 @@ export default function Hero() {
           variants={item}
           className="mt-10 font-mono text-[11px] uppercase tracking-[0.3em] text-ink-soft"
         >
-          Growth Operator · AI Systems Builder · Kerala, India
+          Content &amp; Growth Lead · Editorial Systems · Kerala, India
         </motion.p>
 
         <Smear
