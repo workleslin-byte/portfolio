@@ -47,7 +47,7 @@ export default function SectionDivider({
       data-folio={folio}
       className="relative w-full overflow-hidden scroll-mt-24"
     >
-      <div className="relative flex min-h-[80vh] flex-col items-center justify-center px-[var(--gutter)] py-24 text-center">
+      <div className="relative flex min-h-[58vh] flex-col items-center justify-center px-[var(--gutter)] py-16 text-center sm:min-h-[80vh] sm:py-24">
         {glow ? (
           <Glow
             from={glow[0]}
@@ -64,7 +64,7 @@ export default function SectionDivider({
           >
             {word}
           </Smear>
-          <p className="mt-8 max-w-xl font-sans text-[15px] leading-relaxed text-ink-soft">
+          <p className="mt-6 max-w-xl font-sans text-[15px] leading-relaxed text-ink-soft sm:mt-8">
             {caption}
           </p>
         </div>

@@ -29,8 +29,8 @@ export default function CaseTease({
         glow={c.glow}
       />
 
-      <div className="mx-auto max-w-dossier px-[var(--gutter)] pb-28 pt-16 md:pt-20">
-        <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-16">
+      <div className="mx-auto max-w-dossier px-[var(--gutter)] pb-20 pt-12 sm:pb-28 sm:pt-16 md:pt-20">
+        <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
           <Reveal>{visual}</Reveal>
 
           <div className="flex flex-col">

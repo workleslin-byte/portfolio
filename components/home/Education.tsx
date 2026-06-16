@@ -51,7 +51,7 @@ export default function Education() {
       id="education"
       data-section="Education"
       data-folio="P/10"
-      className="relative w-full scroll-mt-24 overflow-hidden border-t border-line px-[var(--gutter)] py-24 md:py-32"
+      className="relative w-full scroll-mt-24 overflow-hidden border-t border-line px-[var(--gutter)] py-16 sm:py-20 md:py-32"
     >
       <Glow
         from="#5FD98C"

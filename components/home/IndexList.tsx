@@ -21,12 +21,12 @@ export default function IndexList() {
       id="index"
       data-section="Index"
       data-folio="P/03"
-      className="relative w-full overflow-hidden scroll-mt-24 px-[var(--gutter)] py-24 md:py-32"
+      className="relative w-full overflow-hidden scroll-mt-24 px-[var(--gutter)] py-16 sm:py-20 md:py-32"
     >
       <Glow from="#6E8BFF" to="#6EE7E7" style={{ top: "8%", right: "-12%" }} />
 
       <div className="relative z-10 mx-auto max-w-dossier">
-        <p className="mb-12 font-mono text-[11px] uppercase tracking-[0.3em] text-ink-soft">
+        <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.3em] text-ink-soft sm:mb-12">
           Index
         </p>
 
@@ -36,25 +36,25 @@ export default function IndexList() {
               <Reveal>
                 <Link
                   href={c.href}
-                  className="group flex flex-wrap items-baseline gap-x-6 gap-y-2 py-7 transition-colors md:flex-nowrap"
+                  className="group flex flex-wrap items-baseline gap-x-5 gap-y-1.5 py-6 transition-colors active:opacity-70 sm:flex-nowrap sm:gap-x-6 sm:py-7"
                 >
                   <span
-                    className="font-display text-[clamp(2rem,4vw,3.25rem)] font-medium leading-none text-transparent transition-colors duration-300 group-hover:text-ink"
+                    className="order-1 font-display text-[clamp(2rem,4vw,3.25rem)] font-medium leading-none text-transparent transition-colors duration-300 group-hover:text-ink"
                     style={{
                       WebkitTextStroke: "1px var(--ink)",
                     }}
                   >
                     {c.num}
                   </span>
-                  <span className="font-display text-[clamp(2rem,4vw,3.25rem)] font-semibold leading-none tracking-tight text-ink">
+                  <span className="order-2 font-display text-[clamp(2rem,4vw,3.25rem)] font-semibold leading-none tracking-tight text-ink">
                     {c.section}
                   </span>
-                  <span className="ml-auto font-mono text-[11px] uppercase tracking-[0.14em] text-ink-soft transition-colors group-hover:text-ink">
+                  <span className="order-4 w-full font-mono text-[12px] uppercase tracking-[0.14em] text-ink-soft transition-colors group-hover:text-ink sm:order-3 sm:ml-auto sm:w-auto sm:text-[11px]">
                     {DESC[c.id]}
                   </span>
                   <span
                     aria-hidden="true"
-                    className="font-mono text-lg text-ink-soft transition-transform duration-300 group-hover:translate-x-1 group-hover:text-[color:var(--accent)]"
+                    className="order-3 ml-auto font-mono text-lg text-ink-soft transition-transform duration-300 group-hover:translate-x-1 group-hover:text-[color:var(--accent)] sm:order-4 sm:ml-0"
                   >
                     →
                   </span>

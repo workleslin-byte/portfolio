@@ -85,7 +85,7 @@ export default function Profile() {
       />
 
       <div className="relative z-10 mx-auto max-w-dossier">
-        <p className="mb-12 font-mono text-[11px] uppercase tracking-[0.3em] text-ink-soft">
+        <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.3em] text-ink-soft sm:mb-12">
           Who this is for
         </p>
 
@@ -97,7 +97,7 @@ export default function Profile() {
           viewport={{ once: true, amount: 0.2 }}
           className="grid grid-cols-1 gap-5 sm:grid-cols-2"
         >
-          <motion.div variants={item} className="panel p-7 md:p-8">
+          <motion.div variants={item} className="panel p-6 sm:p-7 md:p-8">
             <p className="mb-5 font-mono text-[11px] uppercase tracking-[0.2em] text-[color:var(--accent)]">
               Right fit
             </p>
@@ -116,7 +116,7 @@ export default function Profile() {
             </ul>
           </motion.div>
 
-          <motion.div variants={item} className="panel p-7 md:p-8">
+          <motion.div variants={item} className="panel p-6 sm:p-7 md:p-8">
             <p className="mb-5 font-mono text-[11px] uppercase tracking-[0.2em] text-ink-soft">
               Less useful if
             </p>
@@ -137,7 +137,7 @@ export default function Profile() {
         </motion.div>
 
         {/* Block B — roles + availability */}
-        <div className="mt-16">
+        <div className="mt-12 sm:mt-16">
           <p className="mb-5 font-mono text-[11px] uppercase tracking-[0.2em] text-ink-soft">
             Looking for
           </p>
@@ -160,7 +160,7 @@ export default function Profile() {
         </div>
 
         {/* Block C — how I work */}
-        <div className="mt-16">
+        <div className="mt-12 sm:mt-16">
           <p className="mb-5 font-mono text-[11px] uppercase tracking-[0.2em] text-ink-soft">
             How I work
           </p>

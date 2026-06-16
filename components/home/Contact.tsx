@@ -16,7 +16,7 @@ export default function Contact() {
       id="contact"
       data-section="Contact"
       data-folio="P/11"
-      className="relative w-full scroll-mt-24 overflow-hidden px-[var(--gutter)] py-28 md:py-40"
+      className="relative w-full scroll-mt-24 overflow-hidden px-[var(--gutter)] py-20 sm:py-28 md:py-40"
     >
       {/* Contact glow — violet → pink, bleeds off the bottom-left corner */}
       <Glow from="#A87CFF" to="#FF6FB0" style={{ bottom: "-18%", left: "-10%" }} />

@@ -51,7 +51,7 @@ export default function Capabilities() {
       id="capabilities"
       data-section="Capabilities"
       data-folio="P/05"
-      className="relative w-full overflow-hidden scroll-mt-24 border-y border-line bg-paper-2/40 px-[var(--gutter)] py-24 md:py-32"
+      className="relative w-full overflow-hidden scroll-mt-24 border-y border-line bg-paper-2/40 px-[var(--gutter)] py-16 sm:py-20 md:py-32"
     >
       <Glow from="#8B7CFF" to="#B879FF" style={{ top: "6%", left: "-12%" }} />
 
@@ -63,7 +63,7 @@ export default function Capabilities() {
           One head holding the brand layer <em>and</em> the build layer.
         </Smear>
 
-        <div className="mt-16 grid grid-cols-1 gap-12 sm:grid-cols-3 sm:gap-8">
+        <div className="mt-10 grid grid-cols-1 gap-10 sm:mt-16 sm:grid-cols-3 sm:gap-8">
           {COLUMNS.map((col, i) => (
             <Reveal key={col.label} delay={i * 80}>
               <p className="mb-5 font-mono text-[11px] uppercase tracking-[0.2em] text-[color:var(--accent)]">
