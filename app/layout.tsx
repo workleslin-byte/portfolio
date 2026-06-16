@@ -33,13 +33,22 @@ export const metadata: Metadata = {
     siteName: "Leslin K Seemon",
     title: "Leslin K Seemon — Content & Growth Lead",
     description:
-      "One head holding the brand layer and the build layer. ₹16.8 Cr of social investment moved through comms, a clinical RAG architected end to end, a product built solo.",
+      "Content-led growth with channel discipline — editorial systems, full-funnel strategy, and the AI layer that ties them together. ₹16.8 Cr in investment moved at Rang De.",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Leslin K Seemon — Content & Growth Lead",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Leslin K Seemon — Content & Growth Lead",
     description:
-      "One head holding the brand layer and the build layer. Kerala, India.",
+      "Content-led growth with channel discipline — editorial systems, full-funnel strategy, and the AI layer that ties them together. Kerala, India.",
+    images: ["/og.png"],
   },
 };
 
