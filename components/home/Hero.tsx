@@ -6,19 +6,19 @@ import Smear from "@/components/motion/Smear";
 import Glow from "@/components/shell/Glow";
 
 /**
- * Hero — the dossier cover, reworked as a 50/50 spread: a full-height portrait
- * on the left, the smeared name + claim on the right with an organic colour
- * wash sitting behind the type. Framer Motion drives the entrance (image in
- * from the left, text settling in from the right); the name keeps its own CSS
- * smear. Reduced-motion collapses all of it to a clean static state.
+ * Hero — the dossier cover, centred. The portrait sits at the top inside a
+ * frosted-glass lens with a slow multi-colour halo rotating behind it, then the
+ * smeared name and the claim stack beneath. Framer Motion springs the disc in
+ * and staggers the type; the name keeps its own eager CSS smear. Reduced-motion
+ * collapses everything to a clean static state.
  */
 export default function Hero() {
   const reduce = useReducedMotion();
 
-  const textContainer: Variants = {
+  const container: Variants = {
     hidden: {},
     show: {
-      transition: { staggerChildren: reduce ? 0 : 0.12, delayChildren: 0.1 },
+      transition: { staggerChildren: reduce ? 0 : 0.12, delayChildren: 0.05 },
     },
   };
   const item: Variants = {
@@ -29,76 +29,79 @@ export default function Hero() {
       transition: { duration: 0.7, ease: [0.2, 0.7, 0.2, 1] },
     },
   };
+  const disc: Variants = {
+    hidden: { opacity: 0, scale: reduce ? 1 : 0.82 },
+    show: {
+      opacity: 1,
+      scale: 1,
+      transition: { type: "spring", stiffness: 72, damping: 16, mass: 0.9 },
+    },
+  };
 
   return (
     <section
       id="intro"
       data-section="Intro"
       data-folio="P/01"
-      className="relative grid h-[58vh] min-h-0 grid-cols-1 overflow-hidden border-b border-line md:grid-cols-2"
-      style={{ maxHeight: "680px" }}
+      className="relative flex min-h-[82vh] flex-col items-center justify-center overflow-hidden border-b border-line px-[var(--gutter)] py-16 text-center md:py-20"
     >
-      {/* Left — portrait */}
+      {/* soft colour wash behind the whole cover */}
+      <Glow
+        from="#FF8A4D"
+        via="#FF5D8F"
+        to="#9C7BFF"
+        style={{ position: "absolute", inset: 0, margin: "auto", opacity: 0.34 }}
+      />
+
       <motion.div
-        initial={{ opacity: 0, x: reduce ? 0 : -48 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ type: "spring", stiffness: 58, damping: 18, mass: 0.9 }}
-        className="relative h-[38vh] border-line md:h-full md:border-r"
-        style={{ maxHeight: "680px", background: "var(--paper-2)" }}
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="relative z-10 flex w-full flex-col items-center"
       >
-        <Image
-          src="/leslin-casual.jpg"
-          alt="Leslin K Seemon."
-          fill
-          priority
-          sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-contain object-center"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--paper-2)]/40"
-        />
-      </motion.div>
-
-      {/* Right — name + claim */}
-      <div className="relative flex items-center px-[var(--gutter)] py-8 md:py-0">
-        <Glow
-          from="#FF8A4D"
-          via="#FF5D8F"
-          to="#9C7BFF"
-          style={{ position: "absolute", inset: 0, margin: "auto", opacity: 0.5 }}
-        />
-
+        {/* portrait — glass lens with rotating halo */}
         <motion.div
-          variants={textContainer}
-          initial="hidden"
-          animate="show"
-          className="relative z-10 flex w-full flex-col"
+          variants={disc}
+          className="relative mx-auto h-44 w-44 md:h-56 md:w-56"
         >
-          <motion.p
-            variants={item}
-            className="mb-5 font-mono text-[11px] uppercase tracking-[0.3em] text-ink-soft"
-          >
-            Growth Operator · AI Systems Builder · Kerala, India
-          </motion.p>
-
-          <Smear
-            as="h1"
-            eager
-            className="text-[clamp(2.4rem,6.5vw,5.5rem)] font-semibold leading-[0.9]"
-          >
-            Leslin <em>K&nbsp;Seemon</em>
-          </Smear>
-
-          <motion.p
-            variants={item}
-            className="mt-6 max-w-md text-pretty font-sans text-[clamp(0.95rem,1.4vw,1.15rem)] leading-relaxed text-ink/80"
-          >
-            I find the growth problem, build the system that solves it, and write
-            the thing that sells it.
-          </motion.p>
+          <span aria-hidden="true" className="avatar-halo" />
+          <div className="avatar-disc h-full w-full p-2.5">
+            <div className="relative h-full w-full overflow-hidden rounded-full">
+              <Image
+                src="/leslin-casual.jpg"
+                alt="Leslin K Seemon."
+                fill
+                priority
+                sizes="(max-width: 768px) 176px, 224px"
+                className="object-cover object-[50%_22%]"
+              />
+            </div>
+          </div>
         </motion.div>
-      </div>
+
+        <motion.p
+          variants={item}
+          className="mt-10 font-mono text-[11px] uppercase tracking-[0.3em] text-ink-soft"
+        >
+          Growth Operator · AI Systems Builder · Kerala, India
+        </motion.p>
+
+        <Smear
+          as="h1"
+          eager
+          className="mt-5 text-[clamp(2.6rem,7vw,5.25rem)] font-semibold leading-[0.9]"
+        >
+          Leslin <em>K&nbsp;Seemon</em>
+        </Smear>
+
+        <motion.p
+          variants={item}
+          className="mx-auto mt-6 max-w-md text-pretty font-sans text-[clamp(0.95rem,1.4vw,1.15rem)] leading-relaxed text-ink/80"
+        >
+          I find the growth problem, build the system that solves it, and write
+          the thing that sells it.
+        </motion.p>
+      </motion.div>
     </section>
   );
 }
