@@ -10,7 +10,7 @@ import {
   Callout,
 } from "@/components/case/Editorial";
 import RagDiagram from "@/components/viz/RagDiagram";
-import AssetSlot from "@/components/shell/AssetSlot";
+import RefusalDemo from "@/components/viz/RefusalDemo";
 
 export const metadata: Metadata = {
   title: "Systems — a clinical RAG, architected end to end",
@@ -27,11 +27,7 @@ export default function SystemsPage() {
         {/* Highest-value asset — the refusal demo */}
         <div className="mx-auto max-w-3xl">
           <Kicker>The proof, first</Kicker>
-          <AssetSlot
-            label="Refusal demo — ~30s screen recording: the bot correctly declines an out-of-scope question"
-            file="/systems-refusal-demo.mp4"
-            ratio="16 / 9"
-          />
+          <RefusalDemo />
           <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.12em] text-ink-soft">
             The most important thing it does is the thing it doesn&apos;t do.
           </p>

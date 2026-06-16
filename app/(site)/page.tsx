@@ -8,7 +8,6 @@ import Contact from "@/components/home/Contact";
 import StorytellerChannels from "@/components/home/StorytellerChannels";
 import LiquidGlass from "@/components/fx/LiquidGlass";
 import RagDiagram from "@/components/viz/RagDiagram";
-import AssetSlot from "@/components/shell/AssetSlot";
 import GradedImage from "@/components/shell/GradedImage";
 import { caseById } from "@/lib/cases";
 
@@ -45,10 +44,11 @@ export default function HomePage() {
       <CaseTease
         c={caseById("brand")}
         visual={
-          <AssetSlot
-            label="Nilambur Farms — before → after"
-            file="/nilambur-before-after.jpg"
+          <GradedImage
+            src="/brand/before-after.png"
+            alt="Nilambur Farms — the old Pepper Valley mark beside the new Nilambur identity."
             ratio="4 / 3"
+            grade={false}
           />
         }
       />

@@ -153,7 +153,7 @@ export default function BrandPage() {
 
           {/* Type spec */}
           <div className="mx-auto mt-12 grid max-w-dossier grid-cols-1 gap-6 sm:grid-cols-2">
-            <div className="rounded-xl border border-line p-6">
+            <div className="panel p-6">
               <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-ink-soft">
                 Primary font
               </p>
@@ -162,7 +162,7 @@ export default function BrandPage() {
                 Light · Regular · Medium · SemiBold
               </p>
             </div>
-            <div className="rounded-xl border border-line p-6">
+            <div className="panel p-6">
               <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-ink-soft">
                 Secondary font
               </p>

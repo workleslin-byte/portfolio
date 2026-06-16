@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import CaseHeader from "@/components/case/CaseHeader";
 import CasePager from "@/components/case/CasePager";
 import { Column, Kicker, Subhead, P, Callout, Masonry } from "@/components/case/Editorial";
-import AssetSlot from "@/components/shell/AssetSlot";
 import GradedImage from "@/components/shell/GradedImage";
+import ScrollyTile from "@/components/viz/ScrollyTile";
+import WritingWidgetTile from "@/components/viz/WritingWidgetTile";
 
 export const metadata: Metadata = {
   title: "Product — a notebook brand, built and shipped solo",
@@ -83,11 +84,7 @@ export default function ProductPage() {
               grade={false}
               sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 30vw"
             />
-            <AssetSlot
-              label="Scrollytelling — the Da Vinci → Newton → Luhmann sequence"
-              file="/product-scrolly-1.jpg"
-              ratio="4 / 3"
-            />
+            <ScrollyTile />
             <GradedImage
               src="/product-printer.jpg"
               alt="Leslin checking a Pocket Notes print run in person with the printer."
@@ -95,11 +92,7 @@ export default function ProductPage() {
               grade={false}
               sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 30vw"
             />
-            <AssetSlot
-              label="The interactive writing widget"
-              file="/product-widget.jpg"
-              ratio="1 / 1"
-            />
+            <WritingWidgetTile />
           </Masonry>
         </div>
 
