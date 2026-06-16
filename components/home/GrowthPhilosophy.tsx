@@ -36,7 +36,7 @@ export default function GrowthPhilosophy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.75, ease: [0.2, 0.7, 0.2, 1] }}
-          className="text-pretty font-display text-[clamp(1.6rem,3.2vw,2.5rem)] font-semibold leading-[1.22] tracking-tight text-ink"
+          className="text-pretty font-sans text-[clamp(1.1rem,1.8vw,1.45rem)] font-normal leading-[1.6] text-ink/90"
         >
           Most early-stage growth fails the same way: teams chase channel volume
           before they&apos;ve earned channel discipline — more posts, more spend,

@@ -1,10 +1,7 @@
 import Smear from "@/components/motion/Smear";
 import Glow from "@/components/shell/Glow";
 import SendGlyph from "@/components/shell/SendGlyph";
-
-const CALENDLY = "https://cal.id/leslin-k-seemon";
-const EMAIL = "work.leslin@gmail.com";
-const LINKEDIN = "https://www.linkedin.com/in/leslin-k-seemon";
+import { CALENDLY, EMAIL, LINKEDIN } from "@/lib/contact";
 
 /**
  * Contact / outro. Mono divider, smeared "Let's talk.", the operator-roles

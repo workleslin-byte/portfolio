@@ -1,7 +1,14 @@
 "use client";
 
+import { useRef } from "react";
 import Image from "next/image";
-import { motion, useReducedMotion, type Variants } from "framer-motion";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+  type Variants,
+} from "framer-motion";
 import Smear from "@/components/motion/Smear";
 import Glow from "@/components/shell/Glow";
 
@@ -14,6 +21,14 @@ import Glow from "@/components/shell/Glow";
  */
 export default function Hero() {
   const reduce = useReducedMotion();
+  const heroRef = useRef<HTMLElement>(null);
+
+  // Subtle parallax: the avatar drifts up as the hero scrolls away.
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const avatarY = useTransform(scrollYProgress, [0, 1], [0, -56]);
 
   const container: Variants = {
     hidden: {},
@@ -40,6 +55,7 @@ export default function Hero() {
 
   return (
     <section
+      ref={heroRef}
       id="intro"
       data-section="Intro"
       data-folio="P/01"
@@ -62,6 +78,7 @@ export default function Hero() {
         {/* portrait — glass lens with rotating halo */}
         <motion.div
           variants={disc}
+          style={reduce ? undefined : { y: avatarY }}
           className="relative mx-auto h-[14.25rem] w-[14.25rem] md:h-[18.25rem] md:w-[18.25rem]"
         >
           <span aria-hidden="true" className="avatar-halo" />

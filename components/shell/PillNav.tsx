@@ -68,82 +68,93 @@ export default function PillNav({ home = false }: { home?: boolean }) {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-line/70 bg-[color:var(--paper)]/85 backdrop-blur-md supports-[backdrop-filter]:bg-[color:var(--paper)]/75">
-      <div className="mx-auto flex max-w-dossier items-center justify-between gap-4 px-[var(--gutter)] py-4">
-        <Link
-          href="/"
-          className="group relative z-[70] inline-flex items-center gap-2 font-display text-[19px] font-semibold tracking-tight text-ink"
-          onClick={() => setOpen(false)}
-        >
-          <span className="text-[color:var(--accent)]">
-            <Star size={12} />
-          </span>
-          <span>Leslin K Seemon</span>
-        </Link>
+    <>
+      <header className="sticky top-0 z-50 w-full border-b border-line/70 bg-[color:var(--paper)]/85 backdrop-blur-md supports-[backdrop-filter]:bg-[color:var(--paper)]/75">
+        <div className="mx-auto flex max-w-dossier items-center justify-between gap-4 px-[var(--gutter)] py-4">
+          <Link
+            href="/"
+            className="group inline-flex items-center gap-2 font-display text-[19px] font-semibold tracking-tight text-ink"
+            onClick={() => setOpen(false)}
+          >
+            <span className="text-[color:var(--accent)]">
+              <Star size={12} />
+            </span>
+            <span>Leslin K Seemon</span>
+          </Link>
 
-        <nav className="hidden items-center gap-1.5 sm:flex" aria-label="Sections">
-          {ITEMS.map((it) => (
-            <Link
-              key={it.label}
-              href={it.href}
-              className="pill"
-              data-active={active === it.id ? "true" : "false"}
-            >
-              <SendGlyph />
-              {it.label}
-            </Link>
-          ))}
-        </nav>
+          <nav className="hidden items-center gap-1.5 sm:flex" aria-label="Sections">
+            {ITEMS.map((it) => (
+              <Link
+                key={it.label}
+                href={it.href}
+                className="pill"
+                data-active={active === it.id ? "true" : "false"}
+              >
+                <SendGlyph />
+                {it.label}
+              </Link>
+            ))}
+          </nav>
 
-        {/* Mobile: hamburger toggle (morphs to an X) */}
-        <button
-          type="button"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-          className="relative z-[70] -mr-1 flex h-10 w-10 items-center justify-center sm:hidden"
-        >
-          <span className="flex flex-col items-center justify-center gap-[6px]">
-            <span
-              className="block h-[1.5px] w-6 bg-ink transition-transform duration-300"
-              style={{ transform: open ? "translateY(4px) rotate(45deg)" : "none" }}
-            />
-            <span
-              className="block h-[1.5px] w-6 bg-ink transition-transform duration-300"
-              style={{ transform: open ? "translateY(-4px) rotate(-45deg)" : "none" }}
-            />
-          </span>
-        </button>
-      </div>
+          {/* Mobile: open the drawer */}
+          <button
+            type="button"
+            aria-label="Open menu"
+            aria-expanded={open}
+            onClick={() => setOpen(true)}
+            className="-mr-1 flex h-10 w-10 items-center justify-center sm:hidden"
+          >
+            <span className="flex flex-col items-center justify-center gap-[6px]">
+              <span className="block h-[1.5px] w-6 bg-ink" />
+              <span className="block h-[1.5px] w-6 bg-ink" />
+            </span>
+          </button>
+        </div>
+      </header>
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer — rendered OUTSIDE the header so the header's
+          backdrop-filter doesn't trap this fixed element to the bar's box. */}
       <AnimatePresence>
         {open && (
           <motion.div
             key="drawer"
-            initial="hidden"
-            animate="show"
-            exit="hidden"
-            variants={{ hidden: {}, show: {} }}
-            className="fixed inset-0 z-[60] sm:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="fixed inset-0 z-[70] flex flex-col bg-[color:var(--paper)] sm:hidden"
           >
-            <motion.button
-              type="button"
-              aria-hidden="true"
-              tabIndex={-1}
-              variants={{ hidden: { opacity: 0 }, show: { opacity: 1 } }}
-              transition={{ duration: 0.25 }}
-              onClick={() => setOpen(false)}
-              className="absolute inset-0 h-full w-full cursor-default bg-[color:var(--paper)]"
-            />
+            {/* top bar mirrors the header: logo + close */}
+            <div className="flex items-center justify-between gap-4 border-b border-line/70 px-[var(--gutter)] py-4">
+              <Link
+                href="/"
+                onClick={() => setOpen(false)}
+                className="inline-flex items-center gap-2 font-display text-[19px] font-semibold tracking-tight text-ink"
+              >
+                <span className="text-[color:var(--accent)]">
+                  <Star size={12} />
+                </span>
+                <span>Leslin K Seemon</span>
+              </Link>
+              <button
+                type="button"
+                aria-label="Close menu"
+                onClick={() => setOpen(false)}
+                className="-mr-1 flex h-10 w-10 items-center justify-center active:scale-90"
+              >
+                <span className="relative block h-5 w-5">
+                  <span className="absolute left-0 top-1/2 block h-[1.5px] w-5 -translate-y-1/2 rotate-45 bg-ink" />
+                  <span className="absolute left-0 top-1/2 block h-[1.5px] w-5 -translate-y-1/2 -rotate-45 bg-ink" />
+                </span>
+              </button>
+            </div>
 
             <motion.nav
               aria-label="Sections"
-              variants={{
-                hidden: { opacity: 0, y: reduce ? 0 : -10 },
-                show: { opacity: 1, y: 0, transition: { duration: 0.3, ease: [0.2, 0.7, 0.2, 1] } },
-              }}
-              className="relative flex h-full flex-col px-[var(--gutter)] pb-10 pt-24"
+              initial={{ opacity: 0, y: reduce ? 0 : -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, ease: [0.2, 0.7, 0.2, 1] }}
+              className="flex flex-1 flex-col px-[var(--gutter)] pb-10 pt-8"
             >
               <motion.ul
                 variants={listContainer}
@@ -192,6 +203,6 @@ export default function PillNav({ home = false }: { home?: boolean }) {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }
