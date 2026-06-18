@@ -33,11 +33,10 @@ export function Column({ children }: { children: ReactNode }) {
   return <div className="mx-auto max-w-2xl space-y-6">{children}</div>;
 }
 
-/** Money metrics read oxblood, reach/volume metrics read Nilambur green. */
 export type Tone = "money" | "reach" | "ink";
 export const toneClass: Record<Tone, string> = {
   money: "text-[color:var(--accent)]",
-  reach: "text-[color:var(--green)]",
+  reach: "text-[color:var(--reach)]",
   ink: "text-ink",
 };
 

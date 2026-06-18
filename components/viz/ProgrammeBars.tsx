@@ -63,12 +63,13 @@ export default function ProgrammeBars({
             </div>
             <div className="h-2 w-full overflow-hidden rounded-full bg-paper-2">
               <div
-                className={`bar-grow h-full rounded-full ${
-                  b.highlight ? "bg-[color:var(--accent)]" : "bg-ink/75"
-                } ${shown ? "in" : ""}`}
+                className={`bar-grow h-full rounded-full ${shown ? "in" : ""}`}
                 style={{
                   width: `${Math.max(2, b.value * 100)}%`,
                   transitionDelay: `${i * 90}ms`,
+                  background: b.highlight
+                    ? "linear-gradient(to right, var(--grad-start), var(--grad-end))"
+                    : "rgba(20,17,15,0.75)",
                 }}
               />
             </div>

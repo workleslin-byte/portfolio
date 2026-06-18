@@ -13,8 +13,10 @@
   --ink: #14110f; /* near-black text */
   --ink-soft: #57534b; /* secondary text / captions — AA-contrast on paper */
   --line: #d9d5cc; /* hairline rules / borders */
-  --accent: #c2381b; /* Grwth oxblood — markers, star, active nav, money data */
-  --green: #1f944d; /* Nilambur green — reach / volume data */
+  --accent: #b86915; /* cognac-amber — markers, star, active nav, money data */
+  --reach: #6448dc; /* deep amethyst — reach / volume data */
+  --grad-start: #9c7bff; /* violet — gradient pole (matches avatar halo) */
+  --grad-end: #ffb24d; /* amber — gradient pole (matches avatar halo) */
 
   --gutter: clamp(1.25rem, 5vw, 5.5rem);
   --maxw: 1440px;
@@ -120,8 +122,8 @@ body {
   border-color: var(--accent);
   background-color: rgba(255, 255, 255, 0.28);
   box-shadow:
-    0 0 0 1px rgba(194, 56, 27, 0.5),
-    0 12px 30px -10px rgba(194, 56, 27, 0.28),
+    0 0 0 1px rgba(184, 105, 21, 0.45),
+    0 12px 30px -10px rgba(184, 105, 21, 0.25),
     0 3px 10px -3px rgba(20, 17, 15, 0.16),
     inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }

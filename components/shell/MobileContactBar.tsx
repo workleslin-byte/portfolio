@@ -45,7 +45,8 @@ export default function MobileContactBar() {
           href={CALENDLY}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-1 items-center justify-center gap-2 rounded-full bg-[color:var(--accent)] px-4 py-3 font-mono text-[12px] uppercase tracking-[0.12em] text-[color:var(--paper)] transition-transform active:scale-95"
+          className="flex flex-1 items-center justify-center gap-2 rounded-full px-4 py-3 font-mono text-[12px] uppercase tracking-[0.12em] text-[color:var(--paper)] transition-transform active:scale-95"
+          style={{ background: "linear-gradient(135deg, var(--grad-start), var(--grad-end))" }}
         >
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
             <rect x="3" y="4" width="18" height="18" rx="2" />

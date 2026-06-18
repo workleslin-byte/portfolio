@@ -14,7 +14,10 @@ const config: Config = {
         ink: "#14110F",
         "ink-soft": "#6E6A63",
         line: "#D9D5CC",
-        accent: "#C2381B",
+        accent: "#B86915",
+        reach: "#6448DC",
+        "grad-start": "#9C7BFF",
+        "grad-end": "#FFB24D",
         white: "#FFFFFF",
         // legacy aliases kept so retired components still compile cleanly
         mute: "#6E6A63",

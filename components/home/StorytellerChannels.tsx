@@ -9,10 +9,9 @@ type Row = {
   tone?: Tone;
 };
 
-/** Money metrics read oxblood, reach/volume metrics read Nilambur green. */
 const toneClass: Record<Tone, string> = {
   money: "text-[color:var(--accent)]",
-  reach: "text-[color:var(--green)]",
+  reach: "text-[color:var(--reach)]",
   ink: "text-ink",
 };
 
