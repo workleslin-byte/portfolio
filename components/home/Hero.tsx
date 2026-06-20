@@ -10,7 +10,7 @@ import {
   type Variants,
 } from "framer-motion";
 import Smear from "@/components/motion/Smear";
-import HeroGradient from "./HeroGradient";
+import Glow from "@/components/shell/Glow";
 
 /**
  * Hero — the dossier cover, centred. The portrait sits at the top inside a
@@ -61,7 +61,13 @@ export default function Hero() {
       data-folio="P/01"
       className="relative flex min-h-[82vh] flex-col items-center justify-center overflow-hidden border-b border-line px-[var(--gutter)] py-16 text-center md:py-20"
     >
-      <HeroGradient />
+      {/* soft colour wash behind the whole cover */}
+      <Glow
+        from="#FF8A4D"
+        via="#FF5D8F"
+        to="#9C7BFF"
+        style={{ position: "absolute", inset: 0, margin: "auto", opacity: 0.34 }}
+      />
 
       <motion.div
         variants={container}

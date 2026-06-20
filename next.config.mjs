@@ -1,6 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  transpilePackages: ["@shadergradient/react"],
-};
+const nextConfig = {};
 
 export default nextConfig;
