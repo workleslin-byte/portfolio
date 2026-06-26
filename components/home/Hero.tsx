@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   motion,
   useReducedMotion,
@@ -11,6 +12,13 @@ import {
 } from "framer-motion";
 import Smear from "@/components/motion/Smear";
 import Glow from "@/components/shell/Glow";
+
+/** Headline proof — the strongest case, surfaced in the first screen. */
+const PROOF = [
+  { value: "₹16.8 Cr", label: "investor capital, via email" },
+  { value: "804K", label: "reached on LinkedIn" },
+  { value: "2 L+", label: "long-form reads" },
+] as const;
 
 /**
  * Hero — the dossier cover, centred. The portrait sits at the top inside a
@@ -98,7 +106,7 @@ export default function Hero() {
 
         <motion.p
           variants={item}
-          className="mt-10 font-mono text-[11px] uppercase tracking-[0.3em] text-ink-soft"
+          className="mt-9 font-mono text-[11px] uppercase tracking-[0.3em] text-ink-soft"
         >
           Content &amp; Growth Lead · Editorial Systems · Kerala, India
         </motion.p>
@@ -106,10 +114,34 @@ export default function Hero() {
         <Smear
           as="h1"
           eager
-          className="mt-5 text-[clamp(2.6rem,7vw,5.25rem)] font-semibold leading-[0.9]"
+          className="mt-4 text-[clamp(2.6rem,7vw,5.25rem)] font-semibold leading-[0.9]"
         >
           Leslin <em>K&nbsp;Seemon</em>
         </Smear>
+
+        {/* proof strip — the evidence, surfaced in the first screen */}
+        <motion.div
+          variants={item}
+          className="mt-7 flex items-stretch justify-center divide-x divide-line"
+        >
+          {PROOF.map((m) => (
+            <div key={m.label} className="px-4 text-center sm:px-7">
+              <div className="font-display text-[clamp(1.45rem,3vw,2.1rem)] font-semibold leading-none text-[color:var(--accent)]">
+                {m.value}
+              </div>
+              <div className="mt-2 font-mono text-[8.5px] uppercase leading-tight tracking-[0.14em] text-ink-soft">
+                {m.label}
+              </div>
+            </div>
+          ))}
+        </motion.div>
+
+        <motion.p
+          variants={item}
+          className="mt-3.5 font-mono text-[10px] uppercase tracking-[0.22em] text-ink-soft"
+        >
+          Rang De · 0–1 startup fintech · 6 years as Digital Storyteller
+        </motion.p>
 
         <motion.p
           variants={item}
@@ -118,6 +150,18 @@ export default function Hero() {
           I find the growth problem, build the system that solves it, and write
           the thing that sells it.
         </motion.p>
+
+        <motion.div variants={item} className="mt-7">
+          <Link
+            href="/storyteller"
+            className="group inline-flex items-center gap-2 rounded-full border border-line bg-white/40 px-5 py-2.5 font-mono text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:border-[color:var(--accent)] hover:text-[color:var(--accent)]"
+          >
+            See how it was built
+            <span className="transition-transform group-hover:translate-x-0.5">
+              →
+            </span>
+          </Link>
+        </motion.div>
       </motion.div>
     </section>
   );
