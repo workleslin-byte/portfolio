@@ -3,6 +3,7 @@ import Hero from "@/components/home/Hero";
 import IndexList from "@/components/home/IndexList";
 import Profile from "@/components/home/Profile";
 import GrowthPhilosophy from "@/components/home/GrowthPhilosophy";
+import AIWorkflow from "@/components/home/AIWorkflow";
 import Capabilities from "@/components/home/Capabilities";
 import CaseTease from "@/components/home/CaseTease";
 import Education from "@/components/home/Education";
@@ -51,6 +52,7 @@ export default function HomePage() {
       {/* 3. Fit + thinking — the reassurance, after they've seen the proof */}
       <Profile />
       <GrowthPhilosophy />
+      <AIWorkflow />
 
       {/* 4. Supporting evidence — skills and schooling sit last */}
       <Capabilities />
