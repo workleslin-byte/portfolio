@@ -28,45 +28,33 @@ export default function ProductPage() {
 
       <div className="px-[var(--gutter)] py-20 md:py-28">
         <Column>
-          <Kicker>One idea, two layers</Kicker>
+          <Kicker>The bet</Kicker>
           <P>
-            Most notebook brands sell you the idea that you&apos;re archiving
-            something precious — so don&apos;t waste the page on a half-formed
-            thought. Pocket Notes argues the opposite: writing is a sandbox, not a
-            monument. Write badly, write fast, fill it, throw it out, get another.
-            Keep it cheap, keep it handy, keep it moving.
+            Pocket Notes began as a positioning bet, not a coding project. The
+            notebook market sells reverence — heavyweight paper, archival
+            promises, a page too precious to waste. Pocket Notes argues the
+            opposite: writing is a sandbox, not a monument. Write badly, write
+            fast, fill it, throw it out, get another. The brand exists to make
+            that argument and test whether it lands.
+          </P>
+
+          <Subhead>The hard part</Subhead>
+          <P>
+            Here&apos;s the part a growth role cares about: distribution for a
+            physical product with no ad budget is the hard problem, not the build.
+            Positioning, owned-channel discipline, and writing that earns its own
+            search traffic — the same levers as the Rang De work — are what a
+            bootstrapped product lives or dies on. Running it as my own
+            distribution problem, on my own brand, is how I pressure-tested the
+            playbook I&apos;d otherwise only run for someone else.
           </P>
           <P>
-            That conviction needed a home on the web, so I built one — front end
-            through infrastructure, as the sole developer, having taught myself
-            agentic coding and modern deployment from scratch for the project. The
-            site is live and in active use.
+            The argument still needed a home on the web, so I built one — front
+            end through infrastructure, as the sole developer, having taught
+            myself agentic coding and modern deployment from scratch. The site is
+            live and in active use.
           </P>
         </Column>
-
-        <div className="mt-16">
-          <Column>
-            <Kicker>The bet behind the build</Kicker>
-            <P>
-              Pocket Notes began as a positioning bet, not a coding project. The
-              notebook market sells reverence — heavyweight paper, archival
-              promises, a page too precious to waste. I saw the opening for the
-              opposite argument and a disposable notebook for people who think by
-              writing fast and badly. The brand and the site exist to make that
-              argument and test whether it lands.
-            </P>
-            <P>
-              What it taught me is the part a growth role cares about:
-              distribution for a physical product with no ad budget is the hard
-              problem, not the build. Positioning, owned-channel discipline, and
-              writing that earns its own search traffic — the same levers as the
-              Rang De work — are what a bootstrapped product like this lives or
-              dies on. Running it as my own distribution problem, on my own brand,
-              is how I pressure-tested the playbook I&apos;d otherwise only run for
-              someone else.
-            </P>
-          </Column>
-        </div>
 
         <div className="panel mx-auto mt-12 max-w-2xl p-6 md:p-7">
           <p

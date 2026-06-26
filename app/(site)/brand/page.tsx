@@ -65,6 +65,21 @@ export default function BrandPage() {
       <CaseHeader id="brand" />
 
       <div className="px-[var(--gutter)] py-20 md:py-28">
+        {/* The brief — the problem before the pictures */}
+        <div className="mb-20">
+          <Column>
+            <Kicker>The brief</Kicker>
+            <P>
+              Pepper Valley was a working agro business with a logo that fought
+              itself — a busy illustration that didn&apos;t reduce, didn&apos;t
+              recall, and didn&apos;t read on a jar. The brief: a clean,
+              recallable identity that could carry a growing product range from
+              the shelf to the screen. It started, as rebrands do, with deciding
+              what to throw away.
+            </P>
+          </Column>
+        </div>
+
         {/* Before → after */}
         <div className="mx-auto max-w-dossier">
           <p
