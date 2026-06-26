@@ -42,7 +42,7 @@ export const CASES: CaseDef[] = [
     meta: {
       client: "Rang De",
       industry: "Content across LinkedIn, email, push, long-form",
-      year: "2024–25",
+      year: "2020–2026",
     },
     headline: "Content marketing isn't viral moments. It's showing up with things worth reading.",
     sub: "804K LinkedIn impressions, ₹16.8 crore in attributed email investment, 2 lakh+ long-form reads — built across channels on one standard: editorial discipline.",
@@ -67,7 +67,7 @@ export const CASES: CaseDef[] = [
     meta: {
       client: "Preventify",
       industry: "Clinical RAG, architected end to end",
-      year: "2025",
+      year: "Apr–May 2026",
     },
     headline: "A health chatbot is only as good as what it refuses to guess.",
     sub: "Two-phase retrieval over 4,059 chunks of clinical guidelines. I designed the retrieval architecture, the reasoning pipeline, and the safety constraints — and directed the implementation end to end. In healthcare, a confident wrong answer is the failure mode that matters.",
@@ -92,7 +92,7 @@ export const CASES: CaseDef[] = [
     meta: {
       client: "Pocket Notes",
       industry: "pocketnotes.in · Founded & built solo",
-      year: "2022–",
+      year: "Nov 2022",
     },
     headline: "I built the whole thing — argument, design, code, infrastructure.",
     sub: "A product built on one idea: writing is a sandbox, not a monument. And a full-stack build done solo, via agentic coding.",

@@ -9,7 +9,7 @@ import WritingWidgetTile from "@/components/viz/WritingWidgetTile";
 export const metadata: Metadata = {
   title: "Product — a notebook brand, built and shipped solo",
   description:
-    "Pocket Notes (pocketnotes.in), 2022–. A product built on one idea — writing is a sandbox, not a monument — and a full-stack site built solo via agentic coding.",
+    "Pocket Notes (pocketnotes.in), Nov 2022. A product built on one idea — writing is a sandbox, not a monument — and a full-stack site built solo via agentic coding.",
 };
 
 const GOLD = "#A8842E"; // aged gold — Pocket Notes' own accent, used only here

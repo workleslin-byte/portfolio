@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title:
     "Digital Storyteller — 804K impressions, ₹16.8 Cr investment, 2.0L+ reads",
   description:
-    "Rang De, 2024–25. LinkedIn consistency, a ₹16.8 Cr email programme, push discipline — across channels with one editorial standard. All figures verified from LinkedIn, WebEngage, and CleverTap exports.",
+    "Rang De, 2020–2026. LinkedIn consistency, a ₹16.8 Cr email programme, push discipline — across channels with one editorial standard. All figures verified from LinkedIn, WebEngage, and CleverTap exports.",
 };
 
 /** Email-attributed investment by programme — WebEngage, Dec 2024–Dec 2025. Share of the
@@ -87,7 +87,7 @@ export default function StorytellerPage() {
           <P>
             Content marketing isn&apos;t viral moments or volume. It&apos;s
             showing up consistently with things worth reading — across every
-            surface where the audience already is. One year at Rang De, the
+            surface where the audience already is. At Rang De, the
             peer-to-peer social-investment platform for rural India: LinkedIn
             for reach, email for investment, push for moments, and an organic
             engine underneath — a blog grown 2.2×, the SEO that fed it, and the

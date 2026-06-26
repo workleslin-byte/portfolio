@@ -15,7 +15,7 @@ import RefusalDemo from "@/components/viz/RefusalDemo";
 export const metadata: Metadata = {
   title: "Systems — a clinical RAG, architected end to end",
   description:
-    "Preventify, 2025. A two-phase retrieval system over 4,059 chunks of clinical guidelines, built so a health chatbot refuses to guess. Architecture designed end to end, implementation directed.",
+    "Preventify, 2026. A two-phase retrieval system over 4,059 chunks of clinical guidelines, built so a health chatbot refuses to guess. Architecture designed end to end, implementation directed.",
 };
 
 export default function SystemsPage() {
