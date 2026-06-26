@@ -59,6 +59,17 @@ export default function StorytellerPage() {
             transaction windows, first investments, dormancy.
           </P>
 
+          <Subhead>What fought back</Subhead>
+          <P>
+            The resistance wasn&apos;t the channels — it was the instinct to just
+            post more. Instrumenting before scaling is unglamorous: slower output
+            up front, dashboards instead of vanity reach, and asking the team to
+            trust attribution over gut feel. So a real part of the work was
+            internal — proving, with numbers, which efforts actually moved an
+            investor, until &ldquo;post more&rdquo; turned into &ldquo;do more of
+            what compounds.&rdquo;
+          </P>
+
           <Subhead>The outcome</Subhead>
           <P>
             Once it was measurable, the numbers followed by design: the blog
