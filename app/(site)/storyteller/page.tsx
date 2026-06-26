@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import CaseHeader from "@/components/case/CaseHeader";
 import CasePager from "@/components/case/CasePager";
-import { Column, Kicker, P, Stats, Callout, toneClass, type Tone } from "@/components/case/Editorial";
+import { Column, Kicker, Subhead, P, Stats, Callout, toneClass, type Tone } from "@/components/case/Editorial";
 import CountUp from "@/components/motion/CountUp";
 import ChannelGlyph from "@/components/case/ChannelGlyph";
 import TechLogo from "@/components/case/TechLogo";
@@ -36,32 +36,36 @@ export default function StorytellerPage() {
 
       <div className="px-[var(--gutter)] py-20 md:py-28">
         <Column>
-          <Kicker>The growth frame</Kicker>
+          <Kicker>The problem</Kicker>
           <P>
-            Rang De is a peer-to-peer social-investment platform — individuals
-            funding low-interest loans to rural entrepreneurs across India. When
-            I picked up content, the raw material was strong but the engine
-            wasn&apos;t: channels were run by habit rather than objective, the
-            blog had no editorial strategy and no performance tracking, and
-            almost nothing was instrumented to show which effort actually moved
-            investors.
+            Rang De is a peer-to-peer social-investment platform: people fund
+            low-interest loans to rural entrepreneurs across India. The raw
+            material was strong — real borrowers, real outcomes — but the content
+            engine wasn&apos;t. Channels ran on habit, not objective. The blog had
+            no editorial strategy and no performance tracking. Almost nothing was
+            instrumented, so no one could say which effort actually moved an
+            investor.
           </P>
+
+          <Subhead>The hard call</Subhead>
           <P>
-            The gap wasn&apos;t volume — it was discipline. So I started with the
-            owned, compounding surfaces before chasing reach: an editorial system
-            on the blog built around the high-intent questions the audience was
-            already searching, the SEO to feed it, and a behaviour-triggered
-            email programme that spoke to investors at the moments that mattered —
-            transaction windows, first investments, dormancy. Reach channels like
-            LinkedIn were tuned for what they&apos;re good at, not forced to drive
-            investment directly.
+            The instinct in that situation is to do more — more posts, more
+            sends, more reach. The slower, less obvious move was to instrument
+            first and earn the right to scale. So reach (LinkedIn) was tuned for
+            what it&apos;s good at, while investment came from the owned,
+            compounding surfaces: an editorial blog built on the high-intent
+            questions the audience was already searching, and a behaviour-triggered
+            email programme that reached investors at the moments that mattered —
+            transaction windows, first investments, dormancy.
           </P>
+
+          <Subhead>The outcome</Subhead>
           <P>
-            Once the system was measurable, the numbers followed by design: the
-            blog doubled its audience year on year, organic traffic grew 97%, and
-            the email programme attributed ₹16.8 crore across the year. The point
-            isn&apos;t the totals — it&apos;s that each was the output of a system
-            built to learn, not a lucky run of good posts.
+            Once it was measurable, the numbers followed by design: the blog
+            doubled its audience year on year, organic traffic grew 97%, and the
+            email programme attributed ₹16.8 crore. The totals aren&apos;t the
+            point — each was the output of a system built to learn, not a lucky
+            run of good posts.
           </P>
         </Column>
       </div>
