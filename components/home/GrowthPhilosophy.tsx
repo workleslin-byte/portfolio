@@ -16,7 +16,7 @@ export default function GrowthPhilosophy() {
     <section
       id="philosophy"
       data-section="Philosophy"
-      data-folio="P/06"
+      data-folio="P/10"
       className="relative w-full overflow-hidden border-t border-line px-[var(--gutter)] py-16 sm:py-20 md:py-28"
     >
       <Glow

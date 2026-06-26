@@ -12,7 +12,7 @@ export default function Contact() {
     <section
       id="contact"
       data-section="Contact"
-      data-folio="P/11"
+      data-folio="P/13"
       className="relative w-full scroll-mt-24 overflow-hidden px-[var(--gutter)] py-20 sm:py-28 md:py-40"
     >
       {/* Contact glow — violet → pink, bleeds off the bottom-left corner */}

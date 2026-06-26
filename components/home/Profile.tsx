@@ -69,7 +69,7 @@ export default function Profile() {
     <section
       id="profile"
       data-section="Profile"
-      data-folio="P/04"
+      data-folio="P/09"
       className="relative w-full scroll-mt-24 overflow-hidden px-[var(--gutter)] py-14 md:py-20"
     >
       <Glow

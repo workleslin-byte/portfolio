@@ -20,7 +20,7 @@ export default function IndexList() {
     <section
       id="index"
       data-section="Index"
-      data-folio="P/03"
+      data-folio="P/02"
       className="relative w-full overflow-hidden scroll-mt-24 px-[var(--gutter)] py-16 sm:py-20 md:py-32"
     >
       <Glow from="#6E8BFF" to="#6EE7E7" style={{ top: "8%", right: "-12%" }} />

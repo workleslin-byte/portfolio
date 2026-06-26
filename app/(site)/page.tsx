@@ -23,12 +23,12 @@ export default function HomePage() {
     <>
       {/* Option A — liquid-glass cursor wash (home-wide) */}
       <LiquidGlass />
+
+      {/* 1. Cover — proof-first */}
       <Hero />
-      <Profile />
-      <GrowthPhilosophy />
-      <Education />
+
+      {/* 2. The work, proof up front: gallery index, then the deep dives */}
       <IndexList />
-      <Capabilities />
 
       <CaseTease
         c={caseById("storyteller")}
@@ -47,6 +47,14 @@ export default function HomePage() {
         }
       />
       <CaseTease c={caseById("brand")} visual={<GrwthAgencyCard />} />
+
+      {/* 3. Fit + thinking — the reassurance, after they've seen the proof */}
+      <Profile />
+      <GrowthPhilosophy />
+
+      {/* 4. Supporting evidence — skills and schooling sit last */}
+      <Capabilities />
+      <Education />
 
       <Contact />
     </>
